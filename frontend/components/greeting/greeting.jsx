@@ -23,7 +23,7 @@ class Greeting extends React.Component {
     ) : (
       <>
         <Link className="test-button" to="/signup">Sign Up</Link>
-        <Link className="test-button" to="/login">Sign In</Link>
+        <Link className="test-button" to="/signin">Sign In</Link>
       </>
     );
 
