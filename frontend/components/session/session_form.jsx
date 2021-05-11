@@ -1,4 +1,5 @@
 import React from 'react';
+import FlashMessage from "react-flash-message";
 
 
 class SessionForm extends React.Component {
@@ -11,7 +12,7 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.action(this.state)
+    this.props.action(this.state);
   }
 
   update(field) {
@@ -21,7 +22,7 @@ class SessionForm extends React.Component {
   renderErrors() {
     return (
       <>
-        {this.props.errors.map((error, i) => <li key={`error-${i}`}>{error}</li>)}
+        {this.props.errors.map((error, i) => <FlashMessage duration={5000}><li key={`error-${i}`}>{error}</li></FlashMessage>)}
       </>
     );
   }
@@ -42,7 +43,7 @@ class SessionForm extends React.Component {
           </label>
 
           <button type="submit" >{buttonText}</button>
-
+          
           {this.renderErrors()}
         </form>
       </>
