@@ -1,5 +1,6 @@
 import React from 'react';
 import FlashMessage from "react-flash-message";
+import { NavLink } from 'react-router-dom';
 
 
 class SessionForm extends React.Component {
@@ -9,6 +10,11 @@ class SessionForm extends React.Component {
     this.demoState = { email: 'chris', password: '123456' };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  closeModal() {
+    const modal = document.querySelector(".user-modal");
+    modal.classList.remove("is-open");
   }
 
   handleSubmit(e) {
@@ -36,25 +42,35 @@ class SessionForm extends React.Component {
   render() {
     const passwordPlaceholder = this.props.formType === 'Sign up' ? 'Create password' : 'Enter password';
     const buttonText = this.props.formType === 'Sign up' ? 'Submit' : 'Sign in';
-    const demoUser = this.props.formType === 'Sign up' ? '' : <button onClick={(e) => this.handleClick(e)} >Demo Sign in</button>;
+    const demoUser = this.props.formType === 'Sign up' ? '' : <button onClick={() => this.handleClick()} >Demo Sign in</button>;
     return (
       <>
-        <form onSubmit={this.handleSubmit}>
+        <div className="user-form-modal">
+          <section className="user-form-nav">
+            <NavLink to="/signup" activeClassName="selected" >Sign up</NavLink>
+            <NavLink to="/signin" activeClassName="selected" >Sign in</NavLink>
+          </section>
 
-          <label htmlFor="email-input"> Email
-            <input type="text" value={this.state.email} onChange={this.update('email')} placeholder="Enter email"  />
-          </label>
+          <p>{this.props.formType}</p>
+          <form onSubmit={this.handleSubmit}>
 
-          <label htmlFor="password-input"> Password
-            <input type="password" value={this.state.password} onChange={this.update('password')} placeholder={passwordPlaceholder} />
-          </label>
+            <label htmlFor="email-input"> Email
+              <input type="text" value={this.state.email} onChange={this.update('email')} placeholder="Enter email"  />
+            </label>
 
-          <button type="submit" >{buttonText}</button>
-          {demoUser}
+            <label htmlFor="password-input"> Password
+              <input type="password" value={this.state.password} onChange={this.update('password')} placeholder={passwordPlaceholder} />
+            </label>
 
-  
-          {this.renderErrors()}
-        </form>
+            <button type="submit" >{buttonText}</button>
+            {demoUser}
+
+    
+            {this.renderErrors()}
+          </form>
+
+        </div>
+        <div className="user-form-modal-screen" onClick={this.closeModal} ></div>
       </>
     )
   }

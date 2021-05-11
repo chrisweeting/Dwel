@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { openModal } from '../../util/modal_util';
+
 
 class Greeting extends React.Component {
   constructor(props) {
@@ -13,6 +15,11 @@ class Greeting extends React.Component {
     this.props.logout();
   }
 
+  openModal() {
+    const modal = document.querySelector(".user-modal");
+    modal.classList.add("is-open");
+  }
+
   render() {
     const display = this.props.currentUser ? (
       <>
@@ -21,8 +28,9 @@ class Greeting extends React.Component {
       </>
     ) : (
       <>
-        <Link className="test-button" to="/signup">Sign Up</Link>
-        <Link className="test-button" to="/signin">Sign In</Link>
+        {/* <Link className="test-button" to="/signup">Sign Up</Link> */}
+        <Link className="test-button" to="/signin" onClick={this.openModal} >Sign In</Link>
+
       </>
     );
 

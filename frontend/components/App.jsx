@@ -11,8 +11,10 @@ const App = () => (
       <Link className="header-logo"  to='/'>Dwel.</Link>
       <GreetingContainer />
     </header>
-    <AuthRoute exact path='/signin' component={SigninFormContainer} ></AuthRoute>
-    <AuthRoute exact path='/signup' component={SignupFormContainer} ></AuthRoute>
+    <div className="user-modal">
+      <AuthRoute exact path='/signin' component={SigninFormContainer} ></AuthRoute>
+      <AuthRoute exact path='/signup' component={SignupFormContainer} ></AuthRoute>
+    </div>
   </div>
 );
 
