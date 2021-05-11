@@ -9,6 +9,7 @@ const mSTP = (state, ownProps) => ({
 
 const mDTP = (dispatch) => ({
   action: (user) => dispatch(login(user)),
+  clear: () => dispatch(clearErrors())
 });
 
 export default connect(mSTP, mDTP)(SessionForm);

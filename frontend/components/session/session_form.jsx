@@ -13,6 +13,7 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.action(this.state);
+    this.props.clear();
   }
 
   update(field) {
@@ -22,7 +23,7 @@ class SessionForm extends React.Component {
   renderErrors() {
     return (
       <>
-        {this.props.errors.map((error, i) => <FlashMessage duration={5000}><li key={`error-${i}`}>{error}</li></FlashMessage>)}
+        {this.props.errors.map((error, i) => <li key={`error-${i}`}>{error}</li>)}
       </>
     );
   }
