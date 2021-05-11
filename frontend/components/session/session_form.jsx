@@ -1,4 +1,6 @@
 import React from 'react';
+import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
+
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -10,7 +12,7 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.action(this.state);
+    this.props.action(this.state)  
   }
 
   update(field) {
@@ -20,7 +22,6 @@ class SessionForm extends React.Component {
   render() {
     const passwordPlaceholder = this.props.formType === 'Sign up' ? 'Create password' : 'Enter password';
     const buttonText = this.props.formType === 'Sign up' ? 'Submit' : 'Sign in';
-    
     return (
       <>
         <form onSubmit={this.handleSubmit} >
