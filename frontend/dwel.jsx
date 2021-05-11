@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // window.signin = postSession
   // window.logout = deleteSession
 
-  // ReactDOM.render(<Root store={store} />, root);
-  ReactDOM.render(<h1>hello</h1>, root);
+  ReactDOM.render(<Root store={store} />, root);
+  // ReactDOM.render(<h1>hello</h1>, root);
 
 });
