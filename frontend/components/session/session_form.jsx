@@ -28,7 +28,7 @@ class SessionForm extends React.Component {
 
   handleClick(e) {
     this.setState(this.demoState);
-    this.handleSubmit();
+    () => this.handleSubmit();
   }
 
   update(field) {

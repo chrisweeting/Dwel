@@ -6,17 +6,6 @@ import Root from "./components/root";
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("root");
-  // let preloadedState = undefined;
-  // if (window.currentUser) {
-  //   preloadedState = {
-  //     session: {
-  //       currentUser: window.currentUser
-  //     }
-  //   };
-  // }
-  // const store = configureStore(preloadedState);
-
-
 
   let store;
   if (window.currentUser) {
@@ -40,6 +29,4 @@ document.addEventListener("DOMContentLoaded", () => {
   // window.logout = deleteSession
 
   ReactDOM.render(<Root store={store} />, root);
-  // ReactDOM.render(<h1>hello</h1>, root);
-
 });
