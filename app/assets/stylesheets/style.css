@@ -1,5 +1,21 @@
 .header-container {
   display: flex;
-  justify-content: center;
+  /* flex-direction: column;
+  align-items: center; */
+  padding-top: 20px;
+}
+
+.header-menu {
+  flex: 100%;
+
+}
+
+
+.header-logo {
+  color: black;
+  text-decoration: none;
+  font-size: 30px;
+  flex: 80%;
+  
 }
 
