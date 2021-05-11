@@ -41,7 +41,7 @@ class Api::UsersController < ApplicationController
       # render :show
       render 'api/users/show'
     else
-      render ['user not found']
+      render json: ['user not found']
     end
   end
 
