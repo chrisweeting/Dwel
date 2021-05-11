@@ -1,5 +1,4 @@
 import React from 'react';
-import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
 
 
 class SessionForm extends React.Component {
@@ -12,11 +11,19 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.action(this.state)  
+    this.props.action(this.state)
   }
 
   update(field) {
     return (e) => this.setState({ [field]: e.currentTarget.value });
+  }
+
+  renderErrors() {
+    return (
+      <>
+        {this.props.errors.map((error, i) => <li key={`error-${i}`}>{error}</li>)}
+      </>
+    );
   }
 
   render() {
@@ -35,6 +42,8 @@ class SessionForm extends React.Component {
           </label>
 
           <button type="submit" >{buttonText}</button>
+
+          {this.renderErrors()}
         </form>
       </>
     )

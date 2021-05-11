@@ -6,14 +6,13 @@ class Greeting extends React.Component {
     super(props);
 
     this.handleClick = this.handleClick.bind(this);
+
   }
 
   handleClick(e) {
     this.props.logout();
   }
 
-  
-  
   render() {
     const display = this.props.currentUser ? (
       <>
@@ -26,6 +25,7 @@ class Greeting extends React.Component {
         <Link className="test-button" to="/signin">Sign In</Link>
       </>
     );
+    debugger
 
     return (
       <nav className="header-menu">
