@@ -13,7 +13,6 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.action(this.state);
-    this.props.clear();
   }
 
   update(field) {
@@ -22,9 +21,9 @@ class SessionForm extends React.Component {
 
   renderErrors() {
     return (
-      <>
+      <ul className="form-errors">
         {this.props.errors.map((error, i) => <li key={`error-${i}`}>{error}</li>)}
-      </>
+      </ul>
     );
   }
 
@@ -44,7 +43,8 @@ class SessionForm extends React.Component {
           </label>
 
           <button type="submit" >{buttonText}</button>
-          
+
+  
           {this.renderErrors()}
         </form>
       </>

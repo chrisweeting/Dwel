@@ -25,7 +25,6 @@ class Greeting extends React.Component {
         <Link className="test-button" to="/signin">Sign In</Link>
       </>
     );
-    debugger
 
     return (
       <nav className="header-menu">
