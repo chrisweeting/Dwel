@@ -28,7 +28,7 @@ class SessionForm extends React.Component {
 
   handleClick(e) {
     this.setState(this.demoState);
-    () => this.handleSubmit();
+    this.handleSubmit();
   }
 
   update(field) {
@@ -36,9 +36,12 @@ class SessionForm extends React.Component {
   }
 
   renderErrors() {
+    const errors = this.props.errors.map((error, i) => {
+      return (<li key={`error-${i}`}>{error}</li>);
+    });
     return (
       <ul className="form-errors">
-        {this.props.errors.map((error, i) => <li key={`error-${i}`}>{error}</li>)}
+        {errors}
       </ul>
     );
   }
@@ -61,7 +64,7 @@ class SessionForm extends React.Component {
 
             <label htmlFor="email-input"> Email
               <br />
-              <input type="text" value={this.state.email} onChange={this.update('email')} placeholder="Enter email"  />
+              <input type="text" value={this.state.email} onChange={this.update('email')} placeholder="Enter email"/>
             </label>
             <br />
             <label htmlFor="password-input"> Password
@@ -73,7 +76,7 @@ class SessionForm extends React.Component {
             {demoUser}
 
     
-            {this.renderErrors()}
+            {/* {this.renderErrors()} */}
           </form>
 
         </div>
