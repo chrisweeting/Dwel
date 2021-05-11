@@ -76,7 +76,7 @@ class SessionForm extends React.Component {
             {demoUser}
 
     
-            {/* {this.renderErrors()} */}
+            {this.renderErrors()}
           </form>
 
         </div>
