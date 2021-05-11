@@ -15,6 +15,11 @@ class SessionForm extends React.Component {
     this.props.action(this.state);
   }
 
+  handleClick(e) {
+    this.setState({ email: 'chris', password: 123456 });
+    this.handleSubmit(e);
+  }
+
   update(field) {
     return (e) => this.setState({ [field]: e.currentTarget.value });
   }
@@ -27,12 +32,14 @@ class SessionForm extends React.Component {
     );
   }
 
+
   render() {
     const passwordPlaceholder = this.props.formType === 'Sign up' ? 'Create password' : 'Enter password';
     const buttonText = this.props.formType === 'Sign up' ? 'Submit' : 'Sign in';
+    const demoUser = this.props.formType === 'Sign up' ? '' : <button onClick={this.handleClick} >Demo Sign in</button>;
     return (
       <>
-        <form onSubmit={this.handleSubmit} >
+        <form onSubmit={this.handleSubmit}>
 
           <label htmlFor="email-input"> Email
             <input type="text" value={this.state.email} onChange={this.update('email')} placeholder="Enter email"  />
@@ -43,6 +50,7 @@ class SessionForm extends React.Component {
           </label>
 
           <button type="submit" >{buttonText}</button>
+          {demoUser}
 
   
           {this.renderErrors()}
