@@ -6,6 +6,7 @@ class SessionForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = { email: '', password: '' };
+    this.demoState = { email: 'chris', password: '123456' };
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -16,8 +17,7 @@ class SessionForm extends React.Component {
   }
 
   handleClick(e) {
-    this.setState({ email: 'chris', password: 123456 });
-    this.handleSubmit(e);
+    this.props.action(this.demoState);
   }
 
   update(field) {
@@ -36,7 +36,7 @@ class SessionForm extends React.Component {
   render() {
     const passwordPlaceholder = this.props.formType === 'Sign up' ? 'Create password' : 'Enter password';
     const buttonText = this.props.formType === 'Sign up' ? 'Submit' : 'Sign in';
-    const demoUser = this.props.formType === 'Sign up' ? '' : <button onClick={this.handleClick} >Demo Sign in</button>;
+    const demoUser = this.props.formType === 'Sign up' ? '' : <button onClick={(e) => this.handleClick(e)} >Demo Sign in</button>;
     return (
       <>
         <form onSubmit={this.handleSubmit}>
