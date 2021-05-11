@@ -9,7 +9,8 @@
     "test": "test"
   },
   "scripts": {
-    "webpack": "webpack --watch --mode=development",
+    "start": "webpack --watch --mode=development",
+    "webpack": "webpack --mode=production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -38,5 +39,9 @@
     "redux-thunk": "^2.3.0",
     "webpack": "^4.29.3",
     "webpack-cli": "^4.7.0"
+  },
+  "engines": {
+    "node": "10.13.0",
+    "npm": "7.11.2"
   }
 }

@@ -17,13 +17,18 @@ class SessionForm extends React.Component {
     modal.classList.remove("is-open");
   }
 
+  componentDidMount() {
+    this.props.clear();
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     this.props.action(this.state);
   }
 
   handleClick(e) {
-    this.props.action(this.demoState);
+    this.setState(this.demoState);
+    () => this.handleSubmit();
   }
 
   update(field) {
@@ -47,21 +52,23 @@ class SessionForm extends React.Component {
       <>
         <div className="user-form-modal">
           <section className="user-form-nav">
-            <NavLink to="/signup" activeClassName="selected" >Sign up</NavLink>
             <NavLink to="/signin" activeClassName="selected" >Sign in</NavLink>
+            <NavLink to="/signup" activeClassName="selected" >Sign up</NavLink>
           </section>
 
-          <p>{this.props.formType}</p>
-          <form onSubmit={this.handleSubmit}>
+          
+          <form onSubmit={this.handleSubmit} className="user-form" >
 
             <label htmlFor="email-input"> Email
+              <br />
               <input type="text" value={this.state.email} onChange={this.update('email')} placeholder="Enter email"  />
             </label>
-
+            <br />
             <label htmlFor="password-input"> Password
+              <br />
               <input type="password" value={this.state.password} onChange={this.update('password')} placeholder={passwordPlaceholder} />
             </label>
-
+            <br />
             <button type="submit" >{buttonText}</button>
             {demoUser}
 
