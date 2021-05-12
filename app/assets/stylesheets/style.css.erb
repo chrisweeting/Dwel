@@ -1,22 +1,37 @@
+
 .header-container {
   display: flex;
-  padding-top: 20px;
+  padding: 20px 0 20px 0;
   position: relative;
+  z-index: 1;
+  background: white;
+  text-decoration: none;
 }
 
 .header-menu {
   position: absolute;
   right: 20px;
-
+  
 }
 
 
 .header-logo {
   color: black;
   text-decoration: none;
-  font-size: 30px;
+  font-size: 40px;
   margin: 0 auto;
   
+}
+.hero-image {
+  position: absolute;
+  width: 100%;
+  top: 50px;
+  bottom: 700px;
+  left: 0;
+  right: 0;
+  background-image: url("<%= asset_path('hero.jpg') %>") ;
+  background-size: cover;
+  min-height: 70%;
 }
 
 .user-form-modal {

@@ -16,6 +16,7 @@ gem 'sass-rails', '~> 5.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 gem 'jquery-rails'
+gem 'aws-sdk-s3', '~> 1.94', '>= 1.94.1'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
