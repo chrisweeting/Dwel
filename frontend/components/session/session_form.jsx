@@ -1,6 +1,6 @@
 import React from 'react';
 import FlashMessage from "react-flash-message";
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect, Link } from 'react-router-dom';
 
 
 
@@ -11,6 +11,7 @@ class SessionForm extends React.Component {
     this.demoState = { email: 'chris', password: '123456' };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   closeModal() {
@@ -60,7 +61,7 @@ class SessionForm extends React.Component {
       <>
         <div className="user-form-modal">
           <h2>Welcome to Dwel</h2>
-          <div className="modal-close" onClick={this.closeModal} >x</div>
+          <Link className="modal-close" onClick={this.closeModal} to="/" >x</Link>
           <section className="user-form-nav">
             <NavLink to="/signin" activeClassName="selected" >Sign in</NavLink>
             <NavLink to="/signup" activeClassName="selected" >New account</NavLink>
@@ -87,7 +88,7 @@ class SessionForm extends React.Component {
           </form>
 
         </div>
-        <div className="user-form-modal-screen" onClick={this.closeModal} ></div>
+        <Link className="user-form-modal-screen" onClick={this.closeModal} to="/" ></Link>
       </>
     )
   }
