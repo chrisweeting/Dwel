@@ -24,6 +24,10 @@
   width: 15%;
 }
 
+.header-links a:hover {
+  color: lightslategrey;
+}
+
 
 .header-logo {
   color: black;
@@ -123,7 +127,13 @@
   margin-bottom: 20px;
 }
 
-.user-form-modal label, input, button {
+.user-form-modal label, input {
+  width: 100%;
+  line-height: 30px;
+  display: block;
+}
+
+.user-form-modal button {
   width: 100%;
   line-height: 30px;
   display: block;
@@ -207,14 +217,48 @@
 }
 
 .card {
+  position: relative;
   height: 464px;
   width: 385px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   transition: transform 250ms;
+  cursor: pointer;
 }
 
 .card:hover {
   transform: scale(1.04);
+}
+
+.card:hover .card-button {
+  color: white;
+  background-color: lightslategrey;
+}
+
+.card-button {
+  position: absolute;
+  width: 166px;
+  height: 45px;
+  bottom: 42px;
+  left: 0;
+  right: 0;
+  margin-left: auto; 
+  margin-right: auto; 
+  cursor: pointer;
+  background-color: white;
+  border-radius: 7px;
+}
+
+.card-text {
+  position: absolute;
+  cursor: pointer;
+  text-align: center;
+  top: 270px;
+  left: 0;
+  right: 0;
+  margin-left: auto; 
+  margin-right: auto; 
+  width: 300px;
+  font-size: 16;
 }
 
 .stop-scrolling {
