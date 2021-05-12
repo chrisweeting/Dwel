@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     store = configureStore();
   }
 
-  // window.getState = store.getState;
+  window.getState = store.getState;
   // window.dispatch = store.dispatch;
 
   // window.signup = postUser

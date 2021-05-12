@@ -5,7 +5,7 @@ import React from 'react';
 const Cards = (props) => {
   const handleClick = () => {
     return document.getElementById("searchbar").focus();
-  }
+  };
   return (
     <section className="card-section">
       <h2>Whether you’re buying, selling or renting, we can help you move forward.</h2>

@@ -30,7 +30,6 @@ class Greeting extends React.Component {
       </>
     ) : (
       <>
-        {/* <Link className="test-button" to="/signup">Sign Up</Link> */}
         <Link className="test-button" to="/signin" onClick={this.openModal} >Sign In</Link>
 
       </>

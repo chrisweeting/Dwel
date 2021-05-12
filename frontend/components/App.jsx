@@ -6,7 +6,7 @@ import SignupFormContainer from './session/signup_form_container';
 import Hero from './front/hero';
 import Cards from './front/cards';
 import Footer from './footer';
-import HeaderNav from './header_nav'
+import HeaderNav from './header_nav';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
@@ -19,8 +19,8 @@ const App = () => (
     <Hero/>
     <Cards/>
     <div className="user-modal">
-      <AuthRoute component={SigninFormContainer} ></AuthRoute>
-      <AuthRoute component={SignupFormContainer} ></AuthRoute>
+      <AuthRoute path='/signin' component={SigninFormContainer} ></AuthRoute>
+      <AuthRoute path='/signup' component={SignupFormContainer} ></AuthRoute>
     </div>
     <Footer/>
   </div>
