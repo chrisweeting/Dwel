@@ -17,7 +17,9 @@ class Greeting extends React.Component {
 
   openModal() {
     const modal = document.querySelector(".user-modal");
+    const body = document.querySelector("body");
     modal.classList.add("is-open");
+    body.classList.add("stop-scrolling");
   }
 
   render() {

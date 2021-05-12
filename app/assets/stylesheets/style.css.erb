@@ -6,12 +6,22 @@
   z-index: 1;
   background: white;
   text-decoration: none;
+  align-items: center;
 }
 
 .header-menu {
   position: absolute;
-  right: 20px;
+  right: 7%;
+  cursor: pointer;
   
+}
+
+.header-links {
+  position: absolute;
+  left: 5%;
+  display: flex;
+  justify-content: space-around;
+  width: 15%;
 }
 
 
@@ -34,18 +44,89 @@
   min-height: 70%;
 }
 
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background: none;
+  top: 140px;
+  height: 200px;
+  width: 60%;
+  left: 0;
+  right: 0;
+  margin-left: auto; 
+  margin-right: auto; 
+  align-items: center;
+  padding: 10px 120px 10px 120px;
+  justify-content: space-around;
+  font-size: 40px;
+  color: white;
+  text-shadow: #000 0px 0px 3px,   #000 0px 0px 3px,   #000 0px 0px 3px,
+}
+
+.searchbar {
+  width: 660px;
+  height: 50px;
+  line-height: 25px;
+  padding: 0 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+  border: none;
+}
+
+.searchbar::placeholder {
+  color: rgb(175, 174, 174);
+  font-size: 18px;
+}
+
+.searchbar:focus {
+  outline: 3px solid lightskyblue;
+  /* border: 1px solid lightskyblue; */
+  /* outline: none; */
+  /* box-shadow: 0 4px 8px 0 lightskyblue, 0 6px 10px 0 lightskyblue; */
+}
+
 .user-form-modal {
   display: flex;
   flex-direction: column;
-  position: relative;
-  width: 300px;
-  height: 300px;
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  width: 390px;
   margin: 0 auto;
   padding: 30px;
+  padding-top: 40px;
   border: 1px solid black;
   z-index: 3;
   background: white;
   border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.modal-close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 30px;
+  line-height: 10px;
+  font-family: sans-serif;
+  font-weight: 100;
+  cursor: pointer;
+}
+
+.user-form-modal h2 {
+  font-size: 24px;
+  line-height: 32px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.user-form-modal label, input, button {
+  width: 100%;
+  line-height: 30px;
+  display: block;
 }
 
 
@@ -79,17 +160,64 @@
 
 .user-form-nav .selected {
   box-sizing: content-box;
-  border-bottom: 2px solid blue;
-  border: 2px solid lightblue;
+  border-bottom: 5px solid blue;
+  /* border-radius: -20px; */
+  /* border: 2px solid rgb(89, 99, 102); */
+  outline: 2px solid lightskyblue;
   padding: 20px 20px 20px 20px;
 }
 
 .user-form {
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding-top: 20px;
   padding-bottom: 20px;
   border-top: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
   height: 250px;
+  padding-left: 25px;
+  padding-right: 30px;
+}
+
+.card-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 700px;
+  width: auto;
+  top: 514px;
+}
+
+.card-section h2 {
+  max-width: 425px;
+  margin: 40px auto 40px;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  line-height: 24px;
+  padding: 0 20px;
+}
+
+.card-container {
+  height: 500px;
+  width: auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.card {
+  height: 464px;
+  width: 385px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: transform 250ms;
+}
+
+.card:hover {
+  transform: scale(1.04);
+}
+
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
 }

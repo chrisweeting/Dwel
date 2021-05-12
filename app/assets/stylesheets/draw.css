@@ -1,0 +1,182 @@
+.footer {
+      display: flex;
+      position: relative;
+      align-items: flex-end;
+      height: 300x;
+      top: 800px;
+}
+
+.haus {
+      position: relative;
+      bottom: 0;
+      height: 200px;
+      width: 250px;
+      margin: 0 auto;
+}
+
+.haus-1 {
+      position: absolute;
+      bottom: 70px;
+      border-bottom: 100px solid rgb(2, 2, 155);
+      border-left: 60px solid transparent;
+      border-right: 60px solid transparent;
+      height: 0;
+      width: 100px;
+}
+
+.haus-2 {
+      position: absolute;
+      bottom: 70px;
+      width: 0;
+      height: 0;
+      border-left: 60px solid transparent;
+      border-right: 60px solid transparent;
+      border-bottom: 100px solid rgb(0, 0, 255);
+}
+
+.haus-3 {
+      position: absolute;
+      bottom: 60px;
+      width: 0;
+      height: 20px;
+      border-left: 60px solid transparent;
+      border-right: 60px solid transparent;
+      border-bottom: 100px solid rgb(118, 162, 219);
+}
+
+.haus-4 {
+      position: absolute;
+      bottom: 0;
+      width: 212px;
+      height: 70px;
+      background: rgb(118, 162, 219);
+}
+
+.haus-5 {
+      position: absolute;
+      bottom: 0;
+      width: 212px;
+      height: 35px;
+      background:rgb(0, 0, 255);
+}
+
+.haus-6 {
+      position: absolute;
+      bottom: 0;
+      left: 61px;
+      width: 80px;
+      height: 35px;
+      background:rgb(2, 2, 155);
+}
+
+.haus-7 {
+      position: absolute;
+      bottom: 0;
+      left: 0px;
+      width: 4px;
+      height: 70px;
+      background:white;
+      border: none;
+}
+
+.haus-8 {
+      position: absolute;
+      bottom: 35px;
+      left: 106px;
+      width: 20px;
+      height: 50px;
+      transform: skew(31deg);
+      background: rgb(0, 0, 255);
+}
+
+.haus-9 {
+      position: absolute;
+      bottom: 35px;
+      left: 61px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 30px 50px 30px;
+      border-color: transparent transparent rgb(2, 2, 155);
+}
+
+.haus-10 {
+      position: absolute;
+      bottom: 40px;
+      left: 71px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 20px 31px 20px;
+      border-color: transparent transparent rgb(0, 0, 255);
+}
+
+.haus-11 {
+      position: absolute;
+      bottom: 15px;
+      left: 83px;
+      width: 15px;
+      height: 15px;
+      background: rgb(0, 0, 255);
+      border-radius: 50%
+}
+
+.haus-12 {
+      position: absolute;
+      bottom: 0;
+      left: 83px;
+      width: 15px;
+      height: 22px;
+      background:rgb(0, 0, 255);
+      border: none;
+}
+
+.haus-13 {
+      position: absolute;
+      bottom: 10px;
+      left: 15px;
+      width: 35px;
+      height: 20px;
+      background:white;
+      border: none;
+}
+
+.haus-14 {
+      position: absolute;
+      bottom: 10px;
+      left: 160px;
+      width: 35px;
+      height: 20px;
+      background:white;
+      border: none;
+}
+
+.haus-15 {
+      position: absolute;
+      bottom: 45px;
+      left: 165px;
+      width: 20px;
+      height: 15px;
+      background:white;
+      border: none;
+}
+
+.haus-16 {
+      position: absolute;
+      bottom: 45px;
+      left: 30px;
+      width: 20px;
+      height: 15px;
+      background:white;
+      border: none;
+}
+
+.haus-17 {
+      position: absolute;
+      bottom: 80px;
+      left: 50px;
+      width: 15px;
+      height: 30px;
+      background:white;
+      border: none;
+}

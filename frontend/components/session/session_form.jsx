@@ -3,6 +3,7 @@ import FlashMessage from "react-flash-message";
 import { NavLink } from 'react-router-dom';
 
 
+
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
@@ -14,7 +15,9 @@ class SessionForm extends React.Component {
 
   closeModal() {
     const modal = document.querySelector(".user-modal");
+    const body = document.querySelector("body");
     modal.classList.remove("is-open");
+    body.classList.remove("stop-scrolling");
   }
 
   componentDidMount() {
@@ -24,11 +27,13 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.action(this.state);
+    this.closeModal();
   }
 
   handleClick(e) {
     this.setState(this.demoState);
     () => this.handleSubmit();
+    this.closeModal();
   }
 
   update(field) {
@@ -54,9 +59,11 @@ class SessionForm extends React.Component {
     return (
       <>
         <div className="user-form-modal">
+          <h2>Welcome to Dwel</h2>
+          <div className="modal-close" onClick={this.closeModal} >x</div>
           <section className="user-form-nav">
             <NavLink to="/signin" activeClassName="selected" >Sign in</NavLink>
-            <NavLink to="/signup" activeClassName="selected" >Sign up</NavLink>
+            <NavLink to="/signup" activeClassName="selected" >New account</NavLink>
           </section>
 
           
