@@ -9,6 +9,53 @@
   align-items: center;
 }
 
+.user-icon {
+  background-image: url("<%= asset_path('user.png') %>") ;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+}
+
+.user-dropdown {
+  position: absolute;
+  display: none;
+  height: 125px;
+  width: 300px;
+  background-color: white;
+  flex-direction: column;
+  top: 57px;
+  right: -30px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+.drop-open {
+  display: flex;
+}
+
+/* .dropdown-pointer {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 11px 13px 11px;
+  border-color: transparent transparent white transparent;
+} */
+
+
+.dropdown-links {
+  padding-left: 20px;
+  margin-top: 10px;
+  /* color: black; */
+  height: 30px;
+  user-select: none;
+  padding-top: 5px;
+}
+.dropdown-links:hover {
+  background-color: lightslategrey;
+  color: white;
+}
+
 .header-menu {
   position: absolute;
   right: 7%;
@@ -114,10 +161,14 @@
   right: 20px;
   top: 20px;
   font-size: 30px;
-  line-height: 10px;
+  line-height: 20px;
   font-family: sans-serif;
   font-weight: 100;
   cursor: pointer;
+}
+
+.modal-close:hover {
+  color: lightslategrey;
 }
 
 .user-form-modal h2 {
@@ -127,7 +178,7 @@
   margin-bottom: 20px;
 }
 
-.user-form-modal label, input {
+.user-form-modal label {
   width: 100%;
   line-height: 30px;
   display: block;
@@ -169,18 +220,17 @@
 }
 
 .user-form-nav .selected {
-  box-sizing: content-box;
-  border-bottom: 5px solid blue;
-  /* border-radius: -20px; */
-  /* border: 2px solid rgb(89, 99, 102); */
+  border-bottom: 5px solid lightslategrey;
   outline: 2px solid lightskyblue;
   padding: 20px 20px 20px 20px;
+  box-shadow:0 0 10px #9ecaed;
 }
 
 .user-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
+  align-content: center;
   padding-top: 20px;
   padding-bottom: 20px;
   border-top: 1px solid lightgray;
@@ -188,6 +238,24 @@
   height: 250px;
   padding-left: 25px;
   padding-right: 30px;
+}
+
+.user-form-input {
+  margin-bottom: 15px;
+  width: 93%;
+  height: 25px;
+  border: 1px solid black;
+  padding: 5px 10px;
+}
+
+.user-form-button {
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.user-form-button:hover {
+  background-color: lightslategrey;
+  color: white;
 }
 
 .card-section {
@@ -259,6 +327,7 @@
   margin-right: auto; 
   width: 300px;
   font-size: 16;
+  user-select: none;
 }
 
 .stop-scrolling {

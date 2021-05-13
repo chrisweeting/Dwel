@@ -56,7 +56,7 @@ class SessionForm extends React.Component {
   render() {
     const passwordPlaceholder = this.props.formType === 'Sign up' ? 'Create password' : 'Enter password';
     const buttonText = this.props.formType === 'Sign up' ? 'Submit' : 'Sign in';
-    const demoUser = this.props.formType === 'Sign up' ? '' : <button onClick={() => this.handleClick()} >Demo Sign in</button>;
+    const demoUser = this.props.formType === 'Sign up' ? '' : <button onClick={() => this.handleClick()} className="user-form-button" >Demo Sign in</button>;
     return (
       <>
         <div className="user-form-modal">
@@ -70,17 +70,17 @@ class SessionForm extends React.Component {
           
           <form onSubmit={this.handleSubmit} className="user-form" >
 
-            <label htmlFor="email-input"> Email
-              <br />
-              <input type="text" value={this.state.email} onChange={this.update('email')} placeholder="Enter email"/>
+            <label htmlFor="email-input" className="user-form-label"> Email
+             
+              <input className="user-form-input" type="text" value={this.state.email} onChange={this.update('email')} placeholder="Enter email"/>
             </label>
-            <br />
-            <label htmlFor="password-input"> Password
-              <br />
-              <input type="password" value={this.state.password} onChange={this.update('password')} placeholder={passwordPlaceholder} />
+          
+            <label htmlFor="password-input" className="user-form-label"> Password
+             
+              <input className="user-form-input" type="password" value={this.state.password} onChange={this.update('password')} placeholder={passwordPlaceholder} />
             </label>
-            <br />
-            <button type="submit" >{buttonText}</button>
+           
+            <button type="submit" className="user-form-button">{buttonText}</button>
             {demoUser}
 
     
