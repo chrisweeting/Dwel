@@ -8,6 +8,7 @@ import Cards from './front/cards';
 import Footer from './footer';
 import HeaderNav from './header_nav';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
+// import GoogleMaps from './front/maps';
 
 const App = () => (
   <div className="main-wrapper" >
@@ -22,6 +23,7 @@ const App = () => (
       <AuthRoute path='/signin' component={SigninFormContainer} ></AuthRoute>
       <AuthRoute path='/signup' component={SignupFormContainer} ></AuthRoute>
     </div>
+    {/* <GoogleMaps /> */}
     {/* <Footer/> */}
   </div>
 );
