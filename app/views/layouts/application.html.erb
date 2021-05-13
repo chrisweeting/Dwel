@@ -4,7 +4,6 @@
     <title>Dwel</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['google_api_key']}" %>
     <%= stylesheet_link_tag    'application', media: 'all'%>
     <%= javascript_include_tag 'application'%>
     <% if current_user %>
@@ -15,6 +14,9 @@
           };
       </script>
     <% end %>
+    <script type="text/javascript">
+      window.googleAPIKey = "<%= Rails.application.credentials.google[:api_key] %>"
+    </script>
     <script>
       window.hero = '<%= image_url 'hero.jpg' %>'
     </script>
