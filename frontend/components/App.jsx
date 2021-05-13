@@ -10,7 +10,7 @@ import HeaderNav from './header_nav';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
-  <div>
+  <div className="main-wrapper" >
     <header className="header-container">
       <Link className="header-logo"  to='/'>Dwel.</Link>
       <GreetingContainer />
