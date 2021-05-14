@@ -20,7 +20,10 @@ class Hero extends React.Component {
         </figure>
         <section className="hero-section">
           <h1>Change starts here</h1>
-          <input type="text" className="searchbar" placeholder="Enter an address, city, or Zip code" onScroll={() => this.stickBar} id="searchbar" />
+          <section className="search-container">
+            <input type="text" className="searchbar" placeholder="Enter an address, city, or Zip code" onScroll={() => this.stickBar} id="searchbar" />
+            <div id="search-submit" ></div>
+          </section>
         </section>
 
       </>

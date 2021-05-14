@@ -155,6 +155,22 @@
   /* box-shadow: 0 4px 8px 0 lightskyblue, 0 6px 10px 0 lightskyblue; */
 }
 
+.search-container {
+  position: relative;
+  height: 50px;
+}
+
+#search-submit {
+  height: 30px;
+  width: 30px;
+  background-image: url("<%= asset_path('search.png') %>") ;
+  background-size: cover;
+  position: absolute;
+  right: 13px;
+  top: 13px;
+  cursor: pointer;
+}
+
 .user-form-modal {
   display: flex;
   flex-direction: column;
