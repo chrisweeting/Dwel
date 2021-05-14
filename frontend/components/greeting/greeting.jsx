@@ -26,6 +26,7 @@ class Greeting extends React.Component {
   toggleDropdown() {
     const dropdown = document.querySelector(".user-dropdown");
     dropdown.classList.toggle("drop-open");
+    dropdown.focus();
   }
 
   render() {
@@ -33,7 +34,7 @@ class Greeting extends React.Component {
       <>
         <p>{this.props.currentUser.email}</p>
   
-        <figure className="user-icon" onClick={this.toggleDropdown} ></figure>
+        <figure className="user-icon" onClick={this.toggleDropdown}></figure>
         <UserDropdown currentUser={this.props.currentUser} handleClick={this.handleClick} toggle={this.toggleDropdown}  />
       </>
     ) : (
