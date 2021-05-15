@@ -8,6 +8,13 @@ class Hero extends React.Component {
     this.stickyBar = this.stickyBar.bind(this);
   }
   
+  componentDidMount() {
+    window.addEventListener("scroll", this.stickyBar);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.stickyBar);
+  }
   
   stickBar() {
     const x = document.querySelector(".search-container");
@@ -23,7 +30,6 @@ class Hero extends React.Component {
   }
 
   render() {
-    window.addEventListener("scroll", this.stickyBar);
     
     return (
       <>

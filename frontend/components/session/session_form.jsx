@@ -12,19 +12,19 @@ class SessionForm extends React.Component {
     this.demoState = { email: 'chris', password: '123456' };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.closeModal = this.closeModal.bind(this);
   }
-
-  // closeModal() {
-  //   const modal = document.querySelector(".user-modal");
-  //   const body = document.querySelector("body");
-  //   modal.classList.remove("is-open");
-  //   body.classList.remove("stop-scrolling");
-  // }
 
   componentDidMount() {
     this.props.clear();
+    const body = document.querySelector("body");
+    body.classList.add("stop-scrolling");
   }
+
+  componentWillUnmount() {
+    const body = document.querySelector("body");
+    body.classList.remove("stop-scrolling");
+  }
+
 
   handleSubmit(e) {
     e.preventDefault();
@@ -32,19 +32,11 @@ class SessionForm extends React.Component {
     this.props.action(user).then(
       () => this.props.closeModal()
     );
-    // debugger
-    // () => {
-      // if (!this.props.errors) {
-      //   () => this.props.closeModal();
-      // }
-    // }
   }
 
   handleClick(e) {
-    // this.props.action(this.demoState);
     this.setState(this.demoState);
-    () => this.handleSubmit(e)//.then(() => this.props.closeModal());
-    // this.props.closeModal();
+    () => this.handleSubmit(e);
   }
 
   update(field) {
@@ -64,20 +56,19 @@ class SessionForm extends React.Component {
 
 
   render() {
-    const passwordPlaceholder = this.props.formType === 'Sign up' ? 'Create password' : 'Enter password';
-    const buttonText = this.props.formType === 'Sign up' ? 'Submit' : 'Sign in';
-    const demoUser = this.props.formType === 'Sign up' ? '' : <button onClick={() => this.handleClick()} className="user-form-button" >Demo Sign in</button>;
+    const passwordPlaceholder = this.props.formType === 'New account' ? 'Create password' : 'Enter password';
+    const buttonText = this.props.formType === 'New account' ? 'Submit' : 'Sign in';
+    const demoUser = this.props.formType === 'New account' ? '' : <button onClick={() => this.handleClick()} className="user-form-button" >Demo Sign in</button>;
+    const navButton_1 = this.props.formType === 'New account' ?  this.props.otherForm  : <button>{this.props.formType}</button>;
+    const navButton_2 = this.props.formType === 'New account' ? <button>{this.props.formType}</button> :  this.props.otherForm ;
     return (
       <>
         <div className="user-form-modal">
           <h2>Welcome to Dwel</h2>
-          {/* <Link className="modal-close" onClick={this.closeModal} to="/" >x</Link> */}
           <div className="modal-close" onClick={() => this.props.closeModal()} >x</div>
           <section className="user-form-nav">
-            {/* <NavLink to="/signin" activeClassName="selected" >Sign in</NavLink>
-            <NavLink to="/signup" activeClassName="selected" >New account</NavLink> */}
-            <button>{this.props.formType}</button>
-            {this.props.otherForm}
+            {navButton_1}
+            {navButton_2}
           </section>
 
           

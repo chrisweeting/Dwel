@@ -5,7 +5,7 @@ import { signup, clearErrors } from '../../actions/session_actions';
 import { closeModal, openModal } from '../../actions/modal_actions';
 
 const mSTP = (state, ownProps) => ({
-  formType: 'Sign up',
+  formType: 'New account',
   errors: state.errors.session
 });
 
@@ -13,7 +13,7 @@ const mDTP = (dispatch) => ({
   action: (user) => dispatch(signup(user)),
   clear: () => dispatch(clearErrors()),
   otherForm: (
-    <button onClick={() => dispatch(openModal('signin'))}>
+    <button onClick={() => dispatch(openModal('signin'))} className="lit">
       Sign in
     </button>
   ),

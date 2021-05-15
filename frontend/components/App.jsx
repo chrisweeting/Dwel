@@ -20,12 +20,6 @@ const App = () => (
       <HeaderNav />
     </header>
     <Modal/>
-    {/* <div className="user-modal">
-      <Route path='/signin' component={SigninFormContainer} ></Route>
-      <Route path='/signup' component={SignupFormContainer} ></Route>
-      <SigninFormContainer/>
-      <SignupFormContainer/>
-    </div> */}
     <Switch>
       <Route path="/homes" component={ListingsIndexContainer} ></Route>
       <Route  path="/">
