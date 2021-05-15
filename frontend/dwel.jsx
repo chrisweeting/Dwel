@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { postUser, postSession, deleteSession } from './util/session_api_util';
 import configureStore from './store/store';
 import Root from "./components/root";
+import { fetchListings, fetchListing } from './util/listing_api_util';
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("root");
@@ -24,6 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
   window.getState = store.getState;
   // window.dispatch = store.dispatch;
 
+  window.fetchListing = fetchListing;
+  window.fetchListings = fetchListings;
   // window.signup = postUser
   // window.signin = postSession
   // window.logout = deleteSession

@@ -1,6 +1,7 @@
 import React from 'react';
 import FlashMessage from "react-flash-message";
 import { NavLink, Redirect, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 
 
@@ -11,15 +12,15 @@ class SessionForm extends React.Component {
     this.demoState = { email: 'chris', password: '123456' };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.closeModal = this.closeModal.bind(this);
+    // this.closeModal = this.closeModal.bind(this);
   }
 
-  closeModal() {
-    const modal = document.querySelector(".user-modal");
-    const body = document.querySelector("body");
-    modal.classList.remove("is-open");
-    body.classList.remove("stop-scrolling");
-  }
+  // closeModal() {
+  //   const modal = document.querySelector(".user-modal");
+  //   const body = document.querySelector("body");
+  //   modal.classList.remove("is-open");
+  //   body.classList.remove("stop-scrolling");
+  // }
 
   componentDidMount() {
     this.props.clear();
@@ -27,14 +28,23 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.action(this.state);
-    // this.closeModal();
+    const user = Object.assign({}, this.state);
+    this.props.action(user).then(
+      () => this.props.closeModal()
+    );
+    // debugger
+    // () => {
+      // if (!this.props.errors) {
+      //   () => this.props.closeModal();
+      // }
+    // }
   }
 
   handleClick(e) {
+    // this.props.action(this.demoState);
     this.setState(this.demoState);
-    () => this.handleSubmit();
-    this.closeModal();
+    () => this.handleSubmit(e)//.then(() => this.props.closeModal());
+    // this.props.closeModal();
   }
 
   update(field) {
@@ -61,10 +71,13 @@ class SessionForm extends React.Component {
       <>
         <div className="user-form-modal">
           <h2>Welcome to Dwel</h2>
-          <Link className="modal-close" onClick={this.closeModal} to="/" >x</Link>
+          {/* <Link className="modal-close" onClick={this.closeModal} to="/" >x</Link> */}
+          <div className="modal-close" onClick={() => this.props.closeModal()} >x</div>
           <section className="user-form-nav">
-            <NavLink to="/signin" activeClassName="selected" >Sign in</NavLink>
-            <NavLink to="/signup" activeClassName="selected" >New account</NavLink>
+            {/* <NavLink to="/signin" activeClassName="selected" >Sign in</NavLink>
+            <NavLink to="/signup" activeClassName="selected" >New account</NavLink> */}
+            <button>{this.props.formType}</button>
+            {this.props.otherForm}
           </section>
 
           
@@ -88,13 +101,14 @@ class SessionForm extends React.Component {
           </form>
 
         </div>
-        <Link className="user-form-modal-screen" onClick={this.closeModal} to="/" ></Link>
+        {/* <Link className="user-form-modal-screen" onClick={this.closeModal} to="/" ></Link> */}
+        {/* <div className="user-form-modal-screen" onClick={this.closeModal}  ></div> */}
       </>
     )
   }
 }
 
-export default SessionForm;
+export default withRouter(SessionForm);
 
 // to add: 
 // modal styling

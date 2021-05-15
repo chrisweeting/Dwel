@@ -7,6 +7,11 @@
 #                           PATCH  /api/users/:id(.:format)                                                                 api/users#update {:format=>:json}
 #                           PUT    /api/users/:id(.:format)                                                                 api/users#update {:format=>:json}
 #                           DELETE /api/users/:id(.:format)                                                                 api/users#destroy {:format=>:json}
+#              api_listings GET    /api/listings(.:format)                                                                  api/listings#index {:format=>:json}
+#               api_listing GET    /api/listings/:id(.:format)                                                              api/listings#show {:format=>:json}
+#                           PATCH  /api/listings/:id(.:format)                                                              api/listings#update {:format=>:json}
+#                           PUT    /api/listings/:id(.:format)                                                              api/listings#update {:format=>:json}
+#                           DELETE /api/listings/:id(.:format)                                                              api/listings#destroy {:format=>:json}
 #               api_session DELETE /api/session(.:format)                                                                   api/sessions#destroy {:format=>:json}
 #                           POST   /api/session(.:format)                                                                   api/sessions#create {:format=>:json}
 #        rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
@@ -21,7 +26,11 @@ Rails.application.routes.draw do
   root to: 'static_pages#root'
 
   namespace :api, defaults: {format: :json} do
-    resources :users, only: [:create, :show, :update, :destroy]
+    resources :users, only: [:create, :show, :update, :destroy] do
+      # resources :listings, only: [:create]
+    end
+
+    resources :listings, only: [:index, :show, :update, :destroy]
 
     resource :session, only: [:create, :destroy]
   end

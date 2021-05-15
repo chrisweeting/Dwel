@@ -3,6 +3,8 @@ import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
 import GreetingContainer from './greeting/greeting_container';
 import SigninFormContainer from './session/signin_form_container';
 import SignupFormContainer from './session/signup_form_container';
+import ListingsIndexContainer from './entities/listings/listings_index_container';
+import Modal from './modal/modal';
 import Hero from './front/hero';
 import Cards from './front/cards';
 import Footer from './footer';
@@ -17,14 +19,22 @@ const App = () => (
       <GreetingContainer />
       <HeaderNav />
     </header>
-    <Hero/>
-    <Cards/>
-    <div className="user-modal">
-      <AuthRoute path='/signin' component={SigninFormContainer} ></AuthRoute>
-      <AuthRoute path='/signup' component={SignupFormContainer} ></AuthRoute>
-    </div>
-    {/* <GoogleMaps /> */}
-    {/* <Footer/> */}
+    <Modal/>
+    {/* <div className="user-modal">
+      <Route path='/signin' component={SigninFormContainer} ></Route>
+      <Route path='/signup' component={SignupFormContainer} ></Route>
+      <SigninFormContainer/>
+      <SignupFormContainer/>
+    </div> */}
+    <Switch>
+      <Route path="/homes" component={ListingsIndexContainer} ></Route>
+      <Route  path="/">
+        <Hero/>
+        <Cards/>
+      </Route>
+      
+    </Switch>
+   
   </div>
 );
 
