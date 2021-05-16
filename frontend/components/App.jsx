@@ -4,6 +4,7 @@ import GreetingContainer from './greeting/greeting_container';
 import SigninFormContainer from './session/signin_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import ListingsIndexContainer from './entities/listings/listings_index_container';
+import ListingDetailContainer from './entities/listings/listing_detail_container';
 import Modal from './modal/modal';
 import Hero from './front/hero';
 import Cards from './front/cards';
@@ -21,6 +22,7 @@ const App = () => (
     </header>
     <Modal/>
     <Switch>
+      <Route path={`/homes/:listingId`} component={ListingDetailContainer}></Route>
       <Route path="/homes" component={ListingsIndexContainer} ></Route>
       <Route  path="/">
         <Hero/>
@@ -33,3 +35,6 @@ const App = () => (
 );
 
 export default App;
+
+
+// .photo.attach(io: File.open("/Users/cs/Desktop/Appa/fullstack/other/Photos/60_poppy.jpeg"), filename: "60_poppy.jpeg")

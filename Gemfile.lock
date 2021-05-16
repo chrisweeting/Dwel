@@ -130,12 +130,10 @@ GEM
     marcel (1.0.1)
     method_source (1.0.0)
     mini_mime (1.1.0)
-    mini_portile2 (2.5.1)
     minitest (5.14.4)
     msgpack (1.4.2)
     nio4r (2.5.7)
-    nokogiri (1.11.3)
-      mini_portile2 (~> 2.5.0)
+    nokogiri (1.11.3-x86_64-darwin)
       racc (~> 1.4)
     pg (1.2.3)
     pry (0.14.1)
@@ -226,7 +224,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
-  aws-sdk-s3 (~> 1.94, >= 1.94.1)
+  aws-sdk-s3
   bcrypt (~> 3.1.7)
   better_errors
   binding_of_caller

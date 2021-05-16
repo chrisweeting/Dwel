@@ -1,31 +1,29 @@
 import React from 'react';
-
+import ListingIndexItem from './listings_index_item';
 
 class ListingIndex extends React.Component {
   constructor(props) {
     super(props);
-    debugger
   }
   
   componentDidMount() {
-    debugger
     this.props.fetchListings();
   }
 
   render() {
     const { listings } = this.props;
-    debugger
+
     return (
-      <div>
-        <ul>
+      <div className="listing-section">
+        <ul className="listing-items">
           {
-            listings.map(listing => <li key={listing.id} >{listing.city}</li>)
+            listings.map(listing => <ListingIndexItem listing={listing} key={listing.id}/>)
           }
         </ul>
        
       </div>
     );
-    // return null;
+  
   }
 }
 

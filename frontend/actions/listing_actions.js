@@ -17,16 +17,21 @@ const receiveListing = (listing) => ({
 //   ListingApiUtil.fetchListings()
 //     .then((listings) => dispatch(receiveAllListings(listings)))
 // );
+// export const fetchListing = (listingId) => (dispatch) => (
+//   ListingApiUtil.fetchListing(listingId)
+//     .then((res) => dispatch(receiveListing(res)))
+// );
 
-export const fetchListings = () => dispatch => {
-  return ListingApiUtil.fetchListings().then(listings => {
-    debugger
-    return dispatch(receiveAllListings(listings))
-  }
-  )
+export const fetchListings = () => (dispatch) => {
+  return ListingApiUtil.fetchListings().then((listings) => {
+    return dispatch(receiveAllListings(listings));
+  });
 };
 
-export const fetchListing = (listingId) => (dispatch) => (
-  ListingApiUtil.fetchListing(listingId)
-    .then((res) => dispatch(receiveListing(res)))
-);
+export const fetchListing = (listingId) => (dispatch) => {
+  return ListingApiUtil.fetchListing(listingId).then((listing) => {
+    
+    return dispatch(receiveListing(listing));
+  });
+};
+

@@ -5,6 +5,7 @@ const ListingsReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_LISTING:
+      
       return Object.assign({}, state, { [action.listing.id]: action.listing });
     case RECEIVE_ALL_LISTINGS:
       return action.listings;

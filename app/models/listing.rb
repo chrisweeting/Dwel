@@ -25,5 +25,7 @@ class Listing < ApplicationRecord
   validates :street_address, :city, :state, :postal_code, presence: true
   validates :description, :status, :price, :listing_type, :sq_ft, presence: true
   
+  # has_one_attached :photo
+  has_many_attached :photos
 
 end

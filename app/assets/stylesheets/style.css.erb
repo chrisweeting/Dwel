@@ -10,6 +10,7 @@
   background: white;
   text-decoration: none;
   align-items: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .user-icon {
@@ -403,4 +404,52 @@
 .stop-scrolling {
   height: 100%;
   overflow: hidden;
+}
+
+.listing-section {
+  width: 52vw;
+  overflow-y: scroll;
+  height: 90vh;
+  right: 0;
+  position: fixed;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.listing-items {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.listing-short {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  min-width: 350px;
+  min-height: 250px;
+  margin: 5px;
+  border: 1px solid rgba(119, 136, 153, 0.288);
+  position: relative;
+  overflow: hidden;
+}
+
+.listing-photo {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.listing-sum {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  padding: 5px 15px;
+  background-color: white;
+  z-index: 1;
+  bottom: 0;
+  width: 100%;
+  font-size: 12px;
+  /* overflow: hidden; */
+  border-bottom: 3px solid lightslategrey;
+
 }
