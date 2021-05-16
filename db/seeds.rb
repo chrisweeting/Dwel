@@ -5,8 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'open-uri'
 
-Listing.delete_all
+Listing.destroy_all
 
 listing_0001 = Listing.create!(
   street_address: "60 Poppys Ln", 
@@ -18,11 +19,14 @@ listing_0001 = Listing.create!(
   baths: 2,
   status: "For sale",
   price: 749000,
-  listing_type: "house",
+  listing_type: "House",
   sq_ft: 2400,
   lot_size: 1,
   year_built: 1992
 )
+
+file = open('https://dwel-us-dev.s3.amazonaws.com/L0001/60_poppy.jpeg')
+listing_0001.photos.attach(io: file, filename: '60_poppy.jpeg')
 
 listing_0002 = Listing.create!(
   street_address: "34 Country View Rd", 
@@ -34,11 +38,20 @@ listing_0002 = Listing.create!(
   baths: 2,
   status: "For sale",
   price: 749000,
-  listing_type: "house",
+  listing_type: "House",
   sq_ft: 2450,
   lot_size: 1.32,
   year_built: 2004
 )
+
+file = open('https://dwel-us-dev.s3.amazonaws.com/L0002/34_country_001.jpeg')
+listing_0002.photos.attach(io: file, filename: '34_country_001.jpeg')
+file = open('https://dwel-us-dev.s3.amazonaws.com/L0002/34_country_002.jpeg')
+listing_0002.photos.attach(io: file, filename: '34_country_002.jpeg')
+file = open('https://dwel-us-dev.s3.amazonaws.com/L0002/34_country_003.jpeg')
+listing_0002.photos.attach(io: file, filename: '34_country_003.jpeg')
+file = open('https://dwel-us-dev.s3.amazonaws.com/L0002/34_country_004.jpeg')
+listing_0002.photos.attach(io: file, filename: '34_country_004.jpeg')
 
 listing_0003 = Listing.create!(
   street_address: "95 Delafield St", 
@@ -52,3 +65,12 @@ listing_0003 = Listing.create!(
   sq_ft: 2120,
   year_built: 1860
 )
+
+file = open('https://dwel-us-dev.s3.amazonaws.com/L0003/95_delafield_001.jpeg')
+listing_0003.photos.attach(io: file, filename: '95_delafield_001.jpeg')
+file = open('https://dwel-us-dev.s3.amazonaws.com/L0003/95_delafield_002.jpeg')
+listing_0003.photos.attach(io: file, filename: '95_delafield_002.jpeg')
+file = open('https://dwel-us-dev.s3.amazonaws.com/L0003/95_delafield_003.jpeg')
+listing_0003.photos.attach(io: file, filename: '95_delafield_003.jpeg')
+file = open('https://dwel-us-dev.s3.amazonaws.com/L0003/95_delafield_004.jpeg')
+listing_0003.photos.attach(io: file, filename: '95_delafield_004.jpeg')

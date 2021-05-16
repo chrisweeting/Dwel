@@ -17,6 +17,7 @@ gem 'sass-rails', '~> 5.0'
 # gem 'mini_racer', platforms: :ruby
 gem 'jquery-rails'
 gem 'aws-sdk-s3'
+# gem 'open-uri'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
