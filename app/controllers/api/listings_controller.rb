@@ -1,7 +1,7 @@
 class Api::ListingsController < ApplicationController
 
   def index
-    @listings = Listing.all
+    @listings = Listing.with_attached_photos.all
 
     render 'api/listings/index'
   end

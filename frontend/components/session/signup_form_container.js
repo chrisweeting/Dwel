@@ -13,7 +13,7 @@ const mDTP = (dispatch) => ({
   action: (user) => dispatch(signup(user)),
   clear: () => dispatch(clearErrors()),
   otherForm: (
-    <button onClick={() => dispatch(openModal('signin'))} className="lit">
+    <button onClick={() => dispatch(openModal('signin'))} >
       Sign in
     </button>
   ),

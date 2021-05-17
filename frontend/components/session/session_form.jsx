@@ -59,8 +59,8 @@ class SessionForm extends React.Component {
     const passwordPlaceholder = this.props.formType === 'New account' ? 'Create password' : 'Enter password';
     const buttonText = this.props.formType === 'New account' ? 'Submit' : 'Sign in';
     const demoUser = this.props.formType === 'New account' ? '' : <button onClick={() => this.handleClick()} className="user-form-button" >Demo Sign in</button>;
-    const navButton_1 = this.props.formType === 'New account' ?  this.props.otherForm  : <button>{this.props.formType}</button>;
-    const navButton_2 = this.props.formType === 'New account' ? <button>{this.props.formType}</button> :  this.props.otherForm ;
+    const navButton_1 = this.props.formType === 'New account' ? this.props.otherForm : <button className="lit">{this.props.formType}</button>;
+    const navButton_2 = this.props.formType === 'New account' ? <button className="lit">{this.props.formType}</button> :  this.props.otherForm ;
     return (
       <>
         <div className="user-form-modal">

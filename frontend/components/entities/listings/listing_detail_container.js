@@ -9,9 +9,15 @@ will dispatch `fetchPosts` and `deletePost` to the store as props of the same
 name.
 */
 
-const mapSTP = (state, ownProps) => ({
-  listing: state.entities.listings[ownProps.match.params.listingId]
-});
+// const mapSTP = (state, ownProps) => ({
+//   listing: state.entities.listings[ownProps.match.params.listingId]
+// });
+const mapSTP = (state, ownProps) => {
+  debugger
+  return {
+    listing: state.entities.listings[ownProps.match.params.listingId]
+  }
+};
 
 const mapDTP = (dispatch) => ({
   fetchListing: (listing) => dispatch(fetchListing(listing)),

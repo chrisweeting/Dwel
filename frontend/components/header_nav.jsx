@@ -6,8 +6,8 @@ const HeaderNav = (props) => {
   return (
     <section className="header-links">
       <Link to="/homes" >Buy</Link>
-      <Link to="/homes/for_rent" >Rent</Link>
-      <Link to="/sell" >Sell</Link>
+      <Link to="/" >Rent</Link>
+      <Link to="/" >Sell</Link>
     </section>
   )
 };

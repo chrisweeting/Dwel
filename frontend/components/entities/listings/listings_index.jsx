@@ -17,7 +17,7 @@ class ListingIndex extends React.Component {
       <div className="listing-section">
         <ul className="listing-items">
           {
-            listings.map(listing => <ListingIndexItem listing={listing} key={listing.id}/>)
+            listings.map(listing => <div key={listing.id}><ListingIndexItem listing={listing} /></div>)
           }
         </ul>
        

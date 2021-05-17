@@ -1,8 +1,6 @@
 import React from "react";
 import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
 import GreetingContainer from './greeting/greeting_container';
-import SigninFormContainer from './session/signin_form_container';
-import SignupFormContainer from './session/signup_form_container';
 import ListingsIndexContainer from './entities/listings/listings_index_container';
 import ListingDetailContainer from './entities/listings/listing_detail_container';
 import Modal from './modal/modal';
@@ -21,10 +19,10 @@ const App = () => (
       <HeaderNav />
     </header>
     <Modal/>
+      <Route path={`/homedetail/:listingId`} component={ListingDetailContainer}></Route>
     <Switch>
-      <Route path={`/homes/:listingId`} component={ListingDetailContainer}></Route>
       <Route path="/homes" component={ListingsIndexContainer} ></Route>
-      <Route  path="/">
+      <Route exact path="/">
         <Hero/>
         <Cards/>
       </Route>

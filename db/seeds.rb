@@ -74,3 +74,78 @@ file = open('https://dwel-us-dev.s3.amazonaws.com/L0003/95_delafield_003.jpeg')
 listing_0003.photos.attach(io: file, filename: '95_delafield_003.jpeg')
 file = open('https://dwel-us-dev.s3.amazonaws.com/L0003/95_delafield_004.jpeg')
 listing_0003.photos.attach(io: file, filename: '95_delafield_004.jpeg')
+
+listing_0004 = Listing.create!(
+  street_address: "49 S Quaker Hill Rd", 
+  city: "Pawling",
+  state: "NY",
+  postal_code: 12564,
+  description: "Ravinewood, a Majestic Eqyptian Revival on 16.62 acres on Quaker Hill. High ceilings, wood floors throughout, fine architectural details &  period moldings. The spacious LR has 2 fplcs. & pocket doors, great for entertaining. The formal DR w/fplc. opens to the kitchen which has been updated. The wide hallway leads to a big covered porch w/awnings overlooking the secret garden & park like property. Upstairs, a dramatic landing, which accesses 4 BR's & 2 full baths. The master suite has its own study. The full basement is finished, also with a fireplace. There is a 16 stall barn which needs new electric & updating. Paddocks & outdoor riding ring complete the horse property aspect. A 2BR caretakers cottage w/storage underneath is located away from the house.  Elegant, well maintained, this is a very special estate. Easy access to trains, shopping, restaurants & riding trails.",
+  beds: 4,
+  baths: 4,
+  status: "For sale",
+  price: 1890000,
+  listing_type: "House",
+  sq_ft: 4480,
+  lot_size: 16.62,
+  year_built: 1840
+)
+
+file = open('https://dwel-us-dev.s3.amazonaws.com/L0004/49_quaker_001.jpeg')
+listing_0004.photos.attach(io: file, filename: '49_quaker_001.jpeg')
+file = open('https://dwel-us-dev.s3.amazonaws.com/L0004/49_quaker_002.jpeg')
+listing_0004.photos.attach(io: file, filename: '49_quaker_002.jpeg')
+file = open('https://dwel-us-dev.s3.amazonaws.com/L0004/49_quaker_003.jpeg')
+listing_0004.photos.attach(io: file, filename: '49_quaker_003.jpeg')
+file = open('https://dwel-us-dev.s3.amazonaws.com/L0004/49_quaker_004.jpeg')
+listing_0004.photos.attach(io: file, filename: '49_quaker_004.jpeg')
+
+listing_0005 = Listing.create!(
+  street_address: "552 Warren St", 
+  city: "Hudson",
+  state: "NY",
+  postal_code: 12534,
+  description: "The Sullivan Residence, an elegant brick Italianate townhouse, sits in the center of Warren St in Hudson. The home has been painstakingly restored to its original grandeur preserving details like carved marble mantles, soaring ceilings, & classic 2-over-2 windows. The impressive foyer leads to the extraordinary double parlors connected by a resplendent wide arch, a reading room, powder room, and a stylish kitchen.  The turned staircase leads up to the 2nd and 3rd floors with 4 BRs, 2 light filled offices, and 3 additional baths with WaterWorks fixtures. The back of the house has a gorgeous Knightsbridge style garden with a whimsical shamiana canopy, mature plantings, a blue stone veranda, and a fully insulated garage that could be used as a gym or art studio. The home offers charm, grace, comfort and privacy. Its central location provides easy access to Hudson's excellent selection of restaurants, galleries and shopping. It is chic city living surrounded by awe-inspiring countryside.",
+  beds: 4,
+  baths: 4,
+  status: "For sale",
+  price: 1750000,
+  listing_type: "Single Family Residence",
+  sq_ft: 3408,
+  lot_size: 0.069,
+  year_built: 1860
+)
+
+file = open('https://dwel-us-dev.s3.amazonaws.com/L0005/552_warren_001.jpeg')
+listing_0005.photos.attach(io: file, filename: '552_warren_001.jpeg')
+file = open('https://dwel-us-dev.s3.amazonaws.com/L0005/552_warren_002.jpeg')
+listing_0005.photos.attach(io: file, filename: '552_warren_002.jpeg')
+file = open('https://dwel-us-dev.s3.amazonaws.com/L0005/552_warren_003.jpeg')
+listing_0005.photos.attach(io: file, filename: '552_warren_003.jpeg')
+file = open('https://dwel-us-dev.s3.amazonaws.com/L0005/552_warren_004.jpeg')
+listing_0005.photos.attach(io: file, filename: '552_warren_004.jpeg')
+
+listing_0006 = Listing.create!(
+  street_address: "118 N 5th St", 
+  city: "Hudson",
+  state: "NY",
+  postal_code: 12534,
+  description: "Shelter magazine-worthy c. 1915 row house. Light and bright 1,200 sq. ft. semi-open floor plan offer three very thoughtful common spaces - galley style kitchen, dinner party sized dining room, and a living room that gives you space to lounge and pretend you're going to read a book. Upstairs features three bedrooms of various size: small, medium, and large share a full bath with deep soaking tub.City-sized, fenced backyard with off-street parking. This classic, easy to maintain pied-a-terre sits on a wide, picturesque street in the Armory District, close to all things Hudson.",
+  beds: 3,
+  baths: 1,
+  status: "For sale",
+  price: 399000,
+  listing_type: "Single Family Residence",
+  sq_ft: 1200,
+  lot_size: 0.069,
+  year_built: 1915
+)
+
+file = open('https://dwel-us-dev.s3.amazonaws.com/L0006/118_N_5_001.jpeg')
+listing_0006.photos.attach(io: file, filename: '118_N_5_001.jpeg')
+file = open('https://dwel-us-dev.s3.amazonaws.com/L0006/118_N_5_002.jpeg')
+listing_0006.photos.attach(io: file, filename: '118_N_5_002.jpeg')
+file = open('https://dwel-us-dev.s3.amazonaws.com/L0006/118_N_5_003.jpeg')
+listing_0006.photos.attach(io: file, filename: '118_N_5_003.jpeg')
+file = open('https://dwel-us-dev.s3.amazonaws.com/L0006/118_N_5_004.jpeg')
+listing_0006.photos.attach(io: file, filename: '118_N_5_004.jpeg')
