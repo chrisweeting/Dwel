@@ -10,7 +10,7 @@ class ListingDetail extends React.Component {
   componentDidMount() {
     this.props.fetchListing(this.props.listing.id);
     const detailScreen = document.querySelector(".listing-detail-section");
-    debugger
+    
     detailScreen.focus();
   }
 

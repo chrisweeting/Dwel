@@ -1,8 +1,8 @@
 import React from 'react';
-import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import SigninFormContainer from '../session/signin_form_container';
 import SignupFormContainer from '../session/signup_form_container';
+import { closeModal } from '../../actions/modal_actions';
 
 function Modal({ modal, closeModal }) {
   if (!modal) {
@@ -28,16 +28,12 @@ function Modal({ modal, closeModal }) {
   );
 }
 
-const mapStateToProps = state => {
-  return {
-    modal: state.ui.modal
-  };
-};
+const mSTP = (state) => ({
+  modal: state.ui.modal,
+});
 
-const mapDispatchToProps = dispatch => {
-  return {
-    closeModal: () => dispatch(closeModal())
-  };
-};
+const mDTP = (dispatch) => ({
+  closeModal: () => dispatch(closeModal()),
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(Modal);
+export default connect(mSTP, mDTP)(Modal);

@@ -13,25 +13,17 @@ const receiveListing = (listing) => ({
   listing
 });
 
-// export const fetchListings = () => (dispatch) => (
-//   ListingApiUtil.fetchListings()
-//     .then((listings) => dispatch(receiveAllListings(listings)))
-// );
-// export const fetchListing = (listingId) => (dispatch) => (
-//   ListingApiUtil.fetchListing(listingId)
-//     .then((res) => dispatch(receiveListing(res)))
-// );
-
 export const fetchListings = () => (dispatch) => {
-  return ListingApiUtil.fetchListings().then((listings) => {
-    return dispatch(receiveAllListings(listings));
-  });
+  return ListingApiUtil.fetchListings()
+    .then((listings) => {
+      return dispatch(receiveAllListings(listings));
+    });
 };
 
 export const fetchListing = (listingId) => (dispatch) => {
-  return ListingApiUtil.fetchListing(listingId).then((listing) => {
-    
-    return dispatch(receiveListing(listing));
-  });
+  return ListingApiUtil.fetchListing(listingId)
+    .then((listing) => {
+      return dispatch(receiveListing(listing));
+    });
 };
 
