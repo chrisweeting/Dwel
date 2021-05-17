@@ -22,11 +22,11 @@ document.addEventListener("DOMContentLoaded", () => {
     store = configureStore();
   }
   
-  window.getState = store.getState;
+  // window.getState = store.getState;
   // window.dispatch = store.dispatch;
 
-  window.fetchListing = fetchListing;
-  window.fetchListings = fetchListings;
+  // window.fetchListing = fetchListing;
+  // window.fetchListings = fetchListings;
   // window.signup = postUser
   // window.signin = postSession
   // window.logout = deleteSession

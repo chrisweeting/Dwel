@@ -27,6 +27,12 @@ listing_0001 = Listing.create!(
 
 file = open('https://dwel-us-dev.s3.amazonaws.com/L0001/60_poppy.jpeg')
 listing_0001.photos.attach(io: file, filename: '60_poppy.jpeg')
+file = open('https://dwel-us-dev.s3.amazonaws.com/L0001/60_poppy_002.jpeg')
+listing_0001.photos.attach(io: file, filename: '60_poppy_002.jpeg')
+file = open('https://dwel-us-dev.s3.amazonaws.com/L0001/60_poppy_003.jpeg')
+listing_0001.photos.attach(io: file, filename: '60_poppy_003.jpeg')
+file = open('https://dwel-us-dev.s3.amazonaws.com/L0001/60_poppy_004.jpeg')
+listing_0001.photos.attach(io: file, filename: '60_poppy_004.jpeg')
 
 listing_0002 = Listing.create!(
   street_address: "34 Country View Rd", 
@@ -149,3 +155,28 @@ file = open('https://dwel-us-dev.s3.amazonaws.com/L0006/118_N_5_003.jpeg')
 listing_0006.photos.attach(io: file, filename: '118_N_5_003.jpeg')
 file = open('https://dwel-us-dev.s3.amazonaws.com/L0006/118_N_5_004.jpeg')
 listing_0006.photos.attach(io: file, filename: '118_N_5_004.jpeg')
+
+listing_0007 = Listing.create!(
+  street_address: "129 E Market St", 
+  city: "Rhinebeck",
+  state: "NY",
+  postal_code: 12572,
+  description: "Quintessential 1850s Rhinebeck Village farmhouse, rebuilt from top to bottom and professionally designed by Sarah Norwood Interiors. The original wide board floors have been restored, the original exposed brick walls were finished with plaster treatment and the exposed beams have been revealed. Enter through the charming front gate into the enclosed three-season sunroom. The main floor has a flexible open floor plan, while the back of the house was added on to create a designer's dream kitchen with Smeg appliances, deVOL kitchen tap & pot filler and Cl tile. Upstairs luxury primary suite with vaulted ceiling in the bedroom, and luxuriously renovated bathroom with freestanding tub, glass & tile shower, and double vanity with Apparatus Studio lighting. Two additional bedrooms, a second full bath and laundry are on the second floor. All new: roof, insulation, electric, plumbing, propane furnace, forced air heating & cooling, Marvin windows, radiant heat in the kitchen and master bath, septic system and bluestone paths & landscaping. On a half acre perfect for a swimming pool. Walk to all of the village amenities.",
+  beds: 3,
+  baths: 3,
+  status: "For sale",
+  price: 1100000,
+  listing_type: "Single Family Residence",
+  sq_ft: 1806,
+  lot_size: 0.56,
+  year_built: 1856
+)
+
+file = open('https://dwel-us-dev.s3.amazonaws.com/L0007/129_e_market_001.jpeg')
+listing_0007.photos.attach(io: file, filename: '129_e_market_001.jpeg')
+file = open('https://dwel-us-dev.s3.amazonaws.com/L0007/129_e_market_002.jpeg')
+listing_0007.photos.attach(io: file, filename: '129_e_market_002.jpeg')
+file = open('https://dwel-us-dev.s3.amazonaws.com/L0007/129_e_market_003.jpeg')
+listing_0007.photos.attach(io: file, filename: '129_e_market_003.jpeg')
+file = open('https://dwel-us-dev.s3.amazonaws.com/L0007/129_e_market_004.jpeg')
+listing_0007.photos.attach(io: file, filename: '129_e_market_004.jpeg')

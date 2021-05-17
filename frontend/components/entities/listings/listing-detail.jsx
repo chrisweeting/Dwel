@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link,Redirect } from 'react-router-dom';
 
 
 class ListingDetail extends React.Component {
@@ -9,6 +9,9 @@ class ListingDetail extends React.Component {
 
   componentDidMount() {
     this.props.fetchListing(this.props.listing.id);
+    const detailScreen = document.querySelector(".listing-detail-section");
+    debugger
+    detailScreen.focus();
   }
 
   render() {
@@ -19,30 +22,42 @@ class ListingDetail extends React.Component {
         </div>
       )
     })
-    const { price, street_address, beds, baths, sq_ft, listing_type, status, city, state, postal_code } = this.props.listing;
-    
+    const { price, street_address, beds, baths, sq_ft, listing_type, status, city, state, postal_code, description } = this.props.listing;
+    const priceUs = new Intl.NumberFormat().format(price)
     return (
-      <Link to="/homes" className="listing-detail-screen">
-        <div className="listing-detail-section">
+      <div  className="listing-detail-screen">
+        <Link to="/homes" className="ld-close">x</Link>
+        <div className="listing-detail-section" tabIndex="0" onBlur={() => <Redirect to="/"/>}>
           <figure className="photo-gallery">
             {photos}
           </figure>
           <section className="listing-detail">
-            <nav className="listing-detail-nav">
-              <h1 id="ld-nav-logo">Dwel.</h1>
-              <div className="save-button">
-                <div id="save-icon">
-
+            <div className="listing-top">
+              <nav className="listing-detail-nav">
+                <h1 id="ld-nav-logo">Dwel.</h1>
+                <div className="save-button">
+                  <div id="save-icon">
+                  </div>
+                  Save
                 </div>
-                Save
+              </nav>
+              <div className="listing-detail-1">
+                <h1>${priceUs}</h1>  <span>{beds}bd</span> <span>{baths}ba</span> <span>{sq_ft}sqft</span>
               </div>
-            </nav>
-            <div className="listing-detail-1">
-              <span>{price}</span>  {beds}
+              <div className="listing-detail-2">
+                <h1>{street_address}, {city}, {state} {postal_code}</h1>
+                <h1>{status}</h1>
+              </div>
+              <div className="listing-nav-2">
+
+              </div>
+            </div>
+            <div className="listing-overview">
+              <p>{description}</p>
             </div>
           </section>
         </div>
-      </Link>
+      </div>
     );
 
   }

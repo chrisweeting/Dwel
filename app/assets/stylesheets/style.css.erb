@@ -491,21 +491,11 @@
 }
 
 .listing-detail {
-  /* width: 52vw;
-  overflow-y: scroll;
-  height: 90vh;
-  right: 0;
-  position: fixed;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  background-color: white; */
-
-
   width: 50%;
   overflow-y: scroll;
   height: 100%;
   right: 0;
   position: absolute;
-  
   background-color: white;
 }
 
@@ -538,6 +528,40 @@
   
 }
 
+.listing-detail-1 {
+  display: flex;
+  align-items: baseline;
+  height: 50px;
+  padding: 10px 10px 0 10px;
+}
+
+.listing-detail-1 h1 {
+  font-size: 30px;
+  margin: 5px 15px;
+  font-weight: 600;
+}
+
+.listing-detail-1 span {
+  border-right: 1px solid lightslategrey;
+  border-left: 1px solid lightslategrey;
+  height: 17px;
+  padding: 0 5px;
+}
+
+.listing-detail-2 {
+  padding-left: 25px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.listing-top {
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+  height: 250px;
+  padding-top: 20px;
+}
+
 #save-icon {
   background-image: url("<%= asset_path('save.png') %>") ;
   width: 20px;
@@ -560,4 +584,30 @@
   text-decoration: none;
   font-size: 40px;
   margin: 0 auto;
+}
+
+.ld-close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 30px;
+  line-height: 20px;
+  font-family: sans-serif;
+  font-weight: 100;
+  cursor: pointer;
+  z-index: 201;
+  color: white;
+  text-shadow: #000 0px 0px 3px,   #000 0px 0px 3px,   #000 0px 0px 3px,
+}
+
+.ld-close:hover {
+  color: lightslategrey;
+}
+
+.listing-overview {
+  padding: 20px
+}
+
+footer {
+  height: 120px;
 }

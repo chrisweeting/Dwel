@@ -20,7 +20,9 @@ class ListingIndex extends React.Component {
             listings.map(listing => <div key={listing.id}><ListingIndexItem listing={listing} /></div>)
           }
         </ul>
-       
+        <footer>
+          
+        </footer>
       </div>
     );
   

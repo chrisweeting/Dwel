@@ -13,7 +13,7 @@ name.
 //   listing: state.entities.listings[ownProps.match.params.listingId]
 // });
 const mapSTP = (state, ownProps) => {
-  debugger
+  // debugger
   return {
     listing: state.entities.listings[ownProps.match.params.listingId]
   }
