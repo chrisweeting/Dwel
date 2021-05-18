@@ -17,7 +17,7 @@ class ListingIndex extends React.Component {
       <div className="listing-section">
         <ul className="listing-items">
           {
-            listings.map(listing => <div key={listing.id}><ListingIndexItem listing={listing} /></div>)
+            listings.map(listing => <div key={listing.id}><ListingIndexItem listing={listing} openModal={this.props.openModal} /></div>)
           }
         </ul>
         <footer>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link,Redirect } from 'react-router-dom';
+import ListingDetailMap from '../../map/listing_detail_map';
 
 
 class ListingDetail extends React.Component {
@@ -16,7 +17,12 @@ class ListingDetail extends React.Component {
     });
   }
 
+  handleClick() {
+    if (!this.props.currentUser) this.props.openModal("signin");
+  }
+
   render() {
+    debugger
     const { listing } = this.props;
     if (!listing && !this.state ) return null;
 
@@ -32,7 +38,7 @@ class ListingDetail extends React.Component {
     const priceUs = new Intl.NumberFormat().format(price)
     return (
       <div  className="listing-detail-screen">
-        <Link to="/homes" className="ld-close">x</Link>
+        <Link to="/homes" className="ld-close"  >x</Link>
         <div className="listing-detail-section" tabIndex="0" onBlur={() => <Redirect to="/"/>}>
           <figure className="photo-gallery">
             {photos}
@@ -41,7 +47,7 @@ class ListingDetail extends React.Component {
             <div className="listing-top">
               <nav className="listing-detail-nav">
                 <h1 id="ld-nav-logo">Dwel.</h1>
-                <div className="save-button">
+                <div className="save-button" onClick={() => this.handleClick() }>
                   <div id="save-icon">
                   </div>
                   Save
@@ -60,6 +66,9 @@ class ListingDetail extends React.Component {
             </div>
             <div className="listing-overview">
               <p>{description}</p>
+            </div>
+            <div>
+              <ListingDetailMap listing={this.state} />
             </div>
           </section>
         </div>

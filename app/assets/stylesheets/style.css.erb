@@ -273,7 +273,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 2;
+  z-index: 10;
   cursor: default;
 }
 
@@ -448,6 +448,26 @@
   width: 100%;
 }
 
+.listing-short-like {
+  content: url("<%= asset_path('heart-outline-transparent-2.png') %>") ;
+  /* background-image: url("<%= asset_path('heart-outline-transparent-2.png') %>") ; */
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+}
+
+.listing-short-like:hover {
+  content: url("<%= asset_path('heart-outline-transparent-1.png') %>") ;
+  /* background-image: url("<%= asset_path('heart-outline-transparent-2.png') %>") ; */
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+}
+
 .listing-sum {
   display: flex;
   position: absolute;
@@ -564,6 +584,9 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   height: 250px;
   padding-top: 20px;
+  position: sticky;
+  top: 0;
+  background-color: white;
 }
 
 #save-icon {
@@ -617,13 +640,18 @@ footer {
 }
 
 #listing-map-container {
-    height: 100vh;
-    width: 50vw;
-    position: fixed;
+  height: 100vh;
+  width: 50vw;
+  position: fixed;
 }
 
 .lw {
   position: fixed;
   height: 100vh;
   width: 50vw;
+}
+
+#listing-detail-map-container {
+  height: 300px;
+  pointer-events: none;
 }

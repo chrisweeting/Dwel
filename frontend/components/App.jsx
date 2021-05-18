@@ -19,9 +19,9 @@ const App = () => (
       <GreetingContainer />
       <HeaderNav />
     </header>
-    <Modal/>
-      <Route exact path="/map" component={ListingMap} ></Route>
+      {/* <Route exact path="/map" component={ListingMap} ></Route> */}
       <Route path={`/homes/:listingId`} component={ListingDetailContainer}></Route>
+    <Modal/>
       
     <Switch>
       <Route path="/homes" component={SearchContainer} ></Route>

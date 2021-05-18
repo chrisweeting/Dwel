@@ -12,7 +12,7 @@ class MarkerManager {
     listings.forEach(listing => hauses[listing.id] = listing); //fill empty haus object
 
     const filtered = listings.filter(listing => !this.markers[listing.id]) 
-    filtered.forEach(newListing => this.createMarkerFromBench(newListing, this.handleClick));
+    filtered.forEach(newListing => this.createMarkerFromListing(newListing, this.handleClick));
       
     const listingIds = Object.keys(this.markers).filter(listingId => !hauses[listingId]);
     listingIds.forEach((listingId) => this.removeMarker(this.markers[listingId]));
@@ -21,7 +21,7 @@ class MarkerManager {
     m.style.position = "fixed";
   }
 
-  createMarkerFromBench(listing) {
+  createMarkerFromListing(listing) {
     const position = new google.maps.LatLng(listing.latitude, listing.longitude);
     // debugger
     const marker = new google.maps.Marker({
