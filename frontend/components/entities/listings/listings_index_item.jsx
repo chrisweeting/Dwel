@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 
 const ListingIndexItem = ({ listing }) => (
-  <Link className="listing-short" to={`/homedetail/${listing.id}`} >
+  <Link className="listing-short" to={`/homes/${listing.id}`} >
     <img src={listing.photoUrls} alt="" className="listing-photo"/>
     <div className="listing-sum">
       <li key="1" >{listing.price}</li>

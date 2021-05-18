@@ -22,7 +22,9 @@ listing_0007 = Listing.create!(
   listing_type: "Single Family Residence",
   sq_ft: 1806,
   lot_size: 0.56,
-  year_built: 1856
+  year_built: 1856,
+  latitude: 41.92763724896673, 
+  longitude: -73.90380712217899
 )
 
 file = open('https://dwel-us-dev.s3.amazonaws.com/L0007/129_e_market_001.jpeg')
@@ -48,7 +50,9 @@ listing_0001 = Listing.create!(
   listing_type: "House",
   sq_ft: 2400,
   lot_size: 1,
-  year_built: 1992
+  year_built: 1992,
+  latitude: 41.55348374235789, 
+  longitude: -73.59157263753615
 )
 
 file = open('https://dwel-us-dev.s3.amazonaws.com/L0001/60_poppy.jpeg')
@@ -73,7 +77,9 @@ listing_0002 = Listing.create!(
   listing_type: "House",
   sq_ft: 2450,
   lot_size: 1.32,
-  year_built: 2004
+  year_built: 2004,
+  latitude: 41.96344401117842, 
+  longitude: -73.49923467337496
 )
 
 file = open('https://dwel-us-dev.s3.amazonaws.com/L0002/34_country_001.jpeg')
@@ -95,7 +101,9 @@ listing_0003 = Listing.create!(
   price: 749000,
   listing_type: "Multi Family",
   sq_ft: 2120,
-  year_built: 1860
+  year_built: 1860,
+  latitude: 41.713892173687825, 
+  longitude: -73.9334118445478
 )
 
 file = open('https://dwel-us-dev.s3.amazonaws.com/L0003/95_delafield_001.jpeg')
@@ -120,7 +128,9 @@ listing_0004 = Listing.create!(
   listing_type: "House",
   sq_ft: 4480,
   lot_size: 16.62,
-  year_built: 1840
+  year_built: 1840,
+  latitude: 41.53268554400293, 
+  longitude: -73.56773635804839 
 )
 
 file = open('https://dwel-us-dev.s3.amazonaws.com/L0004/49_quaker_001.jpeg')
@@ -145,7 +155,9 @@ listing_0005 = Listing.create!(
   listing_type: "Single Family Residence",
   sq_ft: 3408,
   lot_size: 0.069,
-  year_built: 1860
+  year_built: 1860,
+  latitude: 42.24868904882388, 
+  longitude: -73.78466027336604
 )
 
 file = open('https://dwel-us-dev.s3.amazonaws.com/L0005/552_warren_001.jpeg')
@@ -170,7 +182,9 @@ listing_0006 = Listing.create!(
   listing_type: "Single Family Residence",
   sq_ft: 1200,
   lot_size: 0.069,
-  year_built: 1915
+  year_built: 1915,
+  latitude: 42.25256818238109, 
+  longitude: -73.78258214453082
 )
 
 file = open('https://dwel-us-dev.s3.amazonaws.com/L0006/118_N_5_001.jpeg')

@@ -3,13 +3,14 @@ import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
 import GreetingContainer from './greeting/greeting_container';
 import ListingsIndexContainer from './entities/listings/listings_index_container';
 import ListingDetailContainer from './entities/listings/listing_detail_container';
+import SearchContainer from './search/search_container';
 import Modal from './modal/modal';
 import Hero from './front/hero';
 import Cards from './front/cards';
 import Footer from './footer';
 import HeaderNav from './header_nav';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-// import GoogleMaps from './front/maps';
+import ListingMap from './map/listingMap';
 
 const App = () => (
   <div className="main-wrapper" >
@@ -19,9 +20,11 @@ const App = () => (
       <HeaderNav />
     </header>
     <Modal/>
-      <Route path={`/homedetail/:listingId`} component={ListingDetailContainer}></Route>
+      <Route exact path="/map" component={ListingMap} ></Route>
+      <Route path={`/homes/:listingId`} component={ListingDetailContainer}></Route>
+      
     <Switch>
-      <Route path="/homes" component={ListingsIndexContainer} ></Route>
+      <Route path="/homes" component={SearchContainer} ></Route>
       <Route exact path="/">
         <Hero/>
         <Cards/>

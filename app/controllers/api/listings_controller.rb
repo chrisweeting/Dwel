@@ -1,7 +1,12 @@
 class Api::ListingsController < ApplicationController
 
   def index
-    @listings = Listing.with_attached_photos.all
+    
+    listings = params[:bounds] ? Listing.with_attached_photos.in_bounds(params[:bounds]) : Listing.with_attached_photos.all
+    # debugger
+    @listings = listings
+
+    # @listings = Listing.with_attached_photos.all
 
     render 'api/listings/index'
   end
@@ -70,5 +75,9 @@ class Api::ListingsController < ApplicationController
       :latitude,
       :longitude
     )
+  end
+
+  def bounds
+    params[:bounds]
   end
 end

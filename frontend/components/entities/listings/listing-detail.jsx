@@ -5,24 +5,30 @@ import { Link,Redirect } from 'react-router-dom';
 class ListingDetail extends React.Component {
   constructor(props) {
     super(props);
+    this.state = this.props.listing;
+
+    this.setState = this.setState.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchListing(this.props.listing.id);
-    const detailScreen = document.querySelector(".listing-detail-section");
-    
-    detailScreen.focus();
+    this.props.fetchListing(this.props.match.params.listingId).then((res) => {
+      this.setState(res.listing.listing);
+    });
   }
 
   render() {
-    const photos = this.props.listing.photoUrls.map((url, i) => {
+    const { listing } = this.props;
+    if (!listing && !this.state ) return null;
+
+
+    const photos = this.state.photoUrls.map((url, i) => {
       return (
         <div key={`photo-${i}`}>
           <img src={url} alt="" className={`photo`} />
         </div>
       )
     })
-    const { price, street_address, beds, baths, sq_ft, listing_type, status, city, state, postal_code, description } = this.props.listing;
+    const { price, street_address, beds, baths, sq_ft, listing_type, status, city, state, postal_code, description } = this.state;
     const priceUs = new Intl.NumberFormat().format(price)
     return (
       <div  className="listing-detail-screen">

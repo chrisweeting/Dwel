@@ -13,6 +13,9 @@ json.extract! listing,
       :sq_ft,
       :lot_size,
       :year_built,
-      :created_at
+      :created_at,
+      :latitude,
+      :longitude
+
 
 json.photoUrls listing.photos.map { |file| url_for(file) }

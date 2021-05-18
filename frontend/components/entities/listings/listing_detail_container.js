@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ListingDetail from './listing-detail';
-import { fetchListing } from '../../../actions/listing_actions';
+import { fetchListing, fetchListings } from '../../../actions/listing_actions';
 
 /*
 Export a container component for the `PostIndex` that maps an array of all posts  
@@ -13,7 +13,6 @@ name.
 //   listing: state.entities.listings[ownProps.match.params.listingId]
 // });
 const mapSTP = (state, ownProps) => {
-
   return {
     listing: state.entities.listings[ownProps.match.params.listingId]
   }
