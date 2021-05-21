@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
-import ListingSearch from './listing_search';
-import { fetchListings } from '../../actions/listing_actions';
-import { updateFilter, updateFilters } from '../../actions/filter_actions';
-import { openModal } from '../../actions/modal_actions';
-import { fetchLikes, removeLike, createLike } from '../../actions/like_actions';
+import SavedListingsIndex from './saved_listing_index';
+import { fetchListings } from '../../../actions/listing_actions';
+import { updateFilter, updateFilters } from '../../../actions/filter_actions';
+import { openModal } from '../../../actions/modal_actions';
+import { fetchLikes, removeLike } from '../../../actions/like_actions';
 
 
 
@@ -12,7 +12,6 @@ const mapStateToProps = state => ({
   currentUser: state.session.id,
   likes: state.entities.likes,
   filters: state.ui.filters,
-  
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -25,4 +24,5 @@ const mapDispatchToProps = dispatch => ({
   createLike: (like) => dispatch(createLike(like)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ListingSearch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(SavedListingsIndex);

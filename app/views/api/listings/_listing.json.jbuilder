@@ -15,7 +15,8 @@ json.extract! listing,
       :year_built,
       :created_at,
       :latitude,
-      :longitude
+      :longitude,
+      :likers
 
-
+json.likers listing.likers.map {|user| user.id}
 json.photoUrls listing.photos.map { |file| url_for(file) }

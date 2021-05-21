@@ -2,6 +2,7 @@ import React from 'react'
 import { withRouter } from 'react-router'
 import MarkerManager from '../../util/marker_manager';
 
+
 class ListingMap extends React.Component {
   constructor(props) {
     super(props);
@@ -25,7 +26,7 @@ class ListingMap extends React.Component {
    
     const mapOptions = {
       center: { lat: 42.25032003839574, lng: - 73.78557614716786 },
-      zoom: 15,
+      zoom: 10,
       disableDefaultUI: "true"
     };
 
@@ -52,11 +53,12 @@ class ListingMap extends React.Component {
   mapListener() {
     google.maps.event.addListener(this.map, "idle", () => {
       const { north, south, east, west } = this.map.getBounds().toJSON();
+      // debugger
       const bounds = {
         northEast: { lat: north, lng: east },
         southWest: { lat: south, lng: west },
       };
-      this.props.updateFilter("bounds", bounds);
+      // this.props.updateFilter("bounds", bounds);
     });
     
   }

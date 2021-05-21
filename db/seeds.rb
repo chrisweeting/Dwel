@@ -98,6 +98,8 @@ listing_0003 = Listing.create!(
   postal_code: 12601,
   description: "An investors dream to own a fully rented property in a dream location. This Poughkeepsie Multi-Family is located on desirable Delafield St featuring three individual units with their own private entrances. All three units have access to the huge yard and back deck area. Walking distance to Marist College, Metro North, Amtrak, the Walkway Over the Hudson, restaurants and shopping. Unit 1 & 2 located in 95 Delafield each features a large bedroom, roomy kitchen, hardwood and tiled floors while Unit 3 in 97 is a duplex that offers 3 bedrooms. Invest in your future today!",
   status: "For sale",
+  beds: 3,
+  baths: 2,
   price: 749000,
   listing_type: "Multi Family",
   sq_ft: 2120,

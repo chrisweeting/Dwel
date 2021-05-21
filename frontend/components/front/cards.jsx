@@ -11,19 +11,22 @@ const Cards = (props) => {
       <h2>Whether you’re buying, selling or renting, we can help you move forward.</h2>
         <div className="card-container">
           <div className="card" onClick={handleClick} >
+            <figure id="card-1"></figure>
             <p className="card-text">
               Find your place with an immersive photo experience and the most 
               listings.
             </p>
             <button className="card-button" >Search homes</button>
           </div>
-          <div className="card">
+          <div className="card" id="c2">
+            <figure id="card-2"></figure>
             <p className="card-text">
               We can help you navigate a successful sale.
             </p>
             <button className="card-button" >See your options</button>
           </div>
           <div className="card" onClick={handleClick} >
+            <figure id="card-3"></figure>
             <p className="card-text">
               Find your next home with our large rental network.
             </p>

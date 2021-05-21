@@ -9,6 +9,17 @@ const ListingsReducer = (state = {}, action) => {
       return Object.assign({}, state, { [action.listing.id]: action.listing });
     case RECEIVE_ALL_LISTINGS:
       return action.listings;
+
+    // case CREATE_LIKE:
+    //   const nextState = {...state};
+    //   if (nextState.likers) {
+    //     nextState.likers.push(action.userId);
+    //   } else {
+    //     nextState.likers = [action.userId];
+    //   }
+
+    //   return nextState;
+
     default:
       return state;
   }

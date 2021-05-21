@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import ListingDetail from './listing-detail';
-import { fetchListing, fetchListings } from '../../../actions/listing_actions';
+import { fetchListing, fetchListings, updateListing } from '../../../actions/listing_actions';
+import { createLike, removeLike } from '../../../actions/like_actions';
 import { openModal } from '../../../actions/modal_actions';
 
 /*
@@ -17,12 +18,17 @@ const mapSTP = (state, ownProps) => {
   return {
     listing: state.entities.listings[ownProps.match.params.listingId],
     currentUser: state.session.id,
-  }
+    likes: state.entities.likes,
+    val: false
+  };
 };
 
 const mapDTP = (dispatch) => ({
   fetchListing: (listing) => dispatch(fetchListing(listing)),
-  openModal: modal => dispatch(openModal(modal))
+  updateListing: (listing) => dispatch(updateListing(listing)),
+  createLike: (like) => dispatch(createLike(like)),
+  openModal: (modal) => dispatch(openModal(modal)),
+  removeLike: (likeId) => dispatch(removeLike(likeId)),
 });
 
 export default connect(mapSTP, mapDTP)(ListingDetail);

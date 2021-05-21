@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 class Hero extends React.Component {
@@ -16,10 +17,6 @@ class Hero extends React.Component {
     window.removeEventListener("scroll", this.stickyBar);
   }
   
-  stickBar() {
-    const x = document.querySelector(".search-container");
-    console.log(x.getBoundingClientRect());
-  }
 
   stickyBar() {
     if (scrollY >= 325) {
@@ -39,7 +36,7 @@ class Hero extends React.Component {
           <h1>Change starts here</h1>
           <section className={this.state.searchBar ? "search-container sticky" : "search-container" } >
             <input type="text" className={this.state.searchBar ? "searchbar stick" : "searchbar"} placeholder="Enter an address, city, or Zip code"  id="searchbar" />
-            <div id="search-submit" onClick={this.stickBar} ></div>
+            <Link to="/homes" id="search-submit" ></Link>
           </section>
         </section>
         <div className={this.state.searchBar ? "bar active" : "bar"} ></div>

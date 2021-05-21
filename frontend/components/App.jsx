@@ -3,6 +3,7 @@ import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
 import GreetingContainer from './greeting/greeting_container';
 import ListingsIndexContainer from './entities/listings/listings_index_container';
 import ListingDetailContainer from './entities/listings/listing_detail_container';
+import SavedListings from './entities/user/saved_listings';
 import SearchContainer from './search/search_container';
 import Modal from './modal/modal';
 import Hero from './front/hero';
@@ -23,15 +24,16 @@ const App = () => (
       <Route path={`/homes/:listingId`} component={ListingDetailContainer}></Route>
     <Modal/>
       
+      {/* <Route exact path={"/"} component={Footer}  ></Route> */}
     <Switch>
       <Route path="/homes" component={SearchContainer} ></Route>
+      <AuthRoute path="/saved" component={SavedListings}></AuthRoute>
       <Route exact path="/">
         <Hero/>
         <Cards/>
+        <Footer/>
       </Route>
-      
     </Switch>
-   
   </div>
 );
 
