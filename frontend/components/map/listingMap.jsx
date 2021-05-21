@@ -66,7 +66,7 @@ class ListingMap extends React.Component {
   handleHover(e) {
     // debugger
 
-    let id = parseInt(e.slice(e.length -2));
+    let id = parseInt(e.slice(e.length -1));
     let marker = this.MarkerManager.markers[id];
     var latLng = marker.getPosition(); 
 
