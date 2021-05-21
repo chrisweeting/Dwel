@@ -37,7 +37,7 @@ class ListingMap extends React.Component {
     this.MarkerManager.updateMarkers(this.props.listings);
     setTimeout(
       () => this.listingListeners(),
-      200
+      1200
     );
   }
   
