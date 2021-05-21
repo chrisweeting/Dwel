@@ -7,6 +7,9 @@
 #                           PATCH  /api/users/:id(.:format)                                                                 api/users#update {:format=>:json}
 #                           PUT    /api/users/:id(.:format)                                                                 api/users#update {:format=>:json}
 #                           DELETE /api/users/:id(.:format)                                                                 api/users#destroy {:format=>:json}
+#                 api_likes POST   /api/likes(.:format)                                                                     api/likes#create {:format=>:json}
+#                  api_like GET    /api/likes/:id(.:format)                                                                 api/likes#show {:format=>:json}
+#                           DELETE /api/likes/:id(.:format)                                                                 api/likes#destroy {:format=>:json}
 #              api_listings GET    /api/listings(.:format)                                                                  api/listings#index {:format=>:json}
 #               api_listing GET    /api/listings/:id(.:format)                                                              api/listings#show {:format=>:json}
 #                           PATCH  /api/listings/:id(.:format)                                                              api/listings#update {:format=>:json}
@@ -29,6 +32,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show, :update, :destroy] do
       # resources :listings, only: [:create]
     end
+    resources :likes, only: [:create, :index, :show, :destroy]
 
     resources :listings, only: [:index, :show, :update, :destroy]
 

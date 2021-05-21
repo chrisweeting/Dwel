@@ -1,11 +1,19 @@
 class Api::ListingsController < ApplicationController
-
+  skip_before_action :verify_authenticity_token
   def index
     
-    listings = params[:bounds] ? Listing.with_attached_photos.in_bounds(params[:bounds]) : Listing.with_attached_photos.all
+    # listings = params[:bounds] ? Listing.with_attached_photos.filter_listings(params) : Listing.with_attached_photos.all
+    listings = Listing.with_attached_photos.filter_listings(params)
     # debugger
-    @listings = listings
-
+    # if params[:minPrice] && params[:maxPrice] 
+    #   listings = listings.where(price: price_range)
+    # end
+    
+    if params[:query] != ''
+      @listings = listings.search_listing(params[:query])
+    else
+      @listings = listings
+    end
     # @listings = Listing.with_attached_photos.all
 
     render 'api/listings/index'
@@ -31,18 +39,18 @@ class Api::ListingsController < ApplicationController
   #   # render 'api/listings/show'
   # end
 
-  # def update
-  #   @listing = Listing.find(params[:id])
+  def update
+    @listing = Listing.find(params[:id])
 
-  #   if @listing && @listing.update_attributes(listings_params)
+    if @listing && @listing.update_attributes(listings_params)
       
-  #     render 'api/listings/show'
-  #   elsif !@user
-  #     render json: ['listing not found'], status: 400
-  #   else
-  #     render json: @listing.errors.full_messages, status: 401
-  #   end
-  # end
+      render 'api/listings/show'
+    # elsif !@user
+    #   render json: ['listing not found'], status: 400
+    else
+      render json: @listing.errors.full_messages, status: 401
+    end
+  end
 
   # def destroy
   #   @listing = Listing.find(params[:id])
@@ -73,8 +81,25 @@ class Api::ListingsController < ApplicationController
       :lot_size,
       :year_built,
       :latitude,
-      :longitude
+      :longitude,
+      :likers,
+      :id,
+      :photoUrls,
+      :created_at,
+      
     )
+  end
+
+  def price_range 
+    (params[:minPrice]..params[:maxPrice])
+  end
+
+  def price_range 
+    (params[:minPrice]..params[:maxPrice])
+  end
+
+  def price_range 
+    (params[:minPrice]..params[:maxPrice])
   end
 
   def bounds

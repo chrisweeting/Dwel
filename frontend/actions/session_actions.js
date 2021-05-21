@@ -36,6 +36,12 @@ export const login = (user) => (dispatch) => (
   ).fail(err => (dispatch(receiveErrors(err.responseJSON))))
 );
 
+export const updateUser = (user) => (dispatch) => (
+  updateUser(user).then(user => 
+    dispatch(receiveCurrentUser(user))
+  ).fail(err => (dispatch(receiveErrors(err.responseJSON))))
+);
+
 export const logout = () => (dispatch) => (
   deleteSession()
     .then(user => dispatch(logoutCurrentUser()))

@@ -13,6 +13,9 @@ const receiveListing = (listing) => ({
   listing
 });
 
+
+
+
 // export const fetchListings = () => (dispatch) => (
 //   ListingApiUtil.fetchListings()
 //     .then((listings) => dispatch(receiveAllListings(listings)))
@@ -22,14 +25,25 @@ const receiveListing = (listing) => ({
 //     .then((res) => dispatch(receiveListing(res)))
 // );
 
-export const fetchListings = () => (dispatch) => {
-  return ListingApiUtil.fetchListings().then((listings) => {
+
+export const fetchListings = (filters) => (dispatch) => {
+  // debugger
+  return ListingApiUtil.fetchListings(filters).then((listings) => {
+    // debugger
     return dispatch(receiveAllListings(listings));
   });
 };
 
 export const fetchListing = (listingId) => (dispatch) => {
-  return ListingApiUtil.fetchListing(listingId).then((listing) => {
+  return ListingApiUtil.fetchListing(listingId).then(({listing}) => {
+    // debugger
+    return dispatch(receiveListing(listing));
+  });
+};
+
+export const updateListing = (listing) => (dispatch) => {
+  return ListingApiUtil.updateListing(listing).then((listing) => {
+    // debugger
     return dispatch(receiveListing(listing));
   });
 };

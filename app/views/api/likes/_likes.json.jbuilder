@@ -1,0 +1,1 @@
+json.extract! like, :user_id, :listing_id

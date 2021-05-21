@@ -337,6 +337,7 @@
   width: auto;
   top: 514px;
   bottom: 0;
+  background-color: white;
 }
 
 .card-section h2 {
@@ -368,6 +369,11 @@
   transition: transform 250ms;
   cursor: pointer;
   margin: 5px 15px;
+  background-color: rgba(254,250,249,255);
+}
+
+#c2 {
+  background-color: rgba(255,255,255,255);
 }
 
 .card:hover {
@@ -397,7 +403,7 @@
   position: absolute;
   cursor: pointer;
   text-align: center;
-  top: 270px;
+  top: 323px;
   left: 0;
   right: 0;
   margin-left: auto; 
@@ -457,6 +463,18 @@
   right: 15px;
   top: 10px;
 }
+
+.listing-short-liked {
+  content: url("<%= asset_path('saved.png') %>") ;
+  /* background-image: url("<%= asset_path('heart-outline-transparent-2.png') %>") ; */
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+}
+
+
 
 .listing-short-like:hover {
   content: url("<%= asset_path('heart-outline-transparent-1.png') %>") ;
@@ -596,6 +614,13 @@
   background-size: contain;
 }
 
+#saved-icon {
+  background-image: url("<%= asset_path('saved.png') %>") ;
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+}
+
 .save-button {
   display: flex;
   align-items: center;
@@ -654,4 +679,193 @@ footer {
 #listing-detail-map-container {
   height: 300px;
   pointer-events: none;
+}
+
+#mapcontainer {
+  position: fixed;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.lst-searchbar {
+  position: sticky;
+  z-index: 4;
+  background-color: rgba(152, 155, 156, 0.075);
+  width: 100vw;
+  height: 35pxvh;
+  display: flex;
+}
+
+#no-results {
+  background-image: url("<%= asset_path('search_2.png') %>") ;
+  background-size: 300px 300px;
+  background-repeat: no-repeat;
+  background-attachment: local;
+  background-position-y: 22vh;
+  background-position-x: center;
+  width: 52vw;
+  max-width: 740px;
+  padding-left: 10px;
+  overflow-y: scroll;
+  background-color: white;
+  height: 100vh;
+  right: 0;
+  position: fixed;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.lst-dropdown {
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;       /* Remove default arrow */
+   /* background-image: url(...);   Add custom arrow */
+   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+   outline: rgba(119, 136, 153, 0.856);
+   border: none;
+   padding: 12px 20px;
+   text-align-last: center;
+   margin-left: 10px;
+}
+
+.lst-dropdown:hover {
+  background-color: lightslategray;
+}
+
+#lst-searchbar-inpt {
+  width: 300px;
+  height: 40px;
+  line-height: 25px;
+  padding: 0 20px;
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+  /* border-radius: 5px; */
+  border: none;
+}
+
+.lst-searchbar {
+  height: 45px;
+  position: relative;
+}
+
+.lst-searchbar-container {
+  height: 45px;
+  position: relative;
+}
+
+#lst-search-submit {
+  height: 25px;
+  width: 25px;
+  background-image: url("<%= asset_path('search.png') %>") ;
+  background-size: cover;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  cursor: pointer;
+}
+
+#card-1 {
+  background-image: url("<%= asset_path('buy.jpg') %>") ;
+  height: 200px;
+  width: 270px;
+  right: 24px;
+  background-size: cover;
+  margin: 75px auto;
+}
+
+#card-2 {
+  background-image: url("<%= asset_path('sell.jpg') %>") ;
+  height: 200px;
+  width: 270px;
+  right: 24px;
+  background-size: cover;
+  margin: 75px auto;
+}
+
+#card-3 {
+  background-image: url("<%= asset_path('rent.jpg') %>") ;
+  height: 200px;
+  width: 270px;
+  right: 24px;
+  background-size: cover;
+  margin: 75px auto;
+}
+
+#footer-right {
+  background-image: url("<%= asset_path('f-r.jpg') %>") ;
+  /* height: 25vh;
+  width: 41vw;
+  margin: 0 1px;
+  background-size: cover;
+  min-width: 440px;
+  max-height: 200px;
+  background-repeat: no-repeat; */
+
+
+  height: 25vh;
+  width: 41vw;
+  margin: 0 1px;
+  background-size: cover;
+  min-width: 404px;
+  max-height: 200px;
+  background-repeat: no-repeat;
+}
+
+#footer-mid {
+  background-image: url("<%= asset_path('f-m.jpg') %>") ;
+  /* height: 25vh;
+  width: 34vw;
+  background-size: cover;
+  margin: 0 1px;
+  min-width: 340px;
+  max-height: 200px;
+  background-repeat: no-repeat; */
+
+  height: 25vh;
+  width: 34vw;
+  background-size: cover;
+  margin: 0 1px;
+  min-width: 340px;
+  max-height: 200px;
+  background-repeat: no-repeat;
+}
+
+#footer-left {
+  background-image: url("<%= asset_path('f-l.jpg') %>") ;
+  /* height: 25vh;
+  width: 32vw;
+  background-size: cover;
+  margin: 0 1px;
+  min-width: 340px;
+  max-height: 200px;
+  background-repeat: no-repeat; */
+
+
+  height: 25vh;
+  width: 44vw;
+  background-size: cover;
+  margin: 0 1px;
+  min-width: 435px;
+  max-height: 200px;
+  background-repeat: no-repeat;
+}
+
+#ft-img {
+  background-image: url("<%= asset_path('f-1.jpg') %>") ;
+  height: 25vh;
+  width: 100vw;
+  background-size: 400px 100vw;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
+}
+
+
+.footer {
+  display: flex;
+  position: relative;
+  align-items: flex-end;
+  height: 300x;
+  top: 800px;
+  overflow: hidden;
+  /* justify-content: space-between; */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }

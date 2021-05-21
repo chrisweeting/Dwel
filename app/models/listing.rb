@@ -26,13 +26,44 @@ class Listing < ApplicationRecord
   validates :description, :status, :price, :listing_type, :sq_ft, presence: true
   
   # has_one_attached :photo
-  has_many_attached :photos
+  has_many_attached(
+    :photos
+    
+  )
+
+  has_many(
+    :likes, 
+    primary_key: :id,
+    foreign_key: :listing_id,
+    class_name: :Like
+  )
+
+  has_many(
+    :likers,
+    through: :likes,
+    source: :liker
+  )
 
   def self.in_bounds(bounds)
     self.where("latitude < ?", bounds[:northEast][:latitude])
       .where("latitude > ?", bounds[:southWest][:latitude])
       .where("longitude > ?", bounds[:southWest][:longitude])
       .where("longitude < ?", bounds[:northEast][:longitude])
+  end
+
+  def self.search_listing(query)
+    
+    return self.where("state Like ?", "%#{query}%" )
+      .or(where("city Like ?", "%#{query}%" ))
+      .or(where("postal_code Like ?", "%#{query}%" ))
+  end
+
+  def self.filter_listings(filters)
+    # debugger
+    self.where("beds >= ?", filters[:minBeds] )
+      .where("baths >= ?", filters[:minBaths] )
+      .where("price >= ?", filters[:minPrice] )
+      .where("sq_ft >= ?", filters[:minSqft] )
   end
 
 end
