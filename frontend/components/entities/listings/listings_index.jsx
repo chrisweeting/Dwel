@@ -4,49 +4,27 @@ import ListingIndexItem from './listings_index_item';
 class ListingIndex extends React.Component {
   constructor(props) {
     super(props);
-    // this.handleClick = this.handleClick.bind(this);
-    // debugger
+    this.state = {
+      likes: this.props.currentUser.liked_listings
+    };
 
+    this.setState = this.setState.bind(this);
   }
   
   componentDidMount() {
-    // debugger
     this.props.fetchListings(this.props.filters);
-    this.props.fetchLikes();
-    // debugger
+    this.props.fetchLikes().then(res => {
+      this.setState(res.likes);
+    });
    
-  };
+  }
 
   componentDidUpdate() {
     let m = document.getElementById("listing-map-container");
     m.style.position = "fixed";
   }
 
-  // handleClick(e) {
-  //   if (!this.props.currentUser) {
-  //     this.props.openModal("signin");
-  //   } else {
-      
-  //     let obj = this.props.likes;
-  //     // debugger
-  //     for (const [key, value] of Object.entries(obj)) {
-  //       // debugger
-  //       if (value["listing_id"] === parseInt(e.currentTarget.id)) {
-  //         // debugger
-  //         this.props.removeLike(key);
-          
-  //       } else {
-  //         this.props.createLike({ user_id: this.props.currentUser, listingId: parseInt(e.currentTarget.id) });
-  //       }
-  //     }
-  //     this.componentDidMount();
-  //   }
-  // }
-
-
   render() {
-    // debugger
-    debugger
     const { listings } = this.props;
     if (listings.length === 0) {
       return (
@@ -67,9 +45,10 @@ class ListingIndex extends React.Component {
               openModal={this.props.openModal} 
               handleClick={this.handleClick} 
               currentUser={this.props.currentUser}
-              likes={this.props.likes}
+              likes={this.state.likes}
               createLike={this.props.createLike}
               removeLike={this.props.removeLike}
+              setState={this.setState}
             />
           </div>
         )

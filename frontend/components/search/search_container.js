@@ -9,7 +9,7 @@ import { fetchLikes, removeLike, createLike } from '../../actions/like_actions';
 
 const mapStateToProps = state => ({
   listings: Object.values(state.entities.listings),
-  currentUser: state.session.id,
+  currentUser: state.session,
   likes: state.entities.likes,
   filters: state.ui.filters,
   

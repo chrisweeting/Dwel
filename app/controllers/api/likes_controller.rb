@@ -2,7 +2,7 @@ class Api::LikesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def create
-    @like = Like.new(listing_id: params[:like][:listingId])
+    @like = Like.new(listing_id: params[:listingId])
     @like.user_id = current_user.id
     # debugger
     if @like.save 
@@ -26,11 +26,11 @@ class Api::LikesController < ApplicationController
 
   def destroy
     # debugger
-    @like = Like.find_by(id: params[:id])
+    @like = Like.find_by(listing_id: params[:id])
     
     if @like
       @like.destroy
-      render json: ['listing removed']
+      render json: [@like.listing_id]
     else
       render json: ['error'], status: 404
     end

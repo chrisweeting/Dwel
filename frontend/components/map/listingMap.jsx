@@ -32,7 +32,6 @@ class ListingMap extends React.Component {
 
     this.map = new google.maps.Map(this.mapNode, mapOptions);
     this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
-    console.log("hello");
     this.mapListener();
     this.MarkerManager.updateMarkers(this.props.listings);
     setTimeout(
@@ -43,11 +42,7 @@ class ListingMap extends React.Component {
   
   listingListeners() {
     const listings = document.querySelectorAll(".listing-short")
-    console.log(listings);
-    // debugger
     listings.forEach((listing) => listing.addEventListener("mouseover", () => this.handleHover(listing.hash)));
-    
-    // document.addEventListener()
   }
   
   mapListener() {
@@ -66,7 +61,7 @@ class ListingMap extends React.Component {
   handleHover(e) {
     // debugger
 
-    let id = parseInt(e.slice(e.length -1));
+    let id = parseInt(e.slice(e.length -2));
     let marker = this.MarkerManager.markers[id];
     var latLng = marker.getPosition(); 
 
@@ -89,6 +84,10 @@ class ListingMap extends React.Component {
 
   componentDidUpdate() {
     this.MarkerManager.updateMarkers(this.props.listings);
+    setTimeout(
+      () => this.listingListeners(),
+      1200
+    );
   }
   
   handleMarkerClick(listing) {

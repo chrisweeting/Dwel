@@ -12,11 +12,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let store;
   if (window.currentUser) {
+    let listingIds = window.currentUser.liked_listings.map(listing => listing.id);
     const preloadedState = {
       entities: {
         users: { [window.currentUser.id]: window.currentUser }
       },
-      session: { id: window.currentUser.id }
+      session: { 
+        id: window.currentUser.id,
+        email: window.currentUser.email,
+        liked_listings: listingIds
+      }
     };
     store = configureStore(preloadedState);
     delete window.currentUser;

@@ -40,7 +40,6 @@ class MarkerManager {
       this.markers[marker.listingId] = marker;
   
       marker.addListener('mouseover', function () {
-        console.log('hehe')
         infowindow.open(marker.map, marker);
       });
   

@@ -3,22 +3,18 @@ import { CREATE_LIKE, FETCH_LIKES, REMOVE_LIKE } from '../actions/like_actions';
 
 const LikesReducer = (state = {}, action) => {
   Object.freeze(state);
-  // debugger
+  const newState = {...state};
   switch (action.type) {
+    case CREATE_LIKE:
+      return Object.assign({}, newState, { [action.listing_id]: { user_id: action.user_id, listing_id: action.listing_id } });
     case REMOVE_LIKE:
-      const newState = {...state};
-
-      delete newState[action.likeId];
+      delete newState[action.listingId];
       return newState;
-    // case CREATE_LIKE:
     case FETCH_LIKES:
-      // debugger
       return action.likes;
-    
-
     default:
       return state;
   }
-}
+};
 
 export default LikesReducer;

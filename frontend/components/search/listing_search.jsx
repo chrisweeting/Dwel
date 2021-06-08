@@ -4,6 +4,13 @@ import ListingsIndex from '../entities/listings/listings_index';
 import SearchBar from './searchbar';
 
 class ListingSearch extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      filters: this.props.filters
+    };
+  }
+
   render() {
     const { listings, 
         fetchListings, 
@@ -20,7 +27,7 @@ class ListingSearch extends React.Component {
       // debugger
     return (
       <div className="lw" >
-        <SearchBar filters={filters} updateFilter={updateFilter} updateFilters={updateFilters} />
+        <SearchBar filters={this.state.filters} updateFilter={updateFilter} updateFilters={updateFilters} />
         <div id="mapcontainer">
           <ListingMap listings={listings} updateFilter={updateFilter} />
 
@@ -34,7 +41,7 @@ class ListingSearch extends React.Component {
           removeLike={removeLike }
           likes={likes}
           createLike={createLike}
-          filters={filters}
+          filters={this.state.filters}
           />
         
       </div>

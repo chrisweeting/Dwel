@@ -11,23 +11,20 @@ const getLikes = (likes) => ({
   likes,
 });
 
-const addLike = ({ like, userId, listingId }) => ({
+const addLike = ({ user_id, listing_id }) => ({
   type: CREATE_LIKE,
-  like,
-  userId,
-  listingId,
+  user_id,
+  listing_id,
 });
 
-const deleteLike = (likeId) => ({
+const deleteLike = (listingId) => ({
   type: REMOVE_LIKE,
-  likeId,
+  listingId,
 });
 
 
 export const fetchLikes = () => (dispatch) => {
-  // debugger
   return LikeApiUtil.fetchLikes().then((likes) => {
-    // debugger
     return dispatch(getLikes(likes));
   });
 };
@@ -38,8 +35,8 @@ export const createLike = (like) => dispatch => (
   ))
 );
 
-export const removeLike = (likeId) => dispatch => (
-  LikeApiUtil.removeLike(likeId).then(like => (
+export const removeLike = (listingId) => dispatch => (
+  LikeApiUtil.removeLike(listingId).then(like => (
     dispatch(deleteLike(like))
   ))
 );

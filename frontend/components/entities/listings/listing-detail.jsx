@@ -8,8 +8,8 @@ class ListingDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      listing: this.props.listing,
-      lkd: this.props.lkd
+      house: this.props.listing,
+      likes: this.props.currentUser.liked_listings
     };
     
 
@@ -19,55 +19,59 @@ class ListingDetail extends React.Component {
 
   componentDidMount() {
     this.props.fetchListing(this.props.match.params.listingId).then((res) => {
-      // debugger
-      this.setState(res.listing);
+      this.setState({ house: res.listing });
     });
   }
 
-
-
-  componentDidUpdate() {
-    if (this.state.lkd === true) {
-     
-      this.setState({lkd: false});
-      
-    }
-  }
-
   handleClick(e) {
-    if (!this.props.currentUser) {
+    let likes = this.state.likes;
+
+    if (!this.props.currentUser.id) {
       this.props.openModal("signin");
-    } else if (this.state.likers.includes(this.props.currentUser)) {
-      let obj = this.props.likes;
+    } else if (likes.includes(this.props.listing.id)) {
+      // let obj = this.props.likes;
       
-      for (const [key, value] of Object.entries(obj)) {
-        if (value["listing_id"] === this.state.id) {
-          this.props.removeLike(key);
-        }
-      }
+      // for (const [key, value] of Object.entries(obj)) {
+      //   if (value["listing_id"] === this.state.id) {
+      //     this.props.removeLike(key);
+      //   }
+      // }
+
+      this.props.removeLike(this.props.listing.id);
+
+      let nextState = this.state.likes.filter(like => like !== this.props.listing.id );
+
+      this.setState({
+          likes: nextState
+      });
+
     } else {
-      this.props.createLike({userId: this.props.currentUser, listingId: this.props.listing.id});
+      this.props.createLike({userId: this.props.currentUser.id, listingId: this.props.listing.id});
+
+      let nextState = this.state.likes;
+      nextState.push(this.props.listing.id);
+
+      this.setState({
+        likes: nextState
+      });
     }
-    // this.state.likeChange === true ? this.setState({[this.state.likeChange]: false}) : this.setState( {[this.state.likeChange]: true})
-    // debugger
-    // this.forceUpdate();
+    // // this.state.likeChange === true ? this.setState({[this.state.likeChange]: false}) : this.setState( {[this.state.likeChange]: true})
+    // // debugger
+    // // this.forceUpdate();
     
-    // if (this.state.likeChange === true) {
-      this.setState({lkd: true});
-      // this.componentDidMount();
-    // } else {
-    //   this.setState( {["likeChange"]: true});
-    //   this.componentDidMount();
-    // }
+    // // if (this.state.likeChange === true) {
+    //   this.setState({lkd: true});
+    //   // this.componentDidMount();
+    // // } else {
+    // //   this.setState( {["likeChange"]: true});
+    // //   this.componentDidMount();
+    // // }
 
   }
 
   render() {
-    const { listing } = this.props;
+    const { listing, currentUser } = this.props;
     if (!listing) return null;
-    
-
-
 
     const photos = this.props.listing.photoUrls.map((url, i) => {
       return (
@@ -77,8 +81,12 @@ class ListingDetail extends React.Component {
       )
     })
     
-    const saveIcon = this.props.listing.likers.includes(this.props.currentUser) ? "saved-icon" : "save-icon"
-    const saveText = this.props.listing.likers.includes(this.props.currentUser) ? "Saved" : "Save"
+    // const saveIcon = this.props.listing.likers.includes(this.props.currentUser) ? "saved-icon" : "save-icon"
+    // const saveText = this.props.listing.likers.includes(this.props.currentUser) ? "Saved" : "Save"
+    let likes = this.state.likes
+    
+    const saveIcon = likes.includes(listing.id) ? "saved-icon" : "save-icon"
+    const saveText = likes.includes(listing.id) ? "Saved" : "Save"
 
     const { price, street_address, beds, baths, sq_ft, listing_type, status, city, state, postal_code, description } = this.props.listing;
     const priceUs = new Intl.NumberFormat().format(price)

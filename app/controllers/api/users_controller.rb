@@ -14,7 +14,7 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find(params[:id]).include(:liked_listings)
 
     # render :show
     render 'api/users/show'

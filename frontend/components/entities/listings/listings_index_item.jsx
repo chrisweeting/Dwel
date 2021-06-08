@@ -4,29 +4,37 @@ import { Link, withRouter } from 'react-router-dom';
 
 
 
-const ListingIndexItem = ({ listing, openModal, currentUser, likes, createLike, removeLike }) => {
+const ListingIndexItem = ({ listing, openModal, currentUser, likes, createLike, removeLike, setState }) => {
 
   const handleClick = (e) => {
     if (!currentUser) {
       openModal("signin");
-    } else if (listing.likers.includes(currentUser)) {
-      let obj = likes;
+    } else if (likes.includes(listing.id)) {
+      removeLike(listing.id);
 
-      for (const [key, value] of Object.entries(obj)) {
-        if (value["listing_id"] === listing.id) {
-          removeLike(key);
-        }
-      }
+      // setState({
+      //   [listing.id]: {
+      //     user_id: '',
+      //     listing_id: listing.id
+      //   }
+      // });
+      let filtered = likes.filter(like => like !== listing.id);
+      setState({likes: filtered });
     } else {
-      createLike({ userId: currentUser, listingId: listing.id });
+      createLike({ userId: currentUser.id, listingId: listing.id });
+      let newLikes = likes.concat([listing.id]);
+      setState({ likes: newLikes });
+      // setState({
+      //   [listing.id]: {
+      //     user_id: currentUser,
+      //     listing_id: listing.id
+      //   }
+      // });
     }
-    
   };
 
-
-  // if (likes.include(currentUser))
-  const saveIcon = listing.likers.includes(currentUser) ? "listing-short-liked" : "listing-short-like";
-  debugger
+  const saveIcon = likes.includes(listing.id) ? "listing-short-liked" : "listing-short-like";
+  
   return (
     <Link className="listing-short" to={`/homes/${listing.id}`} >
       <img src={listing.photoUrls} alt="" className="listing-photo"/>
