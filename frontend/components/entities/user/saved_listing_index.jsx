@@ -4,42 +4,22 @@ import ListingIndexItem from '../listings/listings_index_item';
 class SavedListingIndex extends React.Component {
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
-    // debugger
+    this.state = {
+      listings: this.props.listings,
+      likes: this.props.currentUser.liked_listings
+    };
 
+    this.setState = this.setState.bind(this);
   }
 
   componentDidMount() {
+    this.props.fetchListings(this.props.filters).then(({listings}) => {
+      this.setState({listings: Object.values(listings)});
+    });
+    // this.props.fetchLikes();
     // debugger
-    this.props.fetchListings(this.props.filters);
-    this.props.fetchLikes();
-    // debugger
 
-  };
-
-  
-
-  handleClick(e) {
-    if (!this.props.currentUser) {
-      this.props.openModal("signin");
-    } else {
-
-      let obj = this.props.likes;
-      // debugger
-      for (const [key, value] of Object.entries(obj)) {
-        // debugger
-        if (value["listing_id"] === parseInt(e.currentTarget.id)) {
-          // debugger
-          this.props.removeLike(key);
-
-        } else {
-          this.props.createLike({ user_id: this.props.currentUser, listingId: parseInt(e.currentTarget.id) });
-        }
-      }
-      this.componentDidMount();
-    }
   }
-
 
   render() {
     const { listings } = this.props;
@@ -53,34 +33,28 @@ class SavedListingIndex extends React.Component {
     }
 
 
-    let obj = this.props.likes;
-    const likedIds = [];
+    let liked = this.state.listings.filter(listing => this.props.currentUser.liked_listings.includes(listing.id));
 
-    for (const [key, value] of Object.entries(obj)) {
-      likedIds.push(value["listing_id"]);
-    }
-
-
-    const items = listings.map((listing) => {
-      if (listing.id && likedIds.includes(listing.id)) {
-        return (
-          <div key={listing.id}>
-            <ListingIndexItem
-              listing={listing}
-              openModal={this.props.openModal}
-              handleClick={this.handleClick}
-              currentUser={this.currentUser}
-              likes={this.props.likes}
-              createLike={this.props.createLike}
-              removeLike={this.props.removeLike}
-            />
-          </div>
-        )
-      }
+    const items = liked.map((listing) => {
+      return (
+        <div key={listing.id}>
+          <ListingIndexItem
+            listing={listing}
+            openModal={this.props.openModal}
+            currentUser={this.props.currentUser}
+            likes={this.state.likes}
+            createLike={this.props.createLike}
+            removeLike={this.props.removeLike}
+            setState={this.setState}
+          />
+        </div>
+      )
+      
     })
 
     return (
       <div className="listing-section">
+        <h1>Liked Listings</h1>
         <ul className="listing-items">
           {items}
         </ul>

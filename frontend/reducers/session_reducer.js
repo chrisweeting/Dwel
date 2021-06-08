@@ -4,7 +4,8 @@ import { CREATE_LIKE, FETCH_LIKES, REMOVE_LIKE } from '../actions/like_actions';
 const _nullState = {
   id: null,
   email: null,
-  liked_listings: []
+  liked_listings: [],
+  loggedIn: false
 };
 
 const SessionReducer = (state = _nullState, action) => {
@@ -26,7 +27,8 @@ const SessionReducer = (state = _nullState, action) => {
       nextState = {
         id: action.currentUser.id,
         email: action.currentUser.email,
-        liked_listings: listingIds
+        liked_listings: listingIds,
+        loggedIn: true
       };
       return nextState;
     case REMOVE_CURRENT_USER:
