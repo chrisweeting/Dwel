@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import UserDropdown from '../session/user_dropdown';
 
 
@@ -12,7 +12,11 @@ class Greeting extends React.Component {
   }
 
   handleClick(e) {
-    this.props.logout();
+    if (e.currentTarget.id === "logout") {
+      this.props.logout();
+    } else {
+      this.props.history.push("/saved");
+    }
   }
 
   // openModal() {
@@ -51,4 +55,4 @@ class Greeting extends React.Component {
   }
 }
 
-export default Greeting;
+export default withRouter(Greeting);

@@ -55,7 +55,7 @@ class Listing < ApplicationRecord
     
     return self.where("state Like ?", "%#{query}%" )
       .or(where("city Like ?", "%#{query}%" ))
-      .or(where("postal_code Like ?", "%#{query}%" ))
+      .or(where("street_address Like ?", "%#{query}%" ))
   end
 
   def self.filter_listings(filters)

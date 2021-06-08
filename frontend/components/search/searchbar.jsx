@@ -4,6 +4,10 @@ import React from 'react';
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
+    this.state = this.props.filters;
+
+    this.update = this.update.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(e, filter, func) {
@@ -11,14 +15,27 @@ class SearchBar extends React.Component {
     // debugger
   }
 
+  update(e) {
+    // debugger
+    this.setState({ query: e.currentTarget.value });
+  }
+
+  handleSubmit() {
+    this.props.updateFilter( "query", this.state.query );
+  }
+
 
   render() {
     return (
       <nav className="lst-searchbar">
-        <section className="lst-searchbar-container" >
+        {/* <section className="lst-searchbar-container" >
           <input type="text" placeholder="Enter an address, city, or Zip code" id="lst-searchbar-inpt" value={this.props.filters.query} onChange={(e) => this.handleChange(e, 'query', this.props.updateFilter)}/>
           <div id="lst-search-submit" ></div>
-        </section>
+        </section> */}
+        <form className="lst-searchbar-container" onSubmit={this.handleSubmit}>
+          <input type="text" placeholder="Enter an address, city, or Zip code" id="lst-searchbar-inpt" value={this.state.query} onChange={this.update} />
+          <button id="lst-search-submit"></button>
+        </form>
 
         <label htmlFor=""> 
           <select className="lst-dropdown" value={this.props.filters.minPrice} onChange={(e) => this.handleChange(e, 'minPrice', this.props.updateFilter)}>

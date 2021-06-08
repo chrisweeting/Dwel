@@ -29,14 +29,7 @@ class ListingDetail extends React.Component {
     if (!this.props.currentUser.id) {
       this.props.openModal("signin");
     } else if (likes.includes(this.props.listing.id)) {
-      // let obj = this.props.likes;
-      
-      // for (const [key, value] of Object.entries(obj)) {
-      //   if (value["listing_id"] === this.state.id) {
-      //     this.props.removeLike(key);
-      //   }
-      // }
-
+ 
       this.props.removeLike(this.props.listing.id);
 
       let nextState = this.state.likes.filter(like => like !== this.props.listing.id );
@@ -55,17 +48,6 @@ class ListingDetail extends React.Component {
         likes: nextState
       });
     }
-    // // this.state.likeChange === true ? this.setState({[this.state.likeChange]: false}) : this.setState( {[this.state.likeChange]: true})
-    // // debugger
-    // // this.forceUpdate();
-    
-    // // if (this.state.likeChange === true) {
-    //   this.setState({lkd: true});
-    //   // this.componentDidMount();
-    // // } else {
-    // //   this.setState( {["likeChange"]: true});
-    // //   this.componentDidMount();
-    // // }
 
   }
 
@@ -81,8 +63,6 @@ class ListingDetail extends React.Component {
       )
     })
     
-    // const saveIcon = this.props.listing.likers.includes(this.props.currentUser) ? "saved-icon" : "save-icon"
-    // const saveText = this.props.listing.likers.includes(this.props.currentUser) ? "Saved" : "Save"
     let likes = this.state.likes
     
     const saveIcon = likes.includes(listing.id) ? "saved-icon" : "save-icon"

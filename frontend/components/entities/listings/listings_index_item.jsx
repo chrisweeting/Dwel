@@ -7,29 +7,17 @@ import { Link, withRouter } from 'react-router-dom';
 const ListingIndexItem = ({ listing, openModal, currentUser, likes, createLike, removeLike, setState }) => {
 
   const handleClick = (e) => {
-    if (!currentUser) {
+    if (!currentUser.id) {
       openModal("signin");
     } else if (likes.includes(listing.id)) {
       removeLike(listing.id);
 
-      // setState({
-      //   [listing.id]: {
-      //     user_id: '',
-      //     listing_id: listing.id
-      //   }
-      // });
       let filtered = likes.filter(like => like !== listing.id);
       setState({likes: filtered });
     } else {
       createLike({ userId: currentUser.id, listingId: listing.id });
       let newLikes = likes.concat([listing.id]);
       setState({ likes: newLikes });
-      // setState({
-      //   [listing.id]: {
-      //     user_id: currentUser,
-      //     listing_id: listing.id
-      //   }
-      // });
     }
   };
 
