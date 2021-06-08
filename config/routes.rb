@@ -7,9 +7,16 @@
 #                           PATCH  /api/users/:id(.:format)                                                                 api/users#update {:format=>:json}
 #                           PUT    /api/users/:id(.:format)                                                                 api/users#update {:format=>:json}
 #                           DELETE /api/users/:id(.:format)                                                                 api/users#destroy {:format=>:json}
-#                 api_likes POST   /api/likes(.:format)                                                                     api/likes#create {:format=>:json}
+#                 api_likes GET    /api/likes(.:format)                                                                     api/likes#index {:format=>:json}
+#                           POST   /api/likes(.:format)                                                                     api/likes#create {:format=>:json}
 #                  api_like GET    /api/likes/:id(.:format)                                                                 api/likes#show {:format=>:json}
 #                           DELETE /api/likes/:id(.:format)                                                                 api/likes#destroy {:format=>:json}
+#        api_search_records GET    /api/search_records(.:format)                                                            api/search_records#index {:format=>:json}
+#                           POST   /api/search_records(.:format)                                                            api/search_records#create {:format=>:json}
+#         api_search_record GET    /api/search_records/:id(.:format)                                                        api/search_records#show {:format=>:json}
+#                           PATCH  /api/search_records/:id(.:format)                                                        api/search_records#update {:format=>:json}
+#                           PUT    /api/search_records/:id(.:format)                                                        api/search_records#update {:format=>:json}
+#                           DELETE /api/search_records/:id(.:format)                                                        api/search_records#destroy {:format=>:json}
 #              api_listings GET    /api/listings(.:format)                                                                  api/listings#index {:format=>:json}
 #               api_listing GET    /api/listings/:id(.:format)                                                              api/listings#show {:format=>:json}
 #                           PATCH  /api/listings/:id(.:format)                                                              api/listings#update {:format=>:json}
@@ -33,6 +40,8 @@ Rails.application.routes.draw do
       # resources :listings, only: [:create]
     end
     resources :likes, only: [:create, :index, :show, :destroy]
+
+    resources :search_records, only: [:create, :index, :show, :update, :destroy]
 
     resources :listings, only: [:index, :show, :update, :destroy]
 

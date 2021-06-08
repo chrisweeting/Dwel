@@ -1,7 +1,8 @@
 import { UPDATE_FILTER, UPDATE_FILTERS } from '../actions/filter_actions';
+import { FETCH_SEARCH } from '../actions/search_actions';
 
 const defaultFilters = Object.freeze({
-  bounds: {},
+  // bounds: {},
   minBeds: 0,
   minBaths: 0,
   minSqft: 500,
@@ -14,11 +15,12 @@ const defaultFilters = Object.freeze({
 const FiltersReducer = (state = defaultFilters, action) => {
   Object.freeze(state);
   switch (action.type) {
+    case FETCH_SEARCH:
+      return action.search;
     case UPDATE_FILTER:
       return Object.assign({}, state, { [action.filter]: action.value });
-    case UPDATE_FILTER:
+    case UPDATE_FILTERS:
       return Object.assign({}, state, { ...action.filters });
-    
     default:
       return state;
   }

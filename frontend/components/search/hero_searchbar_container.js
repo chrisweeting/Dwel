@@ -19,7 +19,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   fetchListings: (filters) => dispatch(fetchListings(filters)),
   updateFilter: (filter, value) => dispatch(updateFilter(filter, value)),
-  updateFilters: (filter) => dispatch(updateFilter(filter)),
+  updateFilters: (filter) => dispatch(updateFilters(filter)),
   openModal: modal => dispatch(openModal(modal)),
   fetchLikes: () => dispatch(fetchLikes()),
   removeLike: (likeId) => dispatch(removeLike(likeId)),

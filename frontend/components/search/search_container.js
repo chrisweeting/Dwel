@@ -4,6 +4,7 @@ import { fetchListings } from '../../actions/listing_actions';
 import { updateFilter, updateFilters } from '../../actions/filter_actions';
 import { openModal } from '../../actions/modal_actions';
 import { fetchLikes, removeLike, createLike } from '../../actions/like_actions';
+import { createSearch, updateSearch, removeSearch } from '../../actions/search_actions';
 
 
 
@@ -12,7 +13,6 @@ const mapStateToProps = state => ({
   currentUser: state.session,
   likes: state.entities.likes,
   filters: state.ui.filters,
-  
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -23,6 +23,10 @@ const mapDispatchToProps = dispatch => ({
   fetchLikes: () => dispatch(fetchLikes()),
   removeLike: (likeId) => dispatch(removeLike(likeId)),
   createLike: (like) => dispatch(createLike(like)),
+  removeSearch: (searchId) => dispatch(removeSearch(searchId)),
+  createSearch: (search) => dispatch(createSearch(search)),
+  updateSearch: (search) => dispatch(updateSearch(search)),
+
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListingSearch);

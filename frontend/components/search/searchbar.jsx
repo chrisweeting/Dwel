@@ -8,15 +8,18 @@ class SearchBar extends React.Component {
 
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange(e, filter, func) {
     func(filter, e.currentTarget.value);
-    // debugger
+  }
+
+  handleClick() {
+    this.props.createSearch(this.state);
   }
 
   update(e) {
-    // debugger
     this.setState({ query: e.currentTarget.value });
   }
 
@@ -24,14 +27,9 @@ class SearchBar extends React.Component {
     this.props.updateFilter( "query", this.state.query );
   }
 
-
   render() {
     return (
       <nav className="lst-searchbar">
-        {/* <section className="lst-searchbar-container" >
-          <input type="text" placeholder="Enter an address, city, or Zip code" id="lst-searchbar-inpt" value={this.props.filters.query} onChange={(e) => this.handleChange(e, 'query', this.props.updateFilter)}/>
-          <div id="lst-search-submit" ></div>
-        </section> */}
         <form className="lst-searchbar-container" onSubmit={this.handleSubmit}>
           <input type="text" placeholder="Enter an address, city, or Zip code" id="lst-searchbar-inpt" value={this.state.query} onChange={this.update} />
           <button id="lst-search-submit"></button>
@@ -76,6 +74,7 @@ class SearchBar extends React.Component {
             <option value="5000">5000+</option>
           </select>
         </label>
+        <button className="save-search" onClick={this.handleClick}>Save Search</button>
       </nav>
 
     )

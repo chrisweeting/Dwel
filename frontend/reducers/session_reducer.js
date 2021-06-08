@@ -1,10 +1,17 @@
 import { RECEIVE_CURRENT_USER, REMOVE_CURRENT_USER } from '../actions/session_actions';
 import { CREATE_LIKE, FETCH_LIKES, REMOVE_LIKE } from '../actions/like_actions';
+import {
+  FETCH_SEARCHES,
+  UPDATE_SEARCH,
+  CREATE_SEARCH,
+  REMOVE_SEARCH
+} from '../actions/search_actions';
 
 const _nullState = {
   id: null,
   email: null,
   liked_listings: [],
+  searches: {},
   loggedIn: false
 };
 
@@ -13,6 +20,10 @@ const SessionReducer = (state = _nullState, action) => {
   let nextState = {...state};
 
   switch (action.type) {
+    case FETCH_SEARCHES:
+      debugger
+      nextState.searches = action.searches;
+      return nextState;
     case REMOVE_LIKE:
       let filtered = nextState.liked_listings.filter(listing => listing !== action.listingId[0]);
       nextState.liked_listings = filtered;
@@ -28,6 +39,7 @@ const SessionReducer = (state = _nullState, action) => {
         id: action.currentUser.id,
         email: action.currentUser.email,
         liked_listings: listingIds,
+        searches: action.currentUser.searches,
         loggedIn: true
       };
       return nextState;

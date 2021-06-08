@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import ListingMap from '../map/listingMap';
 import ListingsIndex from '../entities/listings/listings_index';
 import SearchBar from './searchbar';
@@ -27,7 +27,14 @@ class ListingSearch extends React.Component {
       // debugger
     return (
       <div className="lw" >
-        <SearchBar filters={this.state.filters} updateFilter={updateFilter} updateFilters={updateFilters} />
+        <SearchBar 
+          filters={this.state.filters} 
+          updateFilter={updateFilter} 
+          updateFilters={updateFilters} 
+          removeSearch={this.props.removeSearch}
+          updateSearch={this.props.updateSearch}
+          createSearch={this.props.createSearch}
+        />
         <div id="mapcontainer">
           <ListingMap listings={listings} updateFilter={updateFilter} />
 

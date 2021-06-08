@@ -6,7 +6,7 @@ class HeroSearchBar extends React.Component {
     super(props);
     this.state = {
       filters: {
-        bounds: {},
+        // bounds: {},
         minBeds: 0,
         minBaths: 0,
         minSqft: 500,
@@ -25,8 +25,17 @@ class HeroSearchBar extends React.Component {
   }
 
   componentDidMount() {
+    this.props.updateFilters({
+      minBeds: 0,
+      minBaths: 0,
+      minSqft: 500,
+      maxSqft: 7000,
+      minPrice: 50000,
+      maxPrice: 1000000000,
+      query: '',
+    });
     window.addEventListener("scroll", this.stickyBar);
-    this.props.fetchListings(this.props.filters);
+    this.props.fetchListings(this.state.filters);
   }
 
   componentWillUnmount() {
