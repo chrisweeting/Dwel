@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta property="og:title" content="Dwel" />
+    <meta property='og:image' content="<%= image_url('dwel_img.png') %>"/>
+    <meta property="og:description"
+      content="Dwel - A clone of Zillow - An online platform that allows users to find their next home."
+    />
+    <meta property="og:url"
+      content="https://dwel-us.herokuapp.com/"
+    />
+    <link rel="shortcut icon" type="image/png/ico" href="<%= image_url('fav.png') %>" />
     <title>Dwel</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
