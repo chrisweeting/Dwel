@@ -16,8 +16,16 @@ class SearchBar extends React.Component {
   }
 
   handleClick() {
-    debugger
-    this.props.createSearch(this.state);
+    let newSearch = {
+      max_price: this.state.maxPrice,
+      max_sqft: this.state.maxSqft ,
+      min_baths: this.state.minBaths,
+      min_beds: this.state.minBeds,
+      min_price: this.state.minPrice,
+      query: this.state.query
+    };
+
+    this.props.createSearch(newSearch);
   }
 
   update(e) {
