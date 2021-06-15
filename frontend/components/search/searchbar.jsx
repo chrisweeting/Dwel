@@ -16,6 +16,7 @@ class SearchBar extends React.Component {
   }
 
   handleClick() {
+    debugger
     this.props.createSearch(this.state);
   }
 
