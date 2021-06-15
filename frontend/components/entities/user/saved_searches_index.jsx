@@ -35,14 +35,14 @@ class SavedSearchesIndex extends React.Component {
   render() {
     // debugger
     const { searches } = this.props;
-    if (searches.length === 0) {
-      return (
-        <section id="no-results">
+    // if (searches.length === 0) {
+    //   return (
+    //     <section id="no-results">
 
-          {/* <h1>Please widen your search</h1> */}
-        </section>
-      )
-    }
+    //       {/* <h1>Please widen your search</h1> */}
+    //     </section>
+    //   )
+    // }
 
 
     // let liked = this.state.listings.filter(listing => this.props.currentUser.liked_listings.includes(listing.id));
