@@ -14,8 +14,10 @@ class Greeting extends React.Component {
   handleClick(e) {
     if (e.currentTarget.id === "logout") {
       this.props.logout();
-    } else {
+    } else if (e.currentTarget.id === "liked-listings") {
       this.props.history.push("/saved");
+    } else {
+      this.props.history.push("/searches");
     }
   }
 

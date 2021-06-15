@@ -11,7 +11,7 @@ const _nullState = {
   id: null,
   email: null,
   liked_listings: [],
-  searches: {},
+  searches: [],
   loggedIn: false
 };
 
@@ -23,6 +23,15 @@ const SessionReducer = (state = _nullState, action) => {
     case FETCH_SEARCHES:
       debugger
       nextState.searches = action.searches;
+      return nextState;
+
+    case REMOVE_SEARCH:
+      debugger
+      nextState.searches = nextState.searches.filter(search => search.id !== action.searchId[0]);
+      return nextState;
+    case CREATE_SEARCH:
+      debugger
+      nextState.searches.push(action.search.search_record);
       return nextState;
     case REMOVE_LIKE:
       let filtered = nextState.liked_listings.filter(listing => listing !== action.listingId[0]);

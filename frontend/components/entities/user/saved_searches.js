@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import SavedSearchesIndex from './saved_searches_index';
 import { updateFilter, updateFilters } from '../../../actions/filter_actions';
 import { openModal } from '../../../actions/modal_actions';
-import { removeSearch, fetchSearches } from '../../../util/search_api_util';
+import { removeSearch, fetchSearches } from '../../../actions/search_actions';
 
 
 
