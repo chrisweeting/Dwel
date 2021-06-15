@@ -23,6 +23,7 @@ class ListingSearch extends React.Component {
         likes, 
         createLike,  
         filters,
+        clearFilters
       } = this.props;
       // debugger
     return (
@@ -49,6 +50,7 @@ class ListingSearch extends React.Component {
           likes={likes}
           createLike={createLike}
           filters={this.state.filters}
+          clearFilters={clearFilters}
           />
         
       </div>

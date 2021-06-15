@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import ListingSearch from './listing_search';
 import { fetchListings } from '../../actions/listing_actions';
-import { updateFilter, updateFilters } from '../../actions/filter_actions';
+import { updateFilter, updateFilters, clearFilters } from '../../actions/filter_actions';
 import { openModal } from '../../actions/modal_actions';
 import { fetchLikes, removeLike, createLike } from '../../actions/like_actions';
 import { createSearch, updateSearch, removeSearch } from '../../actions/search_actions';
@@ -18,7 +18,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   fetchListings: (filters) => dispatch(fetchListings(filters)),
   updateFilter: (filter, value) => dispatch(updateFilter(filter, value)),
-  updateFilters: (filter) => dispatch(updateFilter(filter)),
+  updateFilters: (filter) => dispatch(updateFilters(filter)),
+  clearFilters: (filter) => dispatch(clearFilters(filter)),
   openModal: modal => dispatch(openModal(modal)),
   fetchLikes: () => dispatch(fetchLikes()),
   removeLike: (likeId) => dispatch(removeLike(likeId)),

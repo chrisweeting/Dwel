@@ -19,6 +19,10 @@ class ListingIndex extends React.Component {
    
   }
 
+  componentWillUnmount() {
+    this.props.clearFilters();
+  }
+
   componentDidUpdate() {
     let m = document.getElementById("listing-map-container");
     m.style.position = "fixed";

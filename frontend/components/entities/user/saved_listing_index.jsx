@@ -6,14 +6,24 @@ class SavedListingIndex extends React.Component {
     super(props);
     this.state = {
       listings: this.props.listings,
-      likes: this.props.currentUser.liked_listings
+      likes: this.props.currentUser.liked_listings,
+      filters: {
+        minBeds: 0,
+        minBaths: 0,
+        minSqft: 500,
+        maxSqft: 7000,
+        minPrice: 50000,
+        maxPrice: 1000000000,
+        query: '',
+      }
     };
 
     this.setState = this.setState.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchListings(this.props.filters).then(({listings}) => {
+    this.props.fetchListings(this.state.filters).then(({listings}) => {
+
       this.setState({listings: Object.values(listings)});
     });
     // this.props.fetchLikes();
@@ -23,7 +33,7 @@ class SavedListingIndex extends React.Component {
 
   render() {
     const { listings } = this.props;
-    if (listings.length === 0) {
+    if (this.state.listings.length === 0) {
       return (
         <section id="no-results">
 

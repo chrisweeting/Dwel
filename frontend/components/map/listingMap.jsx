@@ -66,7 +66,7 @@ class ListingMap extends React.Component {
     var latLng = marker.getPosition(); 
 
     setTimeout(
-      () => this.map.setCenter(latLng),
+      () => this.map.panTo(latLng),
       200
     );
     
