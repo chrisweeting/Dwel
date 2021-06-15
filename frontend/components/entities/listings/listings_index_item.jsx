@@ -24,7 +24,7 @@ const ListingIndexItem = ({ listing, openModal, currentUser, likes, createLike, 
   const saveIcon = likes.includes(listing.id) ? "listing-short-liked" : "listing-short-like";
   
   return (
-    <Link className="listing-short" to={`/homes/${listing.id}`} >
+    <Link className="listing-short" to={`/homes/${listing.id}`} id={listing.id}>
       <img src={listing.photoUrls} alt="" className="listing-photo"/>
       <div className={saveIcon} id={listing.id} onClick={(e) => {e.preventDefault(); handleClick(e)}} > </div>
       <div className="listing-sum">

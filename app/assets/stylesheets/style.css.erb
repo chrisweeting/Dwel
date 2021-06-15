@@ -431,6 +431,32 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+
+.liked-listing-section {
+  width: 92vw;
+  overflow-y: scroll;
+  background-color: white;
+  height: 100vh;
+  position: fixed;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 0.19);
+  margin: 0 4vw;
+  padding: 2vh 0 0 1vw;
+}
+
+.liked-listing-section h1 {
+  font-size: 25px;
+  margin-left: 5px;
+}
+
+.liked-listing-section h2 {
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.liked-listing-section .listing-short:hover {
+  transform: scale(1.04);
+}
+
 .listing-items {
   display: flex;
   flex-wrap: wrap;
@@ -447,6 +473,7 @@
   border: 1px solid rgba(119, 136, 153, 0.288);
   position: relative;
   overflow: hidden;
+  transition: transform 250ms;
 }
 
 .listing-photo {

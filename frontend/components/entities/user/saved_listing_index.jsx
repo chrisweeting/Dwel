@@ -63,8 +63,9 @@ class SavedListingIndex extends React.Component {
     })
 
     return (
-      <div className="listing-section">
+      <div className="liked-listing-section">
         <h1>Liked Listings</h1>
+        <h2>{items.length} liked listings</h2>
         <ul className="listing-items">
           {items}
         </ul>

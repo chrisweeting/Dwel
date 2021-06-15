@@ -42,7 +42,7 @@ class ListingMap extends React.Component {
   
   listingListeners() {
     const listings = document.querySelectorAll(".listing-short")
-    listings.forEach((listing) => listing.addEventListener("mouseover", () => this.handleHover(listing.hash)));
+    listings.forEach((listing) => listing.addEventListener("mouseover", () => this.handleHover(listing.id)));
   }
   
   mapListener() {
@@ -58,10 +58,8 @@ class ListingMap extends React.Component {
     
   }
   
-  handleHover(e) {
+  handleHover(id) {
     // debugger
-
-    let id = parseInt(e.slice(e.length -2));
     let marker = this.MarkerManager.markers[id];
     var latLng = marker.getPosition(); 
 
