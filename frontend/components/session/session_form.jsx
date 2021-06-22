@@ -40,16 +40,23 @@ class SessionForm extends React.Component {
 
 
   handleSubmit(e) {
-    const user = Object.assign({}, this.state);
-    this.props.action(user).then(
-      () => this.props.closeModal()
-    );
+
+    if (this.validate()) {
+      const user = {
+        email: this.state.email,
+        password: this.state.password
+      };
+      this.props.action(user).then(
+        () => this.props.closeModal()
+      );
+    }
+
   }
 
   handleClick(e) {
     this.setState({
-      email: 'chris',
-      password: '123456'
+      email: 'chris@email.com',
+      password: 'Uppercase1!'
     }, 
       () => this.handleSubmit(e)
     );
@@ -199,16 +206,57 @@ class SessionForm extends React.Component {
     return false
   }
 
+  emailErrors() {
+    if (this.state.emailErrors) {
+      return <p className="line-form-errors">Enter a valid email address</p>
+    } else {
+      return null
+    }
+  }
+
+  passwordErrors() {
+    if (this.state.passwordErrors) {
+      return <p className="line-form-errors">Please enter a password</p>
+    } else {
+      return null
+    }
+  }
+
+  validate() {
+    let emailErrors = false;
+    let passwordErrors = false;
+    let validate = true;
+
+    if (!this.validateEmail(this.state.email)) {
+      emailErrors = true;
+      validate = false;
+    }
+    if (this.state.password.length === 0) {
+      passwordErrors = true;
+      validate = false;
+    }
+
+    this.setState({ 
+      emailErrors: emailErrors,
+      passwordErrors: passwordErrors
+    })
+
+    return validate;
+  }
+
 
   render() {
     const passwordPlaceholder = this.props.formType === 'New account' ? 'Create password' : 'Enter password';
-    // const buttonText = this.props.formType === 'New account' ? 'Submit' : 'Sign in';
-    
+    const emailInput = this.state.emailErrors ? "user-form-input error" : "user-form-input";
+    const passwordInput = this.state.passwordErrors ? "user-form-input error" : "user-form-input"; 
+    const emailErrors = this.props.formType === 'New account' ? null : this.emailErrors();
+    const passwordErrors = this.props.formType === 'New account' ? null : this.passwordErrors();
     const passwordChecklist = this.props.formType === 'New account' ? this.passwordChecklist() : null;
     const submitButton = this.submitButton();
     const demoUser = this.props.formType === 'New account' ? '' : <button onClick={() => this.handleClick()} className="user-form-button" >Demo Sign in</button>;
     const navButton_1 = this.props.formType === 'New account' ? this.props.otherForm : <button className="lit">{this.props.formType}</button>;
     const navButton_2 = this.props.formType === 'New account' ? <button className="lit">{this.props.formType}</button> :  this.props.otherForm ;
+
     return (
       <>
         <div className="user-form-modal">
@@ -224,12 +272,14 @@ class SessionForm extends React.Component {
 
             <label htmlFor="email-input" className="user-form-label"> Email
              
-              <input className="user-form-input" type="text" value={this.state.email} onChange={this.update('email')} placeholder="Enter email"/>
+              <input className={emailInput} type="text" value={this.state.email} onChange={this.update('email')} placeholder="Enter email"/>
+              {emailErrors}
             </label>
           
             <label htmlFor="password-input" className="user-form-label"> Password
              
-              <input className="user-form-input" type="password" value={this.state.password} onChange={this.update('password')} placeholder={passwordPlaceholder} />
+              <input className={passwordInput} type="password" value={this.state.password} onChange={this.update('password')} placeholder={passwordPlaceholder} />
+              {passwordErrors}
               {passwordChecklist}
             </label>
            

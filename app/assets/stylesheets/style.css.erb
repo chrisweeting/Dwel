@@ -1,5 +1,6 @@
 body {
   font-family: 'Tinos', serif;
+  overflow-x: hidden;
 }
 
 .main-wrapper {
@@ -279,8 +280,16 @@ body {
   color: red;
 }
 
+.not-complete::before {
+  content: "✗ ";
+}
+
 .complete {
   color: rgb(17, 182, 17);
+}
+
+.complete::before {
+  content: "✓ ";
 }
 
 .user-form-button-dummy {
@@ -317,6 +326,7 @@ body {
   width: fit-content;
   height: 70px;
   padding: 20px 20px 20px 20px;
+  cursor: pointer;
 }
 
 .user-form-nav .lit {
@@ -975,4 +985,15 @@ footer {
 
 .form-errors {
   color: rgb(163, 0, 11);
+}
+
+.line-form-errors {
+  line-height: 14px;
+  font-size: 14px;
+  margin: -10px 0 10px 0;
+  color: rgb(163, 0, 11);
+}
+
+.error {
+  border-color: rgb(163, 0, 11);
 }
