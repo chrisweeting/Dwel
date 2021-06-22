@@ -1,3 +1,7 @@
+body {
+  font-family: 'Tinos', serif;
+}
+
 .main-wrapper {
   position: relative;
 }
@@ -248,17 +252,40 @@
 }
 
 .user-form-modal label {
-  width: 100%;
+  width: 95.5%;
   line-height: 30px;
   display: block;
+  margin-left: 3px;
 }
 
 .user-form-modal button {
-  width: 100%;
+  width: 95%;
   line-height: 30px;
   display: block;
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: none;
+  background-color: rgba(119, 136, 153, 0.801);
 }
 
+.password-checklist {
+  font-size: 12px;
+  line-height: 20px;
+  margin: 0 auto 20px auto;
+}
+
+.not-complete {
+  color: red;
+}
+
+.complete {
+  color: rgb(17, 182, 17);
+}
+
+.user-form-button-dummy {
+  color: rgba(0, 0, 0, 0.336);
+}
 
 .user-modal {
   display: block;
@@ -284,6 +311,8 @@
 
 .user-form-nav button {
   background-color: white;
+  color: black;
+  font-size: 16px;
   border: none;
   width: fit-content;
   height: 70px;
@@ -301,15 +330,17 @@
 .user-form {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
+  align-items: center;
   align-content: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 40px;
+  padding-bottom: 40px;
   border-top: 1px solid lightgray;
   border-bottom: 1px solid lightgray;
-  height: 250px;
-  padding-left: 25px;
-  padding-right: 30px;
+  height: fit-content;
+  /* padding-left: 25px; */
+  /* padding-right: 30px; */
+  margin-left: 3px;
+  width: 100%;
 }
 
 .user-form-input {
@@ -317,16 +348,21 @@
   width: 93%;
   height: 25px;
   border: 1px solid black;
-  padding: 5px 10px;
+  padding: 10px 10px;
+  border-radius: 4px;
+  font-size: 16px;
+  border-color: lightgray;
+  background-color: #d3d3d33d;
 }
 
 .user-form-button {
   margin-bottom: 15px;
   cursor: pointer;
+  color: white;
 }
 
 .user-form-button:hover {
-  background-color: lightslategrey;
+  background-color: rgb(119, 136, 153);
   color: white;
 }
 
@@ -897,4 +933,46 @@ footer {
   /* justify-content: space-between; */
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
+}
+
+.ss-dropdown {
+  height: 250px;
+  width: 250px;
+  background-color: white;
+  top: 52px;
+  position: relative;
+  margin-right: px;
+  right: 90px;
+  min-width: 250px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  display: flex;
+  flex-direction: column;
+}
+
+.ss-dropdown-nav {
+  display: flex;
+  padding: 10px;
+}
+
+.ss-dropdown-close {
+  font-size: 20px;
+  font-family: sans-serif;
+}
+
+.ss-dropdown form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  justify-content: space-around;
+}
+
+.ss-dropdown-screen {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+}
+
+.form-errors {
+  color: rgb(163, 0, 11);
 }

@@ -4,7 +4,11 @@ import React from 'react';
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.filters;
+
+    this.state = {
+      filters: this.props.filters,
+      saveSearch: false,
+    };
 
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -15,17 +19,20 @@ class SearchBar extends React.Component {
     func(filter, e.currentTarget.value);
   }
 
-  handleClick() {
+  handleClick(e) {
+    debugger
     let newSearch = {
-      max_price: this.state.maxPrice,
-      max_sqft: this.state.maxSqft ,
-      min_baths: this.state.minBaths,
-      min_beds: this.state.minBeds,
-      min_price: this.state.minPrice,
-      query: this.state.query
+      max_price: this.state.filters.maxPrice,
+      max_sqft: this.state.filters.maxSqft ,
+      min_baths: this.state.filters.minBaths,
+      min_beds: this.state.filters.minBeds,
+      min_price: this.state.filters.minPrice,
+      title: "My Saved Search",
+      query: this.state.filters.query
     };
 
     this.props.createSearch(newSearch);
+    this.setState({ saveSearch: true });
   }
 
   update(e) {
@@ -33,14 +40,32 @@ class SearchBar extends React.Component {
   }
 
   handleSubmit() {
-    this.props.updateFilter( "query", this.state.query );
+    this.props.updateFilter( "query", this.state.filters.query );
   }
 
   render() {
+    const sSDropdown = this.state.saveSearch ? 
+      <>
+        <div className="ss-dropdown-screen" onClick={() => this.setState({ saveSearch: false })}>
+        </div>
+        <div className="ss-dropdown">
+          <nav className="ss-dropdown-nav">
+            <div className="ss-dropdown-close" onClick={() => this.setState({ saveSearch: false })}>x</div>
+          </nav>
+          <form onSubmit={this.handleClick}>
+            <label > Name your search
+              <input type="text" placeholder="My Saved Search" />
+            </label>
+            <button type="submit">Update</button>
+          </form>
+        </div> 
+      </>:
+      <></>
+
     return (
       <nav className="lst-searchbar">
         <form className="lst-searchbar-container" onSubmit={this.handleSubmit}>
-          <input type="text" placeholder="Enter an address, city, or Zip code" id="lst-searchbar-inpt" value={this.state.query} onChange={this.update} />
+          <input type="text" placeholder="Enter an address, city, or Zip code" id="lst-searchbar-inpt" value={this.state.filters.query} onChange={this.update} />
           <button id="lst-search-submit"></button>
         </form>
 
@@ -84,6 +109,7 @@ class SearchBar extends React.Component {
           </select>
         </label>
         <button className="save-search" onClick={this.handleClick}>Save Search</button>
+        {sSDropdown}
       </nav>
 
     )

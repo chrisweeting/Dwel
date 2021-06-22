@@ -52,6 +52,7 @@ class Api::SearchRecordsController < ApplicationController
   private
   def search_record_params
     params.require(:search_record).permit(
+      :title,
       :max_price,
       :max_sqft,
       :min_baths,
