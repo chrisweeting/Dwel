@@ -7,6 +7,7 @@ import configureStore from './store/store';
 import Root from "./components/root";
 import { fetchListings, fetchListing } from './util/listing_api_util';
 import { addSearch, removeSearch, fetchSearch, fetchSearches, updateSearch } from './util/search_api_util';
+import "regenerator-runtime/runtime";
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("root");

@@ -35,19 +35,31 @@ class SavedSearchesIndex extends React.Component {
 
   openSearch(e) {
     const search = this.props.searches.filter(search => `${search.id}` === e.currentTarget.id);
+    const { 
+      min_beds,
+      min_baths,
+      max_sqft,
+      min_price,
+      max_price,
+      query,
+      title,
+      id
+    } = search[0];
     debugger
-    const searchObj = {
-      min_beds: search[0].min_beds,
-      min_baths: search[0].min_baths,
-      min_sqft: search[0].min_sqft,
-      max_sqft: search[0].max_sqft,
-      min_price: search[0].min_price,
-      max_price: search[0].max_price,
-      query: search[0].query,
-    };
+    // const searchObj = {
+    //   min_beds: search[0].min_beds,
+    //   min_baths: search[0].min_baths,
+    //   min_sqft: search[0].min_sqft,
+    //   max_sqft: search[0].max_sqft,
+    //   min_price: search[0].min_price,
+    //   max_price: search[0].max_price,
+    //   query: search[0].query,
+    // };
 
-    this.props.updateFilters(searchObj).then(this.props.history.push(`/homes/${search[0].title}`));
-
+    // this.props.updateFilters(searchObj).then(this.props.history.push(`/homes/${search[0].title}`));
+    this.props.history.push(
+      `/homes/${min_beds}/${min_baths}/${max_sqft}/${min_price}/${max_price}/${query}/${title}/${id}`
+    );
   }
 
   render() {

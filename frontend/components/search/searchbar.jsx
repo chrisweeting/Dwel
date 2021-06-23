@@ -21,7 +21,25 @@ class SearchBar extends React.Component {
 
   componentDidMount() {
     const path = this.props.location.pathname.split("/");
-    this.setState({ searchTitle: path[path.length -1] });
+    if (path.length > 2) {
+      const search = {
+        min_beds: parseInt(path[2]),
+        min_baths: parseInt(path[3]),
+        max_sqft: parseInt(path[4]),
+        min_price: parseInt(path[5]),
+        max_price: parseInt(path[6]),
+        query: path[7],
+      };
+
+      // debugger
+      // this.props.updateFilters(search).then(
+      //   this.setState({ 
+      //     searchTitle: path[8],
+      //     searchId: path[9]
+      //   })
+      // );
+      // this.setState({ searchTitle: path[8] });
+    }
   }
 
   handleChange(e, filter, func) {
@@ -80,7 +98,11 @@ class SearchBar extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.updateFilter( "query", this.state.filters.query );
+    this.props.updateFilter( "query", this.state.filters.query ).then( () => {
+      if (this.props.location.pathname.split("/").length > 2) {
+        this.props.history.push(`/homes`);
+      }
+    });
   }
 
   render() {

@@ -1,5 +1,6 @@
 import React from 'react';
 import ListingIndexItem from './listings_index_item';
+import "regenerator-runtime/runtime";
 
 class ListingIndex extends React.Component {
   constructor(props) {
