@@ -17,28 +17,16 @@ class SearchBar extends React.Component {
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.checkEmpty = this.checkEmpty.bind(this);
   }
 
   componentDidMount() {
     const path = this.props.location.pathname.split("/");
     if (path.length > 2) {
-      const search = {
-        min_beds: parseInt(path[2]),
-        min_baths: parseInt(path[3]),
-        max_sqft: parseInt(path[4]),
-        min_price: parseInt(path[5]),
-        max_price: parseInt(path[6]),
-        query: path[7],
-      };
-
-      // debugger
-      // this.props.updateFilters(search).then(
-      //   this.setState({ 
-      //     searchTitle: path[8],
-      //     searchId: path[9]
-      //   })
-      // );
-      // this.setState({ searchTitle: path[8] });
+      this.setState({
+          searchTitle: path[8],
+          searchId: path[9]
+      });
     }
   }
 
@@ -53,7 +41,7 @@ class SearchBar extends React.Component {
       min_baths: this.state.filters.minBaths,
       min_beds: this.state.filters.minBeds,
       min_price: this.state.filters.minPrice,
-      title: this.state.searchTitle,
+      title: this.checkEmpty(this.state.searchTitle),
       query: this.state.filters.query
     };
     
@@ -73,6 +61,14 @@ class SearchBar extends React.Component {
     } else {
       this.setState({ saveSearch: true });
     }
+  }
+
+  checkEmpty(value) {
+    const title = value.length > 0 ?
+      value :
+      "My Saved Search";
+
+    return title;
   }
 
   update(field) {

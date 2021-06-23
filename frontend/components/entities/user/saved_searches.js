@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import SavedSearchesIndex from './saved_searches_index';
 import { updateFilter, updateFilters } from '../../../actions/filter_actions';
 import { openModal } from '../../../actions/modal_actions';
-import { removeSearch, fetchSearches } from '../../../actions/search_actions';
+import { removeSearch, fetchSearches, updateSearch } from '../../../actions/search_actions';
 
 
 
@@ -18,6 +18,7 @@ const mapDispatchToProps = dispatch => ({
   openModal: modal => dispatch(openModal(modal)),
   fetchSearches: () => dispatch(fetchSearches()),
   removeSearch: (searchId) => dispatch(removeSearch(searchId)),
+  updateSearch: (search) => dispatch(updateSearch(search)),
 });
 
 

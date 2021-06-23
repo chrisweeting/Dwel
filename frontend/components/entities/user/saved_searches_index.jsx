@@ -3,34 +3,30 @@ import React from 'react';
 class SavedSearchesIndex extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   listings: this.props.listings,
-    //   likes: this.props.currentUser.liked_listings,
-    //   filters: {
-    //     minBeds: 0,
-    //     minBaths: 0,
-    //     minSqft: 500,
-    //     maxSqft: 7000,
-    //     minPrice: 50000,
-    //     maxPrice: 1000000000,
-    //     query: '',
-    //   }
-    // };
+    this.state = {
+      modal: false,
+      search: null,
+      title: ''
+    };
 
-    // this.setState = this.setState.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.openSearch = this.openSearch.bind(this);
-  }
-
-  componentDidMount() {
-    // this.props.fetchSearches();
+    this.update = this.update.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleClick(e) {
-    debugger
-    this.props.removeSearch(e.currentTarget.id).then(res => {
-      debugger
-    });
+    this.props.removeSearch(this.state.search.id).then(this.setState({ modal: false }));
+  }
+
+  handleSubmit() {
+    const search = this.state.search;
+    const title = this.state.title.length > 0 ?
+      this.state.title :
+      "My Saved Search";
+
+    search.title = title;
+    this.props.updateSearch(search).then(this.setState({ modal: false }));
   }
 
   openSearch(e) {
@@ -45,63 +41,68 @@ class SavedSearchesIndex extends React.Component {
       title,
       id
     } = search[0];
-    debugger
-    // const searchObj = {
-    //   min_beds: search[0].min_beds,
-    //   min_baths: search[0].min_baths,
-    //   min_sqft: search[0].min_sqft,
-    //   max_sqft: search[0].max_sqft,
-    //   min_price: search[0].min_price,
-    //   max_price: search[0].max_price,
-    //   query: search[0].query,
-    // };
 
-    // this.props.updateFilters(searchObj).then(this.props.history.push(`/homes/${search[0].title}`));
     this.props.history.push(
       `/homes/${min_beds}/${min_baths}/${max_sqft}/${min_price}/${max_price}/${query}/${title}/${id}`
     );
   }
 
+  update(e) {
+    this.setState({ title: e.currentTarget.value });
+  }
+
+  editModal() {
+    return(
+      <>
+        <div className="edit-modal-screen" onClick={() => this.setState({ modal: false })}></div>
+        <div className="edit-modal">
+          <div className="edit-modal-nav">Edit saved search</div>
+          <label > Name
+            <br />
+            <input type="text" placeholder={this.state.search.title} value={this.state.title} onChange={this.update}  />
+          </label>
+          <div className="edit-modal-buttons">
+            <div className="edit-modal-delete" onClick={this.handleClick}>Delete</div>
+            <section className="edit-modal-buttons-right">
+              <div className="edit-modal-cancel" onClick={() => this.setState({ modal: false })}>Cancel</div>
+              <button disabled={this.state.title === this.state.search.title} onClick={this.handleSubmit}>Update</button>
+            </section>
+          </div>
+        </div>
+      </>
+    );
+  }
+
   render() {
-    // debugger
     const { searches } = this.props;
-    // if (searches.length === 0) {
-    //   return (
-    //     <section id="no-results">
-
-    //       {/* <h1>Please widen your search</h1> */}
-    //     </section>
-    //   )
-    // }
-
-
-    // let liked = this.state.listings.filter(listing => this.props.currentUser.liked_listings.includes(listing.id));
-    
     const searchItems = searches.map((search) => {
       return (
         <div key={search.id} className="search-card" >
-          <li onClick={this.openSearch} id={search.id} >{search.title}</li>
-          <div onClick={this.handleClick} id={search.id} >Edit</div>
+          <div onClick={this.openSearch} id={search.id} >{search.title}</div>
+          <div onClick={() => this.setState({ modal: true, search: search, title: search.title })} id={search.id} >Edit</div>
         </div>
       )
-      
     })
+    const editModal = this.state.modal ? this.editModal() : null;
 
     const sIText = searchItems.length === 1 ? 
       '1 saved search':
       `${searchItems.length} saved searches`
     
     return (
-      <div className="saved-searches-section">
-        <h1>Saved Searches</h1>
-        <h2>{sIText}</h2>
-        <ul className="saved-listing-items">
-          {searchItems}
-        </ul>
-        <footer>
+      <>
+        {editModal}
+        <div className="saved-searches-section">
+          <h1>Saved Searches</h1>
+          <h2>{sIText}</h2>
+          <ul className="saved-listing-items">
+            {searchItems}
+          </ul>
+          <footer>
 
-        </footer>
-      </div>
+          </footer>
+        </div>
+      </>
     );
 
   }

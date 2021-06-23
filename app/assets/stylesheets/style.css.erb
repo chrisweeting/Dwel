@@ -494,6 +494,115 @@ body {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.edit-modal-screen {
+  z-index: 1;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.164);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.edit-modal {
+  position: absolute;
+  height: 350px;
+  width: 700px;
+  background-color: white;
+  z-index: 2;
+  /* margin: 0 0 0 0; */
+  left: 0;
+  right: 0;
+  margin: 17vh auto;
+  border-radius: 7px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-sizing: border-box;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.edit-modal-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid lightgray;
+  padding-top: 15px;
+  align-items: center;
+}
+
+.edit-modal-buttons div {
+  color: red;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.edit-modal-buttons div:hover {
+  text-decoration: underline;
+}
+
+.edit-modal-buttons-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 170px;
+}
+
+.edit-modal-buttons-right button {
+  width: 100px;
+  line-height: 30px;
+  display: block;
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: none;
+  background-color: rgba(119, 136, 153, 0.801);
+  transition-duration: 0.2s;
+  font-family: 'Tinos';
+  cursor: pointer;
+}
+
+.edit-modal-buttons-right div {
+  color: darkslategrey;
+}
+
+.edit-modal label {
+  margin: 0 auto;
+  width: 70%;
+}
+
+.edit-modal-nav {
+  width: 100%;
+  text-align: center;
+  font-size: 25px;
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 15px;
+}
+
+.edit-modal input {
+  width: 100%;
+  margin: 10px 0;
+  height: 40px;
+  font-size: 16px;
+  padding: 0 15px;
+  border-radius: 4px;
+  border: 1px solid lightgrey;
+  background-color: #d3d3d33d;
+}
+
+.edit-modal-close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 30px;
+  line-height: 20px;
+  font-family: sans-serif;
+  font-weight: 100;
+  cursor: pointer;
+}
+
 .saved-searches-section {
   width: 93vw;
   overflow-y: scroll;
@@ -510,6 +619,7 @@ body {
   width: 100%;
   flex-direction: column;
   align-items: center;
+  margin-top: 25px;
 }
 
 .search-card {
@@ -517,10 +627,25 @@ body {
   border: 1px solid lightgray;
   display: flex;
   justify-content: space-between;
-  height: 70px;
+  height: 80px;
   align-items: center;
   margin: 10px 10px;
-  padding: 0 15px;
+  padding: 0 25px;
+  max-width: 80vw;
+}
+
+.search-card div {
+  color: darkslategrey;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.search-card div:hover {
+  text-decoration: underline;
+}
+
+.search-card div:last-child::before {
+  content: "✎ ";
 }
 
 .saved-searches-section h1 {
@@ -563,7 +688,7 @@ body {
 .listing-items {
   display: flex;
   flex-wrap: wrap;
-
+  justify-content: center;
 }
 
 .listing-short {

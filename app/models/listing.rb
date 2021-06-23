@@ -53,9 +53,10 @@ class Listing < ApplicationRecord
 
   def self.search_listing(query)
     
-    return self.where("state Like ?", "%#{query}%" )
-      .or(where("city Like ?", "%#{query}%" ))
-      .or(where("street_address Like ?", "%#{query}%" ))
+    return self.where("LOWER(state) Like ?", "%#{query.downcase}%" )
+      .or(where("LOWER(city) Like ?", "%#{query.downcase}%" ))
+      .or(where("CAST(postal_code AS TEXT) Like ?", "%#{query}%" ))
+      .or(where("LOWER(street_address) Like ?", "%#{query.downcase}%" ))
   end
 
   def self.filter_listings(filters)
