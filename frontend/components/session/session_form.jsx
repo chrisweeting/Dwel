@@ -268,7 +268,7 @@ class SessionForm extends React.Component {
           </section>
 
           
-          <form className="user-form" >
+          <form className="user-form" onSubmit={(e) => e.preventDefault()} >
 
             <label htmlFor="email-input" className="user-form-label"> Email
              
@@ -283,7 +283,6 @@ class SessionForm extends React.Component {
               {passwordChecklist}
             </label>
            
-            {/* <button type="submit" className="user-form-button">{buttonText}</button> */}
             {submitButton}
             {demoUser}
 
@@ -292,8 +291,6 @@ class SessionForm extends React.Component {
           </form>
 
         </div>
-        {/* <Link className="user-form-modal-screen" onClick={this.closeModal} to="/" ></Link> */}
-        {/* <div className="user-form-modal-screen" onClick={this.closeModal}  ></div> */}
       </>
     )
   }
@@ -301,6 +298,3 @@ class SessionForm extends React.Component {
 
 export default withRouter(SessionForm);
 
-// to add: 
-// modal styling
-// password strength checklist

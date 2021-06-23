@@ -8,6 +8,9 @@ class SearchBar extends React.Component {
     this.state = {
       filters: this.props.filters,
       saveSearch: false,
+      searchId: '',
+      searchTitle: "My Saved Search"
+
     };
 
     this.update = this.update.bind(this);
@@ -20,30 +23,61 @@ class SearchBar extends React.Component {
   }
 
   handleClick(e) {
-    debugger
     let newSearch = {
       max_price: this.state.filters.maxPrice,
       max_sqft: this.state.filters.maxSqft ,
       min_baths: this.state.filters.minBaths,
       min_beds: this.state.filters.minBeds,
       min_price: this.state.filters.minPrice,
-      title: "My Saved Search",
+      title: this.state.searchTitle,
       query: this.state.filters.query
     };
-
-    this.props.createSearch(newSearch);
-    this.setState({ saveSearch: true });
+    
+    if (this.state.searchId.length === 0) {
+      this.props.createSearch(newSearch).then(res => {
+        this.setState({ 
+          saveSearch: true,
+          searchId: res.search.search_record.id
+        });
+      });
+    } else if (this.state.saveSearch) {
+      newSearch["id"] = this.state.searchId;
+      this.props.updateSearch(newSearch).then(res => {
+        this.setState({ saveSearch: false });
+      });
+    } else {
+      this.setState({ saveSearch: true });
+    }
   }
 
-  update(e) {
-    this.setState({ query: e.currentTarget.value });
+  update(field) {
+    if (field === "title") {
+      return (e) => this.setState({ searchTitle: e.currentTarget.value });
+    } else {
+      return (
+        (e) => {
+          this.setState({
+            filters:{ 
+              maxPrice: this.state.filters.maxPrice,
+              maxSqft: this.state.filters.maxSqft,
+              minBaths: this.state.filters.minBaths,
+              minBeds: this.state.filters.minBeds,
+              minPrice: this.state.filters.minPrice,
+              query: e.currentTarget.value 
+            }
+          });
+        }
+      );
+    }
   }
 
-  handleSubmit() {
+  handleSubmit(e) {
+    e.preventDefault();
     this.props.updateFilter( "query", this.state.filters.query );
   }
 
   render() {
+    console.log(this.state.searchTitle);
     const sSDropdown = this.state.saveSearch ? 
       <>
         <div className="ss-dropdown-screen" onClick={() => this.setState({ saveSearch: false })}>
@@ -54,7 +88,7 @@ class SearchBar extends React.Component {
           </nav>
           <form onSubmit={this.handleClick}>
             <label > Name your search
-              <input type="text" placeholder="My Saved Search" />
+              <input type="text" placeholder={this.state.searchTitle} value={this.state.searchTitle} onChange={this.update("title")} />
             </label>
             <button type="submit">Update</button>
           </form>
@@ -65,7 +99,7 @@ class SearchBar extends React.Component {
     return (
       <nav className="lst-searchbar">
         <form className="lst-searchbar-container" onSubmit={this.handleSubmit}>
-          <input type="text" placeholder="Enter an address, city, or Zip code" id="lst-searchbar-inpt" value={this.state.filters.query} onChange={this.update} />
+          <input type="search" placeholder="Enter an address, city, or Zip code" className="lst-searchbar-inpt" value={this.state.filters.query} onChange={this.update("query")} />
           <button id="lst-search-submit"></button>
         </form>
 

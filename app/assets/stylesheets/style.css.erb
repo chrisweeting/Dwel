@@ -145,17 +145,20 @@ body {
 
 .searchbar {
   width: 660px;
-  height: 50px;
+  height: 70px;
   line-height: 25px;
   padding: 0 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 5px;
   border: none;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: 'Tinos', serif;
 }
 
-.searchbar::placeholder {
-  color: rgb(175, 174, 174);
-  font-size: 18px;
+.searchbar::placeholder, .lst-searchbar-inp::placeholder {
+  color: #767676;
+  
 }
 
 .searchbar:focus {
@@ -180,6 +183,7 @@ body {
 .stick {
   box-shadow: none;
   border: 1px solid lightslategray;
+  height: 50px;
 }
 
 .active {
@@ -196,7 +200,7 @@ body {
   transition-duration: 100ms;
 }
 
-#search-submit {
+#search-submit-sticky {
   height: 30px;
   width: 30px;
   background-image: url("<%= asset_path('search.png') %>") ;
@@ -204,6 +208,18 @@ body {
   position: absolute;
   right: 13px;
   top: 13px;
+  cursor: pointer;
+  border: none;
+}
+
+#search-submit {
+  height: 30px;
+  width: 30px;
+  background-image: url("<%= asset_path('search.png') %>") ;
+  background-size: cover;
+  position: absolute;
+  right: 17px;
+  top: 20px;
   cursor: pointer;
   border: none;
 }
@@ -268,6 +284,7 @@ body {
   border-radius: 4px;
   border: none;
   background-color: rgba(119, 136, 153, 0.801);
+  transition-duration: 0.2s;
 }
 
 .password-checklist {
@@ -603,6 +620,21 @@ body {
   object-fit: cover;
 }
 
+.listing-card-1 {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.listing-card-2 {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.listing-card-3 {
+  line-height: 14px;
+}
+
 .listing-detail {
   width: 50%;
   overflow-y: scroll;
@@ -701,6 +733,21 @@ body {
   cursor: pointer;
 }
 
+.save-search {
+  margin-left: 10px;
+  border: none;
+  height: 70%;
+  cursor: pointer;
+  color: white;
+  background-color: rgba(112, 128, 144, 0.61);
+  transition-duration: .05s;
+}
+
+.save-search:hover {
+  background-color: rgba(119, 136, 153, 0.205);
+  color: black;
+}
+
 .save-button:hover {
   text-decoration: underline;
 }
@@ -731,17 +778,25 @@ body {
 }
 
 .listing-overview {
-  padding: 20px
+  padding: 20px;
+  font-family: 'Tinos', serif;
+  letter-spacing: 0.5px;
+  line-height: 22px;
 }
 
 footer {
-  height: 120px;
+  height: 150px;
 }
 
 #listing-map-container {
   height: 100vh;
   width: 50vw;
   position: fixed;
+}
+
+.lst-map {
+  width: 90%;
+  margin: 20px auto;
 }
 
 .lw {
@@ -798,13 +853,15 @@ footer {
    padding: 12px 20px;
    text-align-last: center;
    margin-left: 10px;
+   cursor: pointer;
+   transition-duration: 0.2s;
 }
 
 .lst-dropdown:hover {
-  background-color: lightslategray;
+  background-color: rgba(119, 136, 153, 0.199);
 }
 
-#lst-searchbar-inpt {
+.lst-searchbar-inpt {
   width: 300px;
   height: 40px;
   line-height: 25px;
@@ -812,15 +869,20 @@ footer {
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
   /* border-radius: 5px; */
   border: none;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Tinos', serif;
 }
 
 .lst-searchbar {
-  height: 45px;
+  height: 55px;
   position: relative;
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
 }
 
 .lst-searchbar-container {
-  height: 45px;
   position: relative;
 }
 

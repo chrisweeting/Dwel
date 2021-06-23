@@ -68,14 +68,14 @@ class HeroSearchBar extends React.Component {
       <>
         <form className={this.state.searchBar ? "search-container sticky" : "search-container"} onSubmit={this.handleSubmit}>
           <input 
-            type="text" 
+            type="search" 
             className={this.state.searchBar ? "searchbar stick" : "searchbar"} 
             placeholder="Enter an address, city, or Zip code" 
             id="searchbar" 
             value={this.state.filters.query} 
             onChange={this.update} 
           />
-          <button id="search-submit"></button>
+          <button id={this.state.searchBar ? "search-submit-sticky" : "search-submit"}></button>
         </form>
         <div className={this.state.searchBar ? "bar active" : "bar"} ></div>
       </>

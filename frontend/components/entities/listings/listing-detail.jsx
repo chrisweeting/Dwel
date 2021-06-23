@@ -101,7 +101,7 @@ class ListingDetail extends React.Component {
             <div className="listing-overview">
               <p>{description}</p>
             </div>
-            <div>
+            <div className="lst-map">
               <ListingDetailMap listing={this.props.listing} />
             </div>
           </section>

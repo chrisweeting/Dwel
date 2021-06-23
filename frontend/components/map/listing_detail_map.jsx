@@ -10,12 +10,12 @@ class ListingDetailMap extends React.Component {
         lat: this.props.listing.latitude,
         lng: this.props.listing.longitude
        },
-       zoom: 15,
-      disableDefaultUI: "true"
+       zoom: 16,
+      disableDefaultUI: "true",
+      mapTypeId: 'hybrid'
     };
     this.map = new google.maps.Map(this.mapNode, mapOptions);
     this.createMarkerFromListing(this.props.listing);
-    // debugger
   }
 
   createMarkerFromListing(listing) {
