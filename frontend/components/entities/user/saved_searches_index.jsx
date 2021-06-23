@@ -19,6 +19,7 @@ class SavedSearchesIndex extends React.Component {
 
     // this.setState = this.setState.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.openSearch = this.openSearch.bind(this);
   }
 
   componentDidMount() {
@@ -30,6 +31,23 @@ class SavedSearchesIndex extends React.Component {
     this.props.removeSearch(e.currentTarget.id).then(res => {
       debugger
     });
+  }
+
+  openSearch(e) {
+    const search = this.props.searches.filter(search => `${search.id}` === e.currentTarget.id);
+    debugger
+    const searchObj = {
+      min_beds: search[0].min_beds,
+      min_baths: search[0].min_baths,
+      min_sqft: search[0].min_sqft,
+      max_sqft: search[0].max_sqft,
+      min_price: search[0].min_price,
+      max_price: search[0].max_price,
+      query: search[0].query,
+    };
+
+    this.props.updateFilters(searchObj).then(this.props.history.push(`/homes/${search[0].title}`));
+
   }
 
   render() {
@@ -50,7 +68,7 @@ class SavedSearchesIndex extends React.Component {
     const searchItems = searches.map((search) => {
       return (
         <div key={search.id} className="search-card" >
-          <li>{search.title}</li>
+          <li onClick={this.openSearch} id={search.id} >{search.title}</li>
           <div onClick={this.handleClick} id={search.id} >Edit</div>
         </div>
       )

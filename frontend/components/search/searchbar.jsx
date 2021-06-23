@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 
 class SearchBar extends React.Component {
@@ -16,6 +17,11 @@ class SearchBar extends React.Component {
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
+  }
+
+  componentDidMount() {
+    const path = this.props.location.pathname.split("/");
+    this.setState({ searchTitle: path[path.length -1] });
   }
 
   handleChange(e, filter, func) {
@@ -78,7 +84,6 @@ class SearchBar extends React.Component {
   }
 
   render() {
-    console.log(this.state.searchTitle);
     const sSDropdown = this.state.saveSearch ? 
       <>
         <div className="ss-dropdown-screen" onClick={() => this.setState({ saveSearch: false })}>
@@ -152,4 +157,4 @@ class SearchBar extends React.Component {
 }
 
 
-export default SearchBar;
+export default withRouter(SearchBar);
