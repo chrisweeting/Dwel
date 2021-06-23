@@ -49,9 +49,9 @@ class SavedSearchesIndex extends React.Component {
     
     const searchItems = searches.map((search) => {
       return (
-        <div key={search.id} >
-          <li>{search.id}</li>
-          <button onClick={this.handleClick} id={search.id} >X</button>
+        <div key={search.id} className="search-card" >
+          <li>{search.title}</li>
+          <div onClick={this.handleClick} id={search.id} >Edit</div>
         </div>
       )
       
@@ -62,10 +62,10 @@ class SavedSearchesIndex extends React.Component {
       `${searchItems.length} saved searches`
     
     return (
-      <div className="liked-listing-section">
+      <div className="saved-searches-section">
         <h1>Saved Searches</h1>
         <h2>{sIText}</h2>
-        <ul className="listing-items">
+        <ul className="saved-listing-items">
           {searchItems}
         </ul>
         <footer>

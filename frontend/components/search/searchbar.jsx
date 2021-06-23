@@ -41,6 +41,7 @@ class SearchBar extends React.Component {
         });
       });
     } else if (this.state.saveSearch) {
+      e.preventDefault();
       newSearch["id"] = this.state.searchId;
       this.props.updateSearch(newSearch).then(res => {
         this.setState({ saveSearch: false });

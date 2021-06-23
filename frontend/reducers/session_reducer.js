@@ -20,17 +20,18 @@ const SessionReducer = (state = _nullState, action) => {
   let nextState = {...state};
 
   switch (action.type) {
+    case UPDATE_SEARCH:
+      nextState.searches = nextState.searches.filter(search => search.id !== action.search.search_record.id);
+      nextState.searches.push(action.search.search_record);
+      return nextState;
     case FETCH_SEARCHES:
-      debugger
       nextState.searches = action.searches;
       return nextState;
 
     case REMOVE_SEARCH:
-      debugger
       nextState.searches = nextState.searches.filter(search => search.id !== action.searchId[0]);
       return nextState;
     case CREATE_SEARCH:
-      debugger
       nextState.searches.push(action.search.search_record);
       return nextState;
     case REMOVE_LIKE:
