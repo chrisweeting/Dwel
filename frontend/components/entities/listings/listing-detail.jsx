@@ -18,6 +18,7 @@ class ListingDetail extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.gallery = this.gallery.bind(this);
     this.handleRedirect = this.handleRedirect.bind(this);
+    this.prevPic = this.prevPic.bind(this);
   }
 
   componentDidMount() {
@@ -58,13 +59,70 @@ class ListingDetail extends React.Component {
     this.props.history.goBack();
   }
 
+  prevPic() {
+    if (this.state.gallery === 0) {
+      return this.props.listing.photoUrls.length - 1;
+    } else {
+      return this.state.gallery - 1;
+    }
+  }
+
   gallery() {
-    debugger
+    const { photoUrls, status, price, beds, baths, sq_ft, id } = this.props.listing;
+    const saveIcon = this.state.likes.includes(id) ? "saved-icon" : "save-icon";
     return (
       <>
-        <div className="gallery-screen" onClick={() => this.setState({ gallery: false })}></div>
+        <div className="gallery-save-button" onClick={(e) => {e.stopPropagation(); this.handleClick(e)}}>
+          <div id={saveIcon}>
+          </div>
+          Save Home
+        </div>
+        <div className="gallery-close" onClick={() => this.setState({ gallery: false })}>x</div>
+        <div className="gallery-screen" onClick={() => this.setState({ gallery: false })}>
+          <div className="gallery-screen-top">
+          </div>
+          <div className="gallery-screen-mid">
+            <div
+              className="gallery-prev"
+              onClick={(e) => {
+                e.stopPropagation();
+                this.setState({
+                  gallery: this.prevPic()
+                })
+              }}
+            ></div>
+
+            <div
+              className="gallery-next"
+              onClick={(e) => {
+                e.stopPropagation();
+                this.setState({
+                  gallery: (this.state.gallery + 1) % photoUrls.length
+                })
+              }}
+            ></div>
+
+          </div>
+          <div className="gallery-screen-bottom"></div>
+        </div>
         <div className="gallery-image" onClick={() => this.setState({ gallery: false })}>
-          <img src={this.props.listing.photoUrls[this.state.gallery]} alt="" onClick={(e) => {e.stopPropagation(); this.setState({ gallery: (this.state.gallery + 1) % this.props.listing.photoUrls.length })} }/>
+          <div 
+            className="gallery-number"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {this.state.gallery + 1} of {photoUrls.length + 1}
+          </div>
+          <img 
+            src={photoUrls[this.state.gallery]} 
+            alt="" 
+            onClick={(e) => {
+              e.stopPropagation(); 
+              this.setState({ 
+                gallery: (this.state.gallery + 1) % photoUrls.length 
+              })
+            }}
+          />
+          <div className="gallery-stats">{status}: {price} ({beds} beds, {baths} baths, {sq_ft} Square Feet)</div>
         </div>
       </>
     )

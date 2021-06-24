@@ -1282,12 +1282,52 @@ footer {
 
 .gallery-screen {
   position: fixed;
-  background-color: #00000079;
+  background-color: #000000e1;
   top: 0;
   z-index: 6;
   bottom: 0;
   left: 0;
   right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.gallery-screen-top {
+  display: flex;
+  justify-content: flex-end;
+  color: white;
+  padding: 20px 25px;
+}
+
+.gallery-save-button {
+  position: fixed;
+  z-index: 7;
+  color: white;
+  display: flex;
+  align-items: center;
+  top: 0;
+  margin: 20px;
+  cursor: pointer;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+.gallery-save-button #saved-icon {
+  background-image: url(/assets/saved_w.png);
+  margin-right: 5px;
+}
+
+.gallery-save-button #save-icon {
+  background-image: url(/assets/heart-outline-transparent-2_w.png);
+  margin-right: 5px;
+}
+
+.gallery-screen-mid {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
 }
 
 .gallery-image {
@@ -1311,4 +1351,67 @@ footer {
   /* width: 100%; */
   object-fit: contain;
   cursor: pointer;
+}
+
+.gallery-next {
+  background-image: url("<%= asset_path('next.png') %>") ;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.gallery-next:hover {
+  background-image: url("<%= asset_path('next_alt.png') %>") ;
+}
+
+.gallery-prev {
+  background-image: url("<%= asset_path('prev.png') %>") ;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.gallery-prev:hover {
+  background-image: url("<%= asset_path('prev_alt.png') %>") ;
+}
+
+.gallery-number {
+  width: 40px;
+  height: 20px;
+  background-color: #000000c4;
+  position: fixed;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 10vh;
+  color: white;
+  border-radius: 4px;
+}
+
+.gallery-stats {
+  width: fit-content;
+  color: white;
+  height: fit-content;
+  position: fixed;
+  bottom: 3vh;
+}
+
+.gallery-close {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  font-size: 30px;
+  line-height: 20px;
+  font-family: sans-serif;
+  font-weight: 100;
+  cursor: pointer;
+  color: white;
+  z-index: 7;
+}
+
+.gallery-close:hover {
+  color: lightslategrey;
 }
