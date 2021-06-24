@@ -12,9 +12,9 @@ class ListingSearch extends React.Component {
     };
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     const path = this.props.location.pathname.split("/");
-    if (path.length > 2) {
+    if (path.length > 3) {
       const search = {
         minBeds: parseInt(path[2]),
         minBaths: parseInt(path[3]),
@@ -23,7 +23,7 @@ class ListingSearch extends React.Component {
         maxPrice: parseInt(path[6]),
         query: path[7],
       };
-      await this.props.updateFilters(search).then(this.setState({ title: path[8] }));
+      this.props.updateFilters(search).then(this.setState({ title: path[8] }));
       //  
       // this.props.updateFilters(search).then(
       //   this.setState({ 
