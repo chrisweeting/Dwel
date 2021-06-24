@@ -55,7 +55,8 @@ class HeroSearchBar extends React.Component {
     this.setState({ filters: { query: e.currentTarget.value } });
   }
 
-  handleSubmit() {
+  handleSubmit(e) {
+    e.preventDefault();
     this.props.updateFilter("query", this.state.filters.query);
     if (this.state.filters.query.length > 0) {
       this.props.history.push("/homes");

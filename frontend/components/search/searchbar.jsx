@@ -35,6 +35,9 @@ class SearchBar extends React.Component {
   }
 
   handleClick(e) {
+    if (!this.props.currentUser.id) {
+      this.props.openModal("signin");
+    }
     let newSearch = {
       max_price: this.state.filters.maxPrice,
       max_sqft: this.state.filters.maxSqft ,
@@ -108,10 +111,12 @@ class SearchBar extends React.Component {
         </div>
         <div className="ss-dropdown">
           <nav className="ss-dropdown-nav">
+            <div className="ss-dropdown-msg">Search saved!</div>
             <div className="ss-dropdown-close" onClick={() => this.setState({ saveSearch: false })}>x</div>
           </nav>
           <form onSubmit={this.handleClick}>
             <label > Name your search
+              <br />
               <input type="text" placeholder={this.state.searchTitle} value={this.state.searchTitle} onChange={this.update("title")} />
             </label>
             <button type="submit">Update</button>

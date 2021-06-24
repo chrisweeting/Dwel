@@ -63,6 +63,8 @@ class ListingSearch extends React.Component {
           removeSearch={this.props.removeSearch}
           updateSearch={this.props.updateSearch}
           createSearch={this.props.createSearch}
+          currentUser={currentUser}
+          openModal={openModal}
         />
         <div id="mapcontainer">
           <ListingMap listings={listings} updateFilter={updateFilter} />

@@ -49,7 +49,7 @@ const SessionReducer = (state = _nullState, action) => {
         id: action.currentUser.id,
         email: action.currentUser.email,
         liked_listings: listingIds,
-        searches: action.currentUser.searches,
+        searches: action.currentUser.search_records,
         loggedIn: true
       };
       return nextState;
