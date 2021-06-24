@@ -69,7 +69,7 @@ class ListingDetail extends React.Component {
 
   gallery() {
     const { photoUrls, status, price, beds, baths, sq_ft, id } = this.props.listing;
-    const saveIcon = this.state.likes.includes(id) ? "saved-icon" : "save-icon";
+    const saveIcon = this.state.likes.includes(id) ? "gallery-saved-icon" : "gallery-save-icon";
     return (
       <>
         <div className="gallery-save-button" onClick={(e) => {e.stopPropagation(); this.handleClick(e)}}>
