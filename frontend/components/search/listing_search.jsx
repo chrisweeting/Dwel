@@ -37,7 +37,7 @@ class ListingSearch extends React.Component {
 
   render() {
     if (this.props.location.pathname.split("/").length > 2 && !this.state.title) {
-      return <h1>Loading...</h1>
+      return null
     }
     debugger
     const { listings, 

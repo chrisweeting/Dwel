@@ -783,6 +783,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  cursor: pointer;
 }
 
 .listing-card-1 {
@@ -1277,4 +1278,37 @@ footer {
 
 .error {
   border-color: rgb(163, 0, 11);
+}
+
+.gallery-screen {
+  position: fixed;
+  background-color: #00000079;
+  top: 0;
+  z-index: 6;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.gallery-image {
+  position: fixed;
+  margin: 0 auto;
+  z-index: 7;
+  top: 0;
+  width: 75%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  min-width: 500px;
+}
+
+.gallery-image img {
+  height: 85%;
+  /* width: 100%; */
+  object-fit: contain;
+  cursor: pointer;
 }
