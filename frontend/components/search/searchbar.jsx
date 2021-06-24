@@ -128,7 +128,13 @@ class SearchBar extends React.Component {
     return (
       <nav className="lst-searchbar">
         <form className="lst-searchbar-container" onSubmit={this.handleSubmit}>
-          <input type="search" placeholder="Enter an address, city, or Zip code" className="lst-searchbar-inpt" value={this.state.filters.query} onChange={this.update("query")} />
+          <input 
+            type="search" 
+            placeholder='Enter an address, city, or Zip code ( Try "NY" )' 
+            className="lst-searchbar-inpt" 
+            value={this.state.filters.query} 
+            onChange={this.update("query")} 
+          />
           <button id="lst-search-submit"></button>
         </form>
 

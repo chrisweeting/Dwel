@@ -71,7 +71,7 @@ class HeroSearchBar extends React.Component {
           <input 
             type="search" 
             className={this.state.searchBar ? "searchbar stick" : "searchbar"} 
-            placeholder="Enter an address, city, or Zip code" 
+            placeholder='Enter an address, city, or Zip code ( Try "NY" )'
             id="searchbar" 
             value={this.state.filters.query} 
             onChange={this.update} 
