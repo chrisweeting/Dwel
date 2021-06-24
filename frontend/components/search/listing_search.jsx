@@ -14,7 +14,7 @@ class ListingSearch extends React.Component {
 
   componentDidMount() {
     const path = this.props.location.pathname.split("/");
-    if (path.length > 3) {
+    if (path.length > 4) {
       const search = {
         minBeds: parseInt(path[2]),
         minBaths: parseInt(path[3]),

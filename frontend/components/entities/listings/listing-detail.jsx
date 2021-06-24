@@ -56,7 +56,8 @@ class ListingDetail extends React.Component {
   }
 
   handleRedirect() {
-    this.props.history.goBack();
+    // this.props.history.goBack();
+    this.props.history.push("/homes");
   }
 
   prevPic() {

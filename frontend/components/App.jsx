@@ -22,7 +22,7 @@ const App = () => (
       <HeaderNav />
     </header>
       {/* <Route exact path="/map" component={ListingMap} ></Route> */}
-      <Route path={`/homes/:listingId`} component={ListingDetailContainer}></Route>
+      <Route path={`/homes/homedetails/:listingId`} component={ListingDetailContainer}></Route>
     <Modal/>
       
       {/* <Route exact path={"/"} component={Footer}  ></Route> */}
