@@ -32,7 +32,7 @@ const deleteSearch = (searchId) => ({
 });
 
 export const fetchSearches = () => (dispatch) => {
-  debugger
+   
   return SearchApiUtil.fetchSearches().then((searches) => {
     return dispatch(getSearches(searches));
   });

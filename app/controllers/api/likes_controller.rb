@@ -4,7 +4,7 @@ class Api::LikesController < ApplicationController
   def create
     @like = Like.new(listing_id: params[:listingId])
     @like.user_id = current_user.id
-    # debugger
+    #  
     if @like.save 
 
       render 'api/likes/show'
@@ -20,12 +20,12 @@ class Api::LikesController < ApplicationController
     else
       @likes = {}
     end
-    # debugger
+    #  
     render 'api/likes/index'
   end
 
   def destroy
-    # debugger
+    #  
     @like = Like.find_by(listing_id: params[:id])
     
     if @like

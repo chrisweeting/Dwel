@@ -4,7 +4,7 @@ class Api::ListingsController < ApplicationController
     
     # listings = params[:bounds] ? Listing.with_attached_photos.filter_listings(params) : Listing.with_attached_photos.all
     listings = Listing.with_attached_photos.filter_listings(params)
-    # debugger
+    #  
     # if params[:minPrice] && params[:maxPrice] 
     #   listings = listings.where(price: price_range)
     # end

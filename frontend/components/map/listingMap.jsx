@@ -48,7 +48,7 @@ class ListingMap extends React.Component {
   mapListener() {
     google.maps.event.addListener(this.map, "idle", () => {
       const { north, south, east, west } = this.map.getBounds().toJSON();
-      // debugger
+      //  
       const bounds = {
         northEast: { lat: north, lng: east },
         southWest: { lat: south, lng: west },
@@ -59,7 +59,7 @@ class ListingMap extends React.Component {
   }
   
   handleHover(id) {
-    // debugger
+    //  
     let marker = this.MarkerManager.markers[id];
     var latLng = marker.getPosition(); 
 

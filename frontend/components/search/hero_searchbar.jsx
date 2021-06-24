@@ -51,7 +51,7 @@ class HeroSearchBar extends React.Component {
   }
 
   update(e) {
-    // debugger
+    //  
     this.setState({ filters: { query: e.currentTarget.value } });
   }
 

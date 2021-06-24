@@ -27,23 +27,23 @@ const receiveListing = (listing) => ({
 
 
 export const fetchListings = (filters) => (dispatch) => {
-  // debugger
+  //  
   return ListingApiUtil.fetchListings(filters).then((listings) => {
-    // debugger
+    //  
     return dispatch(receiveAllListings(listings));
   });
 };
 
 export const fetchListing = (listingId) => (dispatch) => {
   return ListingApiUtil.fetchListing(listingId).then(({listing}) => {
-    // debugger
+    //  
     return dispatch(receiveListing(listing));
   });
 };
 
 export const updateListing = (listing) => (dispatch) => {
   return ListingApiUtil.updateListing(listing).then((listing) => {
-    // debugger
+    //  
     return dispatch(receiveListing(listing));
   });
 };

@@ -23,13 +23,13 @@ class MarkerManager {
 
   createMarkerFromListing(listing) {
     const position = new google.maps.LatLng(listing.latitude, listing.longitude);
-    // debugger
+    //  
     const marker = new google.maps.Marker({
       position,
       map: this.map,
       listingId: listing.id
     });
-    // debugger
+    //  
     if (listing.photoUrls) {
       const price = new Intl.NumberFormat().format(listing.price)
       const infowindow = new google.maps.InfoWindow({

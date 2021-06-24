@@ -27,7 +27,7 @@ class SavedListingIndex extends React.Component {
       this.setState({listings: Object.values(listings)});
     });
     // this.props.fetchLikes();
-    // debugger
+    //  
 
   }
 

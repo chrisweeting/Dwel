@@ -24,7 +24,7 @@ class ListingSearch extends React.Component {
         query: path[7],
       };
       await this.props.updateFilters(search).then(this.setState({ title: path[8] }));
-      // debugger
+      //  
       // this.props.updateFilters(search).then(
       //   this.setState({ 
       //     searchTitle: path[8],
@@ -39,7 +39,7 @@ class ListingSearch extends React.Component {
     if (this.props.location.pathname.split("/").length > 2 && !this.state.title) {
       return null
     }
-    debugger
+     
     const { listings, 
         fetchListings, 
         updateFilter, 
@@ -53,7 +53,7 @@ class ListingSearch extends React.Component {
         filters,
         clearFilters
       } = this.props;
-      // debugger
+      //  
     return (
       <div className="lw" >
         <SearchBar 

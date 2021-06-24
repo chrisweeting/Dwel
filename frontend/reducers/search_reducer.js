@@ -11,7 +11,7 @@ const SearchReducer = (state = {}, action) => {
   const newState = { ...state };
   switch (action.type) {
     case FETCH_SEARCHES:
-      debugger
+       
       return action.searches;
     case UPDATE_SEARCH:
       return Object.assign(
@@ -29,7 +29,7 @@ const SearchReducer = (state = {}, action) => {
         }
       );
     case REMOVE_SEARCH:
-      debugger
+       
       delete newState[action.id];
       return newState;
     case CREATE_SEARCH:

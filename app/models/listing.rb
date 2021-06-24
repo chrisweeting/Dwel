@@ -60,7 +60,7 @@ class Listing < ApplicationRecord
   end
 
   def self.filter_listings(filters)
-    # debugger
+    #  
     self.where("beds >= ?", filters[:minBeds] )
       .where("baths >= ?", filters[:minBaths] )
       .where("price >= ?", filters[:minPrice] )
