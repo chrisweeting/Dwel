@@ -169,7 +169,7 @@ class SearchBar extends React.Component {
           </select>
         </label>
         <label htmlFor=""> 
-          <select className="lst-dropdown" value={this.props.filters.minPrice} onChange={(e) => this.handleChange(e, 'minSqft', this.props.updateFilter)}>
+          <select className="lst-dropdown" value={this.props.filters.minSqft} onChange={(e) => this.handleChange(e, 'minSqft', this.props.updateFilter)}>
             <option value="500">Sqft</option>
             <option value="1000">1000+</option>
             <option value="2000">2000+</option>
