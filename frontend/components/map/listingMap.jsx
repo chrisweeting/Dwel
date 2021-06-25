@@ -12,18 +12,6 @@ class ListingMap extends React.Component {
 
 
   componentDidMount() {
-    // const uluru = { lat: -25.344, lng: 131.036 };
-    // // The map, centered at Uluru
-    // const map = new window.google.maps.Map(document.getElementById("map-container"), {
-    //   zoom: 4,
-    //   center: uluru,
-    // });
-    // // The marker, positioned at Uluru
-    // const marker = new window.google.maps.Marker({
-    //   position: uluru,
-    //   map: map,
-    // });
-   
     const mapOptions = {
       center: { lat: 42.25032003839574, lng: - 73.78557614716786 },
       zoom: 10,
@@ -41,7 +29,7 @@ class ListingMap extends React.Component {
   }
   
   listingListeners() {
-    const listings = document.querySelectorAll(".listing-short")
+    const listings = document.querySelectorAll(".listing-short");
     listings.forEach((listing) => listing.addEventListener("mouseover", () => this.handleHover(listing.id)));
   }
   
@@ -59,24 +47,13 @@ class ListingMap extends React.Component {
   }
   
   handleHover(id) {
-    //  
-    let marker = this.MarkerManager.markers[id];
-    var latLng = marker.getPosition(); 
+    const marker = this.MarkerManager.markers[id];
+    const latLng = marker.getPosition(); 
 
     setTimeout(
       () => this.map.panTo(latLng),
       200
     );
-    
-    // const infowindow = new google.maps.InfoWindow({
-    //   content: `${this.keys}`
-    // });
-    // infowindow.open(this.map, marker);
-    // var infoWindow = marker.infoWindow; 
-    // marker.addListener('mouseup', function () {
-    //   infowindow.close();
-    // });
-    // () => {infowindow.close}
   }
   
 
@@ -89,7 +66,7 @@ class ListingMap extends React.Component {
   }
   
   handleMarkerClick(listing) {
-    this.props.history.push(`homes/${listing.id}`);
+    this.props.history.push(`homes/homedetails/${listing.id}`);
   }
 
   render() {

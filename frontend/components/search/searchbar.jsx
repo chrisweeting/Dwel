@@ -39,13 +39,13 @@ class SearchBar extends React.Component {
       this.props.openModal("signin");
     }
     let newSearch = {
-      max_price: this.state.filters.maxPrice,
-      max_sqft: this.state.filters.maxSqft ,
-      min_baths: this.state.filters.minBaths,
-      min_beds: this.state.filters.minBeds,
-      min_price: this.state.filters.minPrice,
+      max_price: this.props.filters.maxPrice,
+      max_sqft: this.props.filters.maxSqft ,
+      min_baths: this.props.filters.minBaths,
+      min_beds: this.props.filters.minBeds,
+      min_price: this.props.filters.minPrice,
       title: this.checkEmpty(this.state.searchTitle),
-      query: this.state.filters.query
+      query: this.props.filters.query
     };
     
     if (this.state.searchId.length === 0) {
@@ -78,6 +78,7 @@ class SearchBar extends React.Component {
     if (field === "title") {
       return (e) => this.setState({ searchTitle: e.currentTarget.value });
     } else {
+
       return (
         (e) => {
           this.setState({

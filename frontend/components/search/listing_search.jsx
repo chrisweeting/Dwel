@@ -24,20 +24,12 @@ class ListingSearch extends React.Component {
         query: path[7],
       };
       this.props.updateFilters(search).then(this.setState({ title: path[8] }));
-      //  
-      // this.props.updateFilters(search).then(
-      //   this.setState({ 
-      //     searchTitle: path[8],
-      //     searchId: path[9]
-      //   })
-      // );
-      // this.setState({ searchTitle: path[8] });
     }
   }
 
   render() {
     if (this.props.location.pathname.split("/").length > 2 && !this.state.title) {
-      return null
+      return null;
     }
      
     const { listings, 
