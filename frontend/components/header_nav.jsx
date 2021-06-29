@@ -20,6 +20,12 @@ const HeaderNav = (props) => {
         rel="noopener noreferrer"
         // className="footer-logo-github"
       >Github</a>
+      <a
+        href="http://www.christophersweeting.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        // className="footer-logo-github"
+      >Portfolio</a>
     </section>
   )
 };
