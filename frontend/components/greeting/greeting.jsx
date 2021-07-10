@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import UserDropdown from '../session/user_dropdown';
 
 
@@ -21,13 +21,6 @@ class Greeting extends React.Component {
     }
   }
 
-  // openModal() {
-  //   const modal = document.querySelector(".user-modal");
-  //   const body = document.querySelector("body");
-  //   modal.classList.add("is-open");
-  //   body.classList.add("stop-scrolling");
-  // }
-
   toggleDropdown() {
     const dropdown = document.querySelector(".user-dropdown");
     dropdown.classList.toggle("drop-open");
@@ -44,7 +37,6 @@ class Greeting extends React.Component {
       </>
     ) : (
       <>
-        {/* <Link className="test-button" to="/signin" onClick={this.openModal} >Sign In</Link> */}
           <div className="test-button" onClick={() => this.props.openModal("signin")}>Sign In</div>
       </>
     );

@@ -1,6 +1,4 @@
 import React from 'react';
-import FlashMessage from "react-flash-message";
-import { NavLink, Redirect, Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 
 
