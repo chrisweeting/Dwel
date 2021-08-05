@@ -26,22 +26,11 @@ class SavedListingIndex extends React.Component {
 
       this.setState({listings: Object.values(listings)});
     });
-    // this.props.fetchLikes();
-    //  
-
   }
 
   render() {
     const { listings } = this.props;
-    if (this.state.listings.length === 0) {
-      return (
-        <section id="no-results">
-
-          {/* <h1>Please widen your search</h1> */}
-        </section>
-      )
-    }
-
+    if (this.state.listings.length === 0) return null;
 
     let liked = this.state.listings.filter(listing => this.props.currentUser.liked_listings.includes(listing.id));
 

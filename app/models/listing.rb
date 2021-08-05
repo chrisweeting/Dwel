@@ -25,10 +25,8 @@ class Listing < ApplicationRecord
   validates :street_address, :city, :state, :postal_code, presence: true
   validates :description, :status, :price, :listing_type, :sq_ft, presence: true
   
-  # has_one_attached :photo
   has_many_attached(
     :photos
-    
   )
 
   has_many(
@@ -44,13 +42,6 @@ class Listing < ApplicationRecord
     source: :liker
   )
 
-  def self.in_bounds(bounds)
-    self.where("latitude < ?", bounds[:northEast][:latitude])
-      .where("latitude > ?", bounds[:southWest][:latitude])
-      .where("longitude > ?", bounds[:southWest][:longitude])
-      .where("longitude < ?", bounds[:northEast][:longitude])
-  end
-
   def self.search_listing(query)
     
     return self.where("LOWER(state) Like ?", "%#{query.downcase}%" )
@@ -59,8 +50,7 @@ class Listing < ApplicationRecord
       .or(where("LOWER(street_address) Like ?", "%#{query.downcase}%" ))
   end
 
-  def self.filter_listings(filters)
-    #  
+  def self.filter_listings(filters) 
     self.where("beds >= ?", filters[:minBeds] )
       .where("baths >= ?", filters[:minBaths] )
       .where("price >= ?", filters[:minPrice] )

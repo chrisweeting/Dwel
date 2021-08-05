@@ -9,7 +9,7 @@ class Api::LikesController < ApplicationController
 
       render 'api/likes/show'
     else
-      render json: @like, status: :unprocessable_entity
+      render json: @like.errors.full_messages, status: 422
     end
 
   end

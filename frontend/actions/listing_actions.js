@@ -14,18 +14,6 @@ const receiveListing = (listing) => ({
 });
 
 
-
-
-// export const fetchListings = () => (dispatch) => (
-//   ListingApiUtil.fetchListings()
-//     .then((listings) => dispatch(receiveAllListings(listings)))
-// );
-// export const fetchListing = (listingId) => (dispatch) => (
-//   ListingApiUtil.fetchListing(listingId)
-//     .then((res) => dispatch(receiveListing(res)))
-// );
-
-
 export const fetchListings = (filters) => (dispatch) => {
   //  
   return ListingApiUtil.fetchListings(filters).then((listings) => {

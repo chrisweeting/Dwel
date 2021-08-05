@@ -1,13 +1,7 @@
 class Api::ListingsController < ApplicationController
   skip_before_action :verify_authenticity_token
   def index
-    
-    # listings = params[:bounds] ? Listing.with_attached_photos.filter_listings(params) : Listing.with_attached_photos.all
     listings = Listing.with_attached_photos.filter_listings(params)
-    #  
-    # if params[:minPrice] && params[:maxPrice] 
-    #   listings = listings.where(price: price_range)
-    # end
     
     if params[:query] != ''
       @listings = listings.search_listing(params[:query])
@@ -85,8 +79,7 @@ class Api::ListingsController < ApplicationController
       :likers,
       :id,
       :photoUrls,
-      :created_at,
-      
+      :created_at, 
     )
   end
 
@@ -94,15 +87,4 @@ class Api::ListingsController < ApplicationController
     (params[:minPrice]..params[:maxPrice])
   end
 
-  def price_range 
-    (params[:minPrice]..params[:maxPrice])
-  end
-
-  def price_range 
-    (params[:minPrice]..params[:maxPrice])
-  end
-
-  def bounds
-    params[:bounds]
-  end
 end

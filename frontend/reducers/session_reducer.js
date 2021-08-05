@@ -18,8 +18,10 @@ const _nullState = {
 const SessionReducer = (state = _nullState, action) => {
   Object.freeze(state);
   let nextState = {...state};
-
+  
   switch (action.type) {
+    
+  // Searches
     case UPDATE_SEARCH:
       nextState.searches = nextState.searches.filter(search => search.id !== action.search.search_record.id);
       nextState.searches.push(action.search.search_record);
@@ -27,13 +29,14 @@ const SessionReducer = (state = _nullState, action) => {
     case FETCH_SEARCHES:
       nextState.searches = action.searches;
       return nextState;
-
     case REMOVE_SEARCH:
       nextState.searches = nextState.searches.filter(search => search.id !== action.searchId[0]);
       return nextState;
     case CREATE_SEARCH:
       nextState.searches.push(action.search.search_record);
       return nextState;
+
+    // Likes
     case REMOVE_LIKE:
       let filtered = nextState.liked_listings.filter(listing => listing !== action.listingId[0]);
       nextState.liked_listings = filtered;
@@ -43,6 +46,9 @@ const SessionReducer = (state = _nullState, action) => {
         nextState.liked_listings.push(action.listing_id);
       }
       return nextState;
+
+
+    // Users
     case RECEIVE_CURRENT_USER:
       let listingIds = action.currentUser.liked_listings.map(listing => listing.id);
       nextState = {
